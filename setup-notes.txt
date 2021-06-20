@@ -1,0 +1,57 @@
+Create Ubuntu 20.04 virtual machine.
+
+Install guest edition, run this command prior: sudo apt-get install build-essential gcc make perl dkms
+
+Install Ros Noetic using the following guide: 
+http://wiki.ros.org/noetic/Installation/Ubuntu
+
+
+
+
+Create catkin package (execute in "ros_workspace/src"):
+catkin_create_pkg zuko_package std_msgs rospy roscpp
+
+Make catkin (execute in "ros_workspace")::
+	catkin_make
+	source devel/setup.bash
+
+Launch package (make sure source is proper using the above source command):
+roslaunch zuko_package servo_calibrate.launch
+
+Check for correcth path: 
+	echo $ROS_PACKAGE_PATH
+
+
+echo $ROS_PACKAGE_PATH
+/home/zuko/zuko/ros_workspace/src:/opt/ros/kinetic/share
+
+
+__________________________
+Manual install of rosserial:
+cd path/to/your/workspace/src
+git clone https://github.com/ros-drivers/rosserial.git -b noetic-devel
+
+
+__________________________
+
+
+roscore
+
+__________________________
+
+Check ROS environment:
+printenv | grep ROS
+
+chmod +x talker.py
+
+Check serial
+dmesg | egrep --color 'serial|ttyS'
+cu -l /dev/ttyS0 -s 115200
+
+
+__________________________
+
+Dependancies
+
+
+pyserial 
