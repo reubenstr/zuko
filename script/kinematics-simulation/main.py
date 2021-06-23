@@ -1,29 +1,26 @@
-import numpy
+# Project Zuko
+#
+# Leg linkage forward Kinematic model simulation.
+#
+# Limitations: no mechanical collision detection.
+
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
 
+
 # from forward_kinematics import *
 
-# declare variables
-
-
-
+# Determine end effector (foot) position from the two input angles.
+# angle_femur: femur servo position in degrees where the x-axis is zero degrees.
+# angle_tibia: tibia servo position in degrees where the x-axis is zero degrees.
 def forward_kinematics(angle_femur, angle_tibia):
-    #####################################
-    # User input, two servo angles.
-
-    servo_angle_femur = angle_femur
-    servo_angle_tibia = angle_tibia
-    #####################################
-
-    #####################################
-    # Frame parameters, set my physical model.
-    # Lower servo origin, tibia control.
+    # Frame parameters, determined by the physical model.
+    # Lower servo origin, tibia crank arm.
     Ax = -20
     Ay = -20
 
-    # Upper servo origin, femur control.
+    # Upper servo origin, femur crank arm.
     Dx = 0
     Dy = 0
 
@@ -43,7 +40,7 @@ def forward_kinematics(angle_femur, angle_tibia):
     L1 = np.sqrt(np.square(Dx - Ax) + np.square(Dy - Ay))
 
     theta1 = np.arcsin((Dy - Ay) / L1)
-    theta2 = np.radians(servo_angle_tibia)
+    theta2 = np.radians(angle_tibia)
 
     AC = np.sqrt(np.square(L1) + np.square(L2) - 2 * L1 * L2 * np.cos(theta1 - theta2))
     beta = np.arccos((np.square(L1) + np.square(AC) - np.square(L2)) / (2 * L1 * AC))
@@ -60,7 +57,7 @@ def forward_kinematics(angle_femur, angle_tibia):
 
     kappa = np.arccos((np.square(L4) + np.square(L6) - np.square(L5)) / (2 * L4 * L6))
 
-    theta5 = np.radians(servo_angle_femur)
+    theta5 = np.radians(angle_femur)
     theta6 = theta4 - kappa
 
     EG = np.sqrt(np.square(L6) + np.square(L8) - 2 * L6 * L8 * np.cos(theta6 - theta5))
@@ -80,10 +77,10 @@ def forward_kinematics(angle_femur, angle_tibia):
     Hx = Gx + L10 * np.cos(theta8 - np.pi)
     Hy = Gy + L10 * np.sin(theta8 - np.pi)
 
-    return np.array([[[Ax, Bx, Cx, Dx, Ax], [Ay, By, Cy, Dy, Ax]],
-                     [[Cx, Ex], [Cy, Ey]],
-                     [[Hx, Gx, Fx, Ex, Dx, Gx], [Hy, Gy, Fy, Ey, Dy, Gy]],
-                     [[Hx], [Hy]]])
+    return [[[Ax, Bx, Cx, Dx, Ax], [Ay, By, Cy, Dy, Ax]],
+            [[Cx, Ex], [Cy, Ey]],
+            [[Hx, Gx, Fx, Ex, Dx, Gx], [Hy, Gy, Fy, Ey, Dy, Gy]],
+            [[Hx], [Hy]]]
 
 
 # initialization function: plot the background of each frame
@@ -95,22 +92,30 @@ def init():
 def animate(i):
     global footpath_x
     global footpath_y
-    global angle_femur
-    global angle_tibia
-    global angle_tibia_start
-    global angle_tibia_max
-    global angle_femur_max
+    global femur_servo_angle
+    global tibia_servo_angle
+    global tibia_servo_angle_start
+    global tibia_servo_angle_max
+    global femur_servo_angle_max
+    global direction
 
-    angle_tibia = angle_tibia + 1
+    if direction:
+        tibia_servo_angle = tibia_servo_angle + 1
+    else:
+        tibia_servo_angle = tibia_servo_angle - 1
 
-    if angle_tibia == angle_tibia_max:
-        angle_tibia = angle_tibia_start
-        angle_femur = angle_femur - 1
+    if tibia_servo_angle == tibia_servo_angle_start:
+        direction = not direction
+        femur_servo_angle = femur_servo_angle - 1
 
-    if angle_femur == angle_femur_max:
+    if tibia_servo_angle == tibia_servo_angle_max:
+        direction = not direction
+        femur_servo_angle = femur_servo_angle - 1
+
+    if femur_servo_angle == femur_servo_angle_max:
         anim.event_source.stop()
 
-    result_points = forward_kinematics(angle_femur, angle_tibia);
+    result_points = forward_kinematics(femur_servo_angle, tibia_servo_angle);
 
     line1.set_data(result_points[0])
     line2.set_data(result_points[1])
@@ -120,26 +125,33 @@ def animate(i):
     footpath_y = np.append(footpath_y, result_points[3][1])
     foot_path.set_data(footpath_x, footpath_y)
 
+
 if __name__ == '__main__':
+    # Animation variables.
+    tibia_servo_angle_start = 75
+    tibia_servo_angle_max = 145
+    tibia_servo_angle = tibia_servo_angle_start
 
-    angle_tibia_start = 75
-    angle_tibia_max = 135
-    angle_tibia = angle_tibia_start
-
-    angle_femur_start = -10
-    angle_femur_max = -75
-    angle_femur = angle_femur_start
+    femur_servo_angle_start = -10
+    femur_servo_angle_max = -75
+    femur_servo_angle = femur_servo_angle_start
 
     footpath_x = np.array([1])
     footpath_y = np.array([1])
+
+    direction = True
+
     fig = plt.figure()
     ax = plt.axes(xlim=(-100, 150), ylim=(-200, 50))
+    plt.title("Left Leg Forward Kinematics Simulation")
+    plt.xlabel('X')
+    plt.ylabel('Y')
     line1, = ax.plot([], [], '-o', ms=round(7), lw=2, color='b', mfc='red')
     line2, = ax.plot([], [], '-o', ms=round(7), lw=2, color='b', mfc='red')
     line3, = ax.plot([], [], '-o', ms=round(7), lw=2, color='b', mfc='red')
     foot_path, = ax.plot([], [], '-o', lw=0, ms=2, alpha=.5, mfc='red', mec='red')
 
-    # call the animator.  blit=True means only re-draw the parts that have changed.
+    # Call the animator.  blit=True means only re-draw the parts that have changed.
     anim = animation.FuncAnimation(fig, animate, init_func=init,
                                    frames=400, interval=0, blit=False)
 

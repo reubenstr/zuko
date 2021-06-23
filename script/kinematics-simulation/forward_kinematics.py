@@ -3,6 +3,10 @@ import numpy as np
 # Forward kinematics.
 # Calculation relies on cosine rule.
 
+# Four-bar linkage solution process inspired by: https://www.youtube.com/watch?v=4O-XPJ7flLU&t=321s
+# Animation source code inspiration: DIYwalkers.com
+
+
 #####################################
 # User input, two servo angles.
 
