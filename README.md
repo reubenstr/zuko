@@ -26,6 +26,8 @@ Tasks:
 
 
 My contributions:
+- Migration of source code from ROS1 to ROS2 (Robot Operating System) frameworks.
+- Inverse kinematics for a linked leg system for OpenQuadruped / Spot Mini Mini based quadrupeds.
 - A frame redesign using larger servos, providing more space for electronics, rework of the leg/hip system, and addition of aesthetic features (tail, etc).
 - A more feature rich motor and peripheral expansion board using a Teensy 4.0 supporting aux servos, foot sensors, NeoPixls, etc.
 - 8x 18650 user accessable battery holder with onboard BMS (battery management system). 
