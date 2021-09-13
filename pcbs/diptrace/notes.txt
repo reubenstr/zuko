@@ -4,4 +4,4 @@ TODO:
 
 fix +BATT trace to breakout headers to DC-DC, trace width too small.
 Add + - silk around motor headers.
-move led/ic2/rpi headers farther left.
+move led/ic2/rpi headers farther left to accomadate usb plug into teensy

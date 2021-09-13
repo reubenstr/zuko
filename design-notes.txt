@@ -1,0 +1,5 @@
+battery PCB:
+
+allow charing without remove the batteries.
+add spacing between + - solder terminals
+contemplate usign one BMS instead of four which may be required for onboard charging.
