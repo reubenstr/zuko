@@ -1,6 +1,7 @@
 # Zuko
  A quadruped robot dog!
 
+<img src="https://github.com/reubenstr/Zuko/blob/main/images/zuko-render-side.png" width="640">
 
 Status:
 
