@@ -7,22 +7,16 @@ Status:
 
 **Development**
 
+<img src="https://github.com/reubenstr/Zuko/blob/main/diagrams/linked-leg-kinematic-dragram.png" width="640">
 
-Tasks:
+Linked leg kinematics.
 
-[] Update source
 
-[] Connect motion controller to servos
-
-[] Migrate to rPi
-
-[x] Design frame
-
-[x] Print frame
-
-[x] Design PCBs
-
-[x] Assembly PCBs
+Tasks To Do:
+- Complete wiring and PCB testing.
+- Calibrate servos.
+- Connect physical system to motion controller.
+- Test motion controller.
 
 
 My contributions:
