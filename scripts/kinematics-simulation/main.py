@@ -3,6 +3,8 @@
 # Leg linkage forward Kinematic model simulation.
 #
 # Limitations: no mechanical collision detection.
+#
+# Note: switch from FK to IK no realized in code (TODO).
 
 import numpy as np
 from matplotlib import pyplot as plt
@@ -174,7 +176,7 @@ def animate(i):
 
     # Choose FK or IK
     result_points = forward_kinematics(femur_servo_angle, tibia_servo_angle);
-    #result_points = inverse_kinematics(50 - i, -50);
+    #result_points = inverse_kinematics(50 - i, -50 - i);
 
     line1.set_data(result_points[0])
     line2.set_data(result_points[1])
