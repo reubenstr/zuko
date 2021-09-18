@@ -32,8 +32,6 @@ L8 = 100
 L9 = 23
 L10 = 100
 
-#####################################
-# Calculations
 Hx = foot_x
 Hy = foot_y
 L1 = np.sqrt(np.square(Dx - Ax) + np.square(Dy - Ay))
@@ -78,8 +76,6 @@ Fy = Gy + L9 * np.sin(theta6)
 Hx = Gx + L10 * np.cos(theta6 - np.pi)
 Hy = Gy + L10 * np.sin(theta6 - np.pi)
 
-#####################################
-# Print results.
 print("A = (%.2f, %.2f)" % (Ax, Ay))
 print("B = (%.2f, %.2f)" % (Bx, By))
 print("C = (%.2f, %.2f)" % (Cx, Cy))
