@@ -14,7 +14,7 @@ Linked leg kinematic diagram. |
 
 <img src="https://github.com/reubenstr/Zuko/blob/main/images/zuko-first-standing-on-power.jpg" width="640"> | 
 ------------ | 
-First time standing on own power. |
+First time standing. |
 
 
 Status: **Development.**   
@@ -22,9 +22,9 @@ Status: **Development.**
 
 Major Tasks To Do:
 - Create URDF model for simulation.
-- Reconnect machine learning algorithms.
-- Code BN055 IMU.
 - Test motion controller and refine limits.
+- Code BN055 IMU.
+- Reconnect machine learning algorithms.
 
 
 My contributions:
