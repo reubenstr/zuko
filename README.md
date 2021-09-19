@@ -12,11 +12,11 @@ Status:
 Linked leg kinematics.
 
 
-Tasks To Do:
-- Complete wiring and PCB testing.
-- Calibrate servos.
-- Connect physical system to motion controller.
-- Test motion controller.
+Major Tasks To Do:
+- Create URDF model for simulation.
+- Reconnect machine learning algorithms.
+- Code BN055 IMU.
+- Test motion controller and refine limits.
 
 
 My contributions:
