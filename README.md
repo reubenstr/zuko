@@ -1,13 +1,28 @@
 # Zuko
  A quadruped robot dog!
 
-<img src="https://github.com/reubenstr/Zuko/blob/main/images/zuko-render-side.png" width="640">
 
-Status:
 
-**Development**
+<img src="https://github.com/reubenstr/Zuko/blob/main/images/zuko-render-side.png" width="640"> | 
+------------ | 
+CAD rendering. |
 
-<img src="https://github.com/reubenstr/Zuko/blob/main/diagrams/linked-leg-kinematic-dragram.png" width="640">
+<img src="https://github.com/reubenstr/Zuko/blob/main/images/zuko-australian-shepard-mini.jpg" width="640"> | 
+------------ | 
+Zuko himself! |
+
+<img src="https://github.com/reubenstr/Zuko/blob/main/diagrams/linked-leg-kinematic-dragram.png" width="640"> | 
+------------ | 
+Linked leg kinematic diagram. |
+
+<img src="https://github.com/reubenstr/Zuko/blob/main/images/zuko-first-standing-on-power.jpg" width="640"> | 
+------------ | 
+First time standing on own power. |
+
+
+
+Status: **Development.**   
+
 
 Linked leg kinematics.
 
