@@ -20,11 +20,7 @@ Linked leg kinematic diagram. |
 First time standing on own power. |
 
 
-
 Status: **Development.**   
-
-
-Linked leg kinematics.
 
 
 Major Tasks To Do:
