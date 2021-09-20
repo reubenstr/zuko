@@ -26,6 +26,11 @@ Major Tasks To Do:
 - Code BN055 IMU.
 - Reconnect machine learning algorithms.
 
+ROS2 Workspace (contains quadruped source code): 
+
+https://github.com/reubenstr/quad_ws
+
+
 
 My contributions:
 - Migration of source code from ROS1 to ROS2 (Robot Operating System) frameworks.
