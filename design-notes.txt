@@ -1,5 +1,4 @@
 battery PCB:
-
-allow charing without remove the batteries.
-add spacing between + - solder terminals
-contemplate usign one BMS instead of four which may be required for onboard charging.
+allow charging without removing the batteries.
+add space between + - solder terminals
+explore using one BMS instead of four as one may be required for onboard charging.
