@@ -1,0 +1,25 @@
+3D PRINTING NOTES
+
+
+
+
+
+Upper leg:
+	The upper leg is made from two pieces, the upper leg and the gear interface.
+	A ring bearing connects the gear interface and the leg bridge via a press fit.
+	Therefore the dimensionally acuracy of the gear interface is important to ensure a proper fit.
+	The gear interface connects and the upper leg connect together by a loose fit and welded with cyanoacrylate (super glue).
+	The purpose of using two pieces is to allow for quicker reprinting gear interface dimensional accuracy test prints.
+
+	Gear interface 3D printer settings to compensate for shrinkage and warp due to temperature issues for small parts:
+		(Using Cura, eSUN brown ABS filament, and a Voron 2.4 3D printer)
+		Enable Print Cooling: Enabled
+		Fan Speed: 25%
+		Initial Fan SPeed: 0%
+		Minimum Layer Time: 30 seconds
+		Scale the part in Cura to 100.3% (you final value my differ due to material differences)
+
+	Gear interface 3D printer settings to compensate for shrinkage:
+		Enable Print Cooling: Disabled
+		Minimum Layer Time: default (15 seconds)
+		Scale the part in Cura to 100.56% (you final value my differ due to material differences)
