@@ -21,6 +21,7 @@ Status: **Development.**
 
 
 Major Tasks To Do:
+- v1 to v2 frame rework (from belt driven hips to direct connect).
 - Create URDF model for simulation.
 - Test motion controller and refine limits.
 - Code BN055 IMU.
