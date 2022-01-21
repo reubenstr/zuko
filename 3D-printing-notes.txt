@@ -6,13 +6,18 @@
 	
 	BROWN - eSUN ABS:
 		Default settings:
+			Wall line count: 3
 			Printing temperature: 250c
 			Build plate temperature: 110c
 			Print Speed: 120mm/s
+			Initial layer speed: 20mm/s
 			Layer Height: 0.2mm	
 			Cooling: disabled
 			Infill: 20%
-			Minimum Layer Time: 15s (slicer default)
+			Minimum Layer Time: 30s (slicer default)
+			
+		Frame:
+			First layer speed: 20mm/s
 
 		Upper leg:
 			The upper leg is made from two pieces, the upper leg and the gear interface.
@@ -28,16 +33,18 @@
 				Cooling: enabled
 				Fan speed: 25%
 				Minimum layer time: 30s				
-				Scale: 100.55%
-				Support density: 50%
+				Scale: 100.6%
+				Support density: 30%
 				
 			Upper leg:				
 				Infill density: 40% 
+				Support density: 40%
 				
 
 
 	WHITE - eSUN ABS: 	
 		Default settings:
+			Wall line count: 3
 			Printing temperature: 250c
 			Build plate temperature: 110c
 			Print Speed: 120mm/s
