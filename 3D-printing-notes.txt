@@ -16,6 +16,9 @@
 			Infill: 20%
 			Minimum Layer Time: 30s (slicer default)
 			
+			Retraction distance: 2mm
+			Retraction speed: 40mm/s
+			
 		Frame:
 			First layer speed: 20mm/s
 
@@ -27,14 +30,12 @@
 			The purpose of using two pieces is to allow for quicker reprinting gear interface dimensional accuracy test prints.
 	
 			Gear interface:				
-				Infill density: 80%
-				Print temperature: 110c
-				Build plate temperature: 110c
+				Infill density: 100%			
 				Cooling: enabled
-				Fan speed: 25%
-				Minimum layer time: 30s				
+				Fan speed: 25%						
 				Scale: 100.6%
-				Support density: 30%
+				Support density: 40%
+				Filter out tiny gaps: disabled
 				
 			Upper leg:				
 				Infill density: 40% 
