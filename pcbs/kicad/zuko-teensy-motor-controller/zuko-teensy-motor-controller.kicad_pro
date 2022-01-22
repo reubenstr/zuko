@@ -120,6 +120,9 @@
       },
       "track_widths": [
         0.0,
+        0.3302,
+        0.635,
+        1.27,
         2.5
       ],
       "via_dimensions": [
@@ -393,7 +396,9 @@
     "meta": {
       "version": 2
     },
-    "net_colors": null
+    "net_colors": {
+      "+BATT": "rgb(255, 0, 2)"
+    }
   },
   "pcbnew": {
     "last_paths": {
