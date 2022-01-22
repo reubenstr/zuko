@@ -4,6 +4,22 @@
 	
 	Printers used Voron 2.4 and Voron 0.1
 	
+	BLACK - Paramount ABS		
+		Bridge:
+			Layer height: 0.2mm
+			Wall line count: 3
+			Infill: 50%
+			Printing temperature: 250c
+			Build plate temperature: 110c
+			Initial layer flow: 110%
+			Print Speed: 120mm/s
+			Initial layer speed: 20mm/s
+			Retraction distance: 2mm
+			Retraction speed: 60mm/s
+			Enable print cooling: enabled
+			Fan speed: 20%
+			Generate support: disabled				
+	
 	BROWN - eSUN ABS:
 		Default settings:
 			Wall line count: 3
@@ -14,8 +30,7 @@
 			Layer Height: 0.2mm	
 			Cooling: disabled
 			Infill: 20%
-			Minimum Layer Time: 30s (slicer default)
-			
+			Minimum Layer Time: 30s (slicer default)			
 			Retraction distance: 2mm
 			Retraction speed: 40mm/s
 			
@@ -41,8 +56,6 @@
 				Infill density: 40% 
 				Support density: 40%
 				
-
-
 	WHITE - eSUN ABS: 	
 		Default settings:
 			Wall line count: 3
