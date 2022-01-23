@@ -18,7 +18,9 @@
 			Retraction speed: 60mm/s
 			Enable print cooling: enabled
 			Fan speed: 20%
-			Generate support: disabled				
+			Generate support: disabled		
+
+			Scale: 100.6%	
 	
 	BROWN - eSUN ABS:
 		Default settings:
