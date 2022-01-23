@@ -406,7 +406,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "zuko-teensy-motor-controller.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
