@@ -1,0 +1,67 @@
+
+List of tools used to build Zuko.
+Tool brands are suggestions, most generic brands will work just fine.
+List may not be comprehensive.
+
+
+Hand tools:
+
+	digital calipers - Mitutoyo (mid grade generics work just as well)
+		verifies printed part dimensions and helps make new parts
+	
+	tweezer bent nose pliers - Xuron 450BN
+		removes small support from 3D printed parts
+	
+	straight jaw pliers, self-adjusting - CRL 7" Robo-Grip® Pliers
+		removes larger support from 3D printed parts
+	
+	2.5mm ball-hex driver - Eklind brand
+	2.0mm ball-hex driver - Eklind brand
+	
+	L-wrench ball-hex driver set - Bondhus brand
+	
+	#2 phillips head screwdriver
+		drives course thread screws to mount servos to frames
+	
+	2" C-clamp - or bench-top vise
+		presses bearing into bridge and gear interface.
+
+
+Electronics:
+	
+	multimeter - generic
+		verifies voltages
+		
+	programmable power supply
+		provides power to robot dog during development to save battery recharge cycles
+		
+
+Soldering:
+
+	soldering iron - T12 Soldering Station
+	soldering
+	solder flux
+
+	micro cutter, flush cut wire cutter - generic
+	
+	wire stripper - Engineer PA-14 and PA-07
+	
+3D printer:
+	
+	Requirements:
+		capable of printing ABS 1.75mm filament (enclosure, ventilation, etc.)
+		minimum bed size: 175mm square
+
+Consumables:
+
+	thread lock (blue)
+		assures bolted leg joints do not loosen
+	
+	super glue (extra thick) - BSI Maxi-Cure®
+		bonds 3D printed accents to frame parts
+		
+
+	
+	
+	
+	

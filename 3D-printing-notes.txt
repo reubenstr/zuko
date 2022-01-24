@@ -25,8 +25,7 @@ BLACK - Paramount ABS
 		Initial layer speed: 20mm/s
 		Retraction distance: 2mm
 		Retraction speed: 60mm/s
-		Enable print cooling: enabled
-		Fan speed: 25%
+		Enable print cooling: disabled		
 		Generate support: disabled		
 	
 	Bridge:	
@@ -34,6 +33,8 @@ BLACK - Paramount ABS
 
 	Servo horn:	
 		Scale: 100.6%
+		Fan speed: 25%
+		Scale: 100.8%
 		Generate support: enabled
 		Support density: 50%
 								
@@ -42,6 +43,14 @@ BLACK - Paramount ABS
 		Cooling: enabled
 		Fan speed: 25%
 		Build plat adhesion type: brim
+		
+	Hip - servo mount bearing, hip - servo mount gear
+		Cooling: enabled
+		Fan speed: 25%
+		Generate support: enabled
+		Support density: 50%
+		Scale: 100.8%
+		
 
 BROWN - eSUN ABS:
 	Default settings:
@@ -73,9 +82,9 @@ BROWN - eSUN ABS:
 			Support density: 40%
 			Filter out tiny gaps: disabled
 			
-		Upper leg:				
+		Upper leg main body:				
 			Infill density: 40% 
-			Support density: 40%
+			Support density: 20%
 			
 WHITE - eSUN ABS: 	
 	Default settings:
