@@ -13,11 +13,15 @@ Change log from v1 to v2:
 	Added more material support around lower leg linkage connection point.
 	Revised lower leg to include a flair at the paw area.
 	Removed brass insert requirement from hips, now using course threaded screws.
+	Relocated power switch with stury direct frame connection.
 	
 	Results: 
 		Pros:
-			fewer parts (3D printed and hardware), no friction bearings, non-stretchy hip angles.
-		Cons:
+			Fewer 3D printed parts, filament types, and hardware.
+			No friction bearings.
+			No stretchy hip angles.
+			No leg assembly bridge wobble.
+		Cons:			
 			5mm longer frame resulting electronics bay space reduction (but electronics able to be housed in frame bridge)
 
   

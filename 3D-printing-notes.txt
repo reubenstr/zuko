@@ -1,81 +1,100 @@
 3D PRINTING NOTES:
 
-	Printing temperatures may required tweaks depending on ambient temperature and local air circulation.
-	
-	Printers used Voron 2.4 and Voron 0.1
-	
-	BLACK - Paramount ABS		
-		Bridge:
-			Layer height: 0.2mm
-			Wall line count: 3
-			Infill: 50%
-			Printing temperature: 250c
-			Build plate temperature: 110c
-			Initial layer flow: 110%
-			Print Speed: 120mm/s
-			Initial layer speed: 20mm/s
-			Retraction distance: 2mm
-			Retraction speed: 60mm/s
-			Enable print cooling: enabled
-			Fan speed: 20%
-			Generate support: disabled		
-
-			Scale: 100.6%	
-	
-	BROWN - eSUN ABS:
-		Default settings:
-			Wall line count: 3
-			Printing temperature: 250c
-			Build plate temperature: 110c
-			Print Speed: 120mm/s
-			Initial layer speed: 20mm/s
-			Layer Height: 0.2mm	
-			Cooling: disabled
-			Infill: 20%
-			Minimum Layer Time: 30s (slicer default)			
-			Retraction distance: 2mm
-			Retraction speed: 40mm/s
+	Printing settings are tuned to the filament and printers used; settings likley will need some adjustment to match your filament, printers, ambient temperature, etc.
 			
-		Frame:
-			First layer speed: 20mm/s
-
-		Upper leg:
-			The upper leg is made from two pieces, the upper leg and the gear interface.
-			A ring bearing connects the gear interface and the leg bridge via a press fit.
-			Therefore the dimensionally acuracy of the gear interface is important to ensure a proper fit.
-			The gear interface connects and the upper leg connect together by a loose fit and welded with cyanoacrylate (super glue).
-			The purpose of using two pieces is to allow for quicker reprinting gear interface dimensional accuracy test prints.
+	Printers:
+		Voron 2.4:
+			Large parts
+		Voron 0.1:
+			Small parts
 	
-			Gear interface:				
-				Infill density: 100%			
-				Cooling: enabled
-				Fan speed: 25%						
-				Scale: 100.6%
-				Support density: 40%
-				Filter out tiny gaps: disabled
-				
-			Upper leg:				
-				Infill density: 40% 
-				Support density: 40%
-				
-	WHITE - eSUN ABS: 	
-		Default settings:
-			Wall line count: 3
-			Printing temperature: 250c
-			Build plate temperature: 110c
-			Print Speed: 120mm/s
-			Layer Height: 0.2mm	
-			Cooling: disabled
-			Infill: 20%
-		Lower leg:	
-			Infill Density: 50%
-			Scale: 100.35%
-			Cooling: Enabled
-			Cooling Fan Speed: 25%				
-		Hip:
-			Cooling fan: 20%			
-		Bridge:			
-			Default settings
+	Servo drive gears should not need to be forced into their interfaces.
+	
+BLACK - Paramount ABS	
+	Notes:
+		Black Paramount ABS appears to have significant shrinkage.
+
+	Default settings:
+		Layer height: 0.2mm
+		Wall line count: 3
+		Infill: 50%
+		Printing temperature: 250c
+		Build plate temperature: 110c
+		Initial layer flow: 110%
+		Print Speed: 120mm/s
+		Initial layer speed: 20mm/s
+		Retraction distance: 2mm
+		Retraction speed: 60mm/s
+		Enable print cooling: enabled
+		Fan speed: 25%
+		Generate support: disabled		
+	
+	Bridge:	
+		Scale: 100.6%
+
+	Servo horn:	
+		Scale: 100.6%
+		Generate support: enabled
+		Support density: 50%
+								
+	Tie Rod Cover:
+		Print speed: 60mm/s
+		Cooling: enabled
+		Fan speed: 25%
+		Build plat adhesion type: brim
+
+BROWN - eSUN ABS:
+	Default settings:
+		Wall line count: 3
+		Printing temperature: 250c
+		Build plate temperature: 110c
+		Print Speed: 120mm/s			
+		Layer Height: 0.2mm	
+		Cooling: disabled
+		Infill: 20%
+		Minimum Layer Time: 30s (slicer default)			
+		Retraction distance: 2mm
+		Retraction speed: 40mm/s
+		
+	Center Frame - Front, Back:
+		Layer Height: 0.3mm	
+		Infill: 20%
+		Support: enabled
+		Support density: 50%
+		Scale: 100.35%	
+		
+
+	Upper leg:
+		Gear interface:				
+			Infill density: 100%			
+			Cooling: enabled
+			Fan speed: 25%						
+			Scale: 100.6%
+			Support density: 40%
+			Filter out tiny gaps: disabled
+			
+		Upper leg:				
+			Infill density: 40% 
+			Support density: 40%
+			
+WHITE - eSUN ABS: 	
+	Default settings:
+		Wall line count: 3
+		Printing temperature: 250c
+		Build plate temperature: 110c
+		Print Speed: 120mm/s
+		Layer Height: 0.2mm	
+		Cooling: disabled
+		Infill: 20%
+	Lower leg:	
+		Infill Density: 50%
+		Scale: 100.35%
+		Cooling: Enabled
+		Cooling Fan Speed: 25%				
+	Hip:
+		Cooling fan: 20%			
+	Bridge:			
+		Default settings
 			
 		
 		
