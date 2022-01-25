@@ -66,8 +66,8 @@ BROWN - eSUN ABS:
 	Default settings:
 		Wall line count: 3
 		Printing temperature: 250c
-		Build plate temperature: 110c
-		Print Speed: 120mm/s			
+		Build plate temperature: 100c
+		Print Speed: 100mm/s			
 		Layer Height: 0.2mm	
 		Cooling: disabled
 		Infill: 20%
@@ -93,17 +93,21 @@ BROWN - eSUN ABS:
 		Upper leg main body:				
 			Infill density: 10%
 			Cooling: enabled
-			Fan speed: 25%			
+			Fan speed: 40%			
 			Support: enabled
-			Support density: 20%
-			
-	
-	
-	Face plate, butt plate	
-		Layer height: 0.3mm
-		Infill density: 40% 
+			Support density: 20%		
+		
+	Face plate, butt plate			
+		Layer height: 0.2mm
+		Infill density: 10% 
+		Cooling: enabled
+		Fan speed: 40%
 		Support: enabled
 		Support density: 50%	
+		
+	Sides
+		Infill density: 20%	
+		
 			
 WHITE - eSUN ABS: 	
 	Default settings:
@@ -116,17 +120,25 @@ WHITE - eSUN ABS:
 		Cooling: disabled
 		Support: disabled
 	
-	Lower leg:	
-		Infill Density: 50%
+	Lower leg - inner, outer:
+		Print speed: 100mm/s
+		Infill Density: 80%
 		Scale: 100.35%
 		Cooling: Enabled
-		Cooling Fan Speed: 25%				
+		Cooling Fan Speed: 25%
+		Support: enabled
+		Support density: 50%
 	Hip:
 		Cooling fan: 20%
 		Scale: 100.35%			
 	
-	Bridge:			
-		Default settings
+	Bridge:		
+		Layer Height: 0.3mm	
+		Wall line count: 2
+		Infill Density: 15%
+		Cooling: Enabled
+		Cooling Fan Speed: 25%
+		Scale: 100.35%
 			
 		
 		
