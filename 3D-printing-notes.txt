@@ -81,21 +81,22 @@ BROWN - eSUN ABS:
 		Support density: 50%
 		Scale: 100.35%			
 
-	Upper leg:
-		Gear interface:				
-			Infill density: 100%			
-			Cooling: enabled
-			Fan speed: 25%						
-			Scale: 100.6%
-			Support density: 40%
-			Filter out tiny gaps: disabled
-			
-		Upper leg main body:				
-			Infill density: 10%
-			Cooling: enabled
-			Fan speed: 40%			
-			Support: enabled
-			Support density: 20%		
+	
+	Upper leg Gear interface:				
+		Infill density: 100%			
+		Cooling: enabled
+		Fan speed: 25%		
+Minimum layer time: 30s		
+		Scale: 100.6%
+		Support density: 50%
+		// Filter out tiny gaps: disabled
+		
+	Upper leg main body:				
+		Infill density: 10%
+		Cooling: enabled
+		Fan speed: 40%			
+		Support: enabled
+		Support density: 20%		
 		
 	Face plate, butt plate			
 		Layer height: 0.2mm
@@ -107,6 +108,8 @@ BROWN - eSUN ABS:
 		
 	Sides
 		Infill density: 20%	
+		Cooling: enabled
+		Fan speed: 40%
 		
 			
 WHITE - eSUN ABS: 	
@@ -136,8 +139,8 @@ WHITE - eSUN ABS:
 		Layer Height: 0.3mm	
 		Wall line count: 2
 		Infill Density: 15%
-		Cooling: Enabled
-		Cooling Fan Speed: 25%
+		//Cooling: Enabled
+		//Cooling Fan Speed: 25%
 		Scale: 100.35%
 			
 		
