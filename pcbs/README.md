@@ -5,10 +5,20 @@ PCBs created in KiCad 6.0
 https://www.kicad.org/download/
 
 
-# Motor Controller
+### Motor Controller
 
-4 layer, 1oz
+Controls 12 motion RC servos using a Teensy 4.0 microcontroller. 
 
-# Battery Board
+Connects to and powers RPi.
 
-2 layer, 1oz
+Requires external DC-DC converter to supply 5vDC to board and RPi.
+
+Contains peripheral support for I2C IMU, touch down switches, LED, Neopixel (ws2812b) led strips, current sense, voltage sense, auxillary RC servos, and extra I2C devices.
+
+Fabrication specifications: 4 layer, 1oz
+
+### Battery Board
+
+Mounts 8x 18650 LiPo batteries and 4x HY2120 (or similar) battery managment systems.
+
+Fabrication specifications: 2 layer, 1oz
