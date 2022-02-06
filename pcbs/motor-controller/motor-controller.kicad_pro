@@ -402,11 +402,11 @@
   },
   "pcbnew": {
     "last_paths": {
-      "gencad": "",
+      "gencad": "motor-controller.cad",
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "zuko-teensy-motor-controller.step",
+      "step": "motor-controller.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""

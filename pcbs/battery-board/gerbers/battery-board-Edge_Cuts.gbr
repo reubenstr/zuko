@@ -1,0 +1,26 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,(6.0.1)*%
+%TF.CreationDate,2022-02-05T20:25:37-05:00*%
+%TF.ProjectId,battery-board,62617474-6572-4792-9d62-6f6172642e6b,rev?*%
+%TF.SameCoordinates,Original*%
+%TF.FileFunction,Profile,NP*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW (6.0.1)) date 2022-02-05 20:25:37*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%TA.AperFunction,Profile*%
+%ADD10C,0.200000*%
+%TD*%
+G04 APERTURE END LIST*
+D10*
+X0Y0D02*
+X98000000Y0D01*
+X98000000Y0D02*
+X98000000Y-160000000D01*
+X98000000Y-160000000D02*
+X0Y-160000000D01*
+X0Y-160000000D02*
+X0Y0D01*
+M02*
