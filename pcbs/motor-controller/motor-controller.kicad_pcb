@@ -389,7 +389,7 @@
 
   (footprint "Connector_AMASS:AMASS_XT30U-M_1x02_P5.0mm_Vertical" (layer "F.Cu")
     (tedit 5C8E9CCA) (tstamp 0e3ef075-527f-48b4-b68f-a59353ebe277)
-    (at 78.9 46.2 180)
+    (at 78.899995 46.200009 180)
     (descr "Connector XT30 Vertical Cable Male, https://www.tme.eu/en/Document/3cbfa5cfa544d79584972dd5234a409e/XT30U%20SPEC.pdf")
     (tags "RC Connector XT30")
     (property "Sheetfile" "motor-controller.kicad_sch")
@@ -438,10 +438,10 @@
       (net 3 "GND") (pinfunction "Pin_1") (pintype "passive") (tstamp 69a43f64-01a8-426f-a374-fc84b06bd542))
     (pad "2" thru_hole circle (at 5 0 180) (size 3.8 3.8) (drill 2.7) (layers *.Cu *.Mask)
       (net 46 "Net-(J4-Pad2)") (pinfunction "Pin_2") (pintype "passive") (tstamp b14f3cc4-75dd-4438-8b6a-fb62cefae00e))
-    (model "${KICAD6_3DMODEL_DIR}/Connector_AMASS.3dshapes/AMASS_XT30U-M_1x02_P5.0mm_Vertical.wrl"
-      (offset (xyz 0 0 0))
+    (model "${KICAD_USER_LIBRARY}/connectors/connectors.pretty/3dmodels/XT30-male.step"
+      (offset (xyz 7.62 2.6035 12.446))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz 180 0 90))
     )
   )
 
@@ -753,7 +753,7 @@
 
   (footprint "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm" (layer "F.Cu")
     (tedit 5AE50EF1) (tstamp 3fb32844-18f4-425a-a9d0-75e1d36cc028)
-    (at 82.698998 73.77983 -35)
+    (at 82.698996 73.779837 -35)
     (descr "CP, Radial series, Radial, pin pitch=5.00mm, , diameter=10mm, Electrolytic Capacitor")
     (tags "CP Radial series Radial pin pitch 5.00mm  diameter 10mm Electrolytic Capacitor")
     (property "Sheetfile" "motor-controller.kicad_sch")
@@ -973,7 +973,7 @@
       (net 1 "+BATT") (pintype "passive") (tstamp b4fd0cf6-438e-4133-b84e-cb90401547c1))
     (pad "2" thru_hole circle (at 5 0 325) (size 2 2) (drill 1) (layers *.Cu *.Mask)
       (net 3 "GND") (pintype "passive") (tstamp d632dd60-dde3-4235-b873-68e0ccac3962))
-    (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/CP_Radial_D10.0mm_P5.00mm.wrl"
+    (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/C_Radial_D10.0mm_H20.0mm_P5.00mm.step"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -1211,7 +1211,7 @@
 
   (footprint "Teensy:Teensy40" (layer "F.Cu")
     (tedit 61EDEAEB) (tstamp 531279c0-34b1-4a3f-903e-0e74c9a65a51)
-    (at 113.464602 59.1794)
+    (at 113.464594 59.179409)
     (property "Sheetfile" "motor-controller.kicad_sch")
     (property "Sheetname" "")
     (path "/50f1ef10-479b-474e-bad1-568ef9d6e3c5")
@@ -1323,9 +1323,39 @@
     (pad "44" thru_hole circle (at 8.89 5.08) (size 1.6 1.6) (drill 1.1) (layers *.Cu *.Mask)
       (net 43 "AUX_M2") (pinfunction "33_MCLK2") (pintype "bidirectional") (tstamp a2411a62-1912-4b28-b601-8bbd80c7b3cc))
     (model "${KICAD_USER_LIBRARY}/teensy/teensy.pretty/3dmodels/Teensy_4.0_Assembly.step"
-      (offset (xyz 33 9.5 -3.5))
+      (offset (xyz 32.99999999 9.499999999 -1.59500001))
       (scale (xyz 1 1 1))
       (rotate (xyz -90 0 0))
+    )
+    (model "${KICAD6_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x14_P2.54mm_Vertical.step"
+      (offset (xyz 16.51 7.62 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 90))
+    )
+    (model "${KICAD6_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x14_P2.54mm_Vertical.step"
+      (offset (xyz -16.51 -7.62 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 -90))
+    )
+    (model "${KICAD6_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_2x05_P2.54mm_Vertical.step"
+      (offset (xyz 11.43 5.08 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
+    (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x14_P2.54mm_Vertical.step"
+      (offset (xyz 16.51 7.62 9.525))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 -180 90))
+    )
+    (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x14_P2.54mm_Vertical.step"
+      (offset (xyz 16.51 -7.62 9.525))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 180 90))
+    )
+    (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_2x05_P2.54mm_Vertical_SMD.step"
+      (offset (xyz 10.16 0 10.16))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 180 0))
     )
   )
 
@@ -1665,7 +1695,7 @@
 
   (footprint "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm" (layer "F.Cu")
     (tedit 5AE50EF1) (tstamp 6dc80d59-af28-4b80-a8e4-dd0161c9d79b)
-    (at 139.588934 73.77983 -35)
+    (at 139.588926 73.779837 -35)
     (descr "CP, Radial series, Radial, pin pitch=5.00mm, , diameter=10mm, Electrolytic Capacitor")
     (tags "CP Radial series Radial pin pitch 5.00mm  diameter 10mm Electrolytic Capacitor")
     (property "Sheetfile" "motor-controller.kicad_sch")
@@ -1885,7 +1915,7 @@
       (net 1 "+BATT") (pintype "passive") (tstamp 184cca5c-19ba-4bd7-8ba4-09a50fb0236b))
     (pad "2" thru_hole circle (at 5 0 325) (size 2 2) (drill 1) (layers *.Cu *.Mask)
       (net 3 "GND") (pintype "passive") (tstamp 358f3a2f-6a64-4a8e-b2bf-1dbfcfedb21c))
-    (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/CP_Radial_D10.0mm_P5.00mm.wrl"
+    (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/C_Radial_D10.0mm_H20.0mm_P5.00mm.step"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -3267,7 +3297,7 @@
 
   (footprint "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm" (layer "F.Cu")
     (tedit 5AE50EF1) (tstamp d3d3b824-9642-41e5-a8fc-92a46f2bf423)
-    (at 101.621998 73.788 -35)
+    (at 101.621996 73.787991 -35)
     (descr "CP, Radial series, Radial, pin pitch=5.00mm, , diameter=10mm, Electrolytic Capacitor")
     (tags "CP Radial series Radial pin pitch 5.00mm  diameter 10mm Electrolytic Capacitor")
     (property "Sheetfile" "motor-controller.kicad_sch")
@@ -3487,7 +3517,7 @@
       (net 1 "+BATT") (pintype "passive") (tstamp ecb70d95-6f21-4265-8c5d-cb19682a4273))
     (pad "2" thru_hole circle (at 5 0 325) (size 2 2) (drill 1) (layers *.Cu *.Mask)
       (net 3 "GND") (pintype "passive") (tstamp ed338a22-9aea-4cab-94d3-ea872ecc1a2b))
-    (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/CP_Radial_D10.0mm_P5.00mm.wrl"
+    (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/C_Radial_D10.0mm_H20.0mm_P5.00mm.step"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -3496,7 +3526,7 @@
 
   (footprint "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm" (layer "F.Cu")
     (tedit 5AE50EF1) (tstamp df949bca-628a-4add-bb19-ef8586fa154a)
-    (at 120.538934 73.77983 -35)
+    (at 120.538926 73.779837 -35)
     (descr "CP, Radial series, Radial, pin pitch=5.00mm, , diameter=10mm, Electrolytic Capacitor")
     (tags "CP Radial series Radial pin pitch 5.00mm  diameter 10mm Electrolytic Capacitor")
     (property "Sheetfile" "motor-controller.kicad_sch")
@@ -3716,7 +3746,7 @@
       (net 1 "+BATT") (pintype "passive") (tstamp e8e9b55c-b596-4731-ab39-5b1cc401495e))
     (pad "2" thru_hole circle (at 5 0 325) (size 2 2) (drill 1) (layers *.Cu *.Mask)
       (net 3 "GND") (pintype "passive") (tstamp 82f304fd-623a-4ac3-b769-4265f79fd678))
-    (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/CP_Radial_D10.0mm_P5.00mm.wrl"
+    (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/C_Radial_D10.0mm_H20.0mm_P5.00mm.step"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))

@@ -410,7 +410,7 @@
 
   (footprint "Connector_AMASS:AMASS_XT30U-M_1x02_P5.0mm_Vertical" (layer "F.Cu")
     (tedit 5C8E9CCA) (tstamp c139b080-c6d0-4461-9e29-74d2b8793fec)
-    (at 90 77)
+    (at 89.999998 76.999998)
     (descr "Connector XT30 Vertical Cable Male, https://www.tme.eu/en/Document/3cbfa5cfa544d79584972dd5234a409e/XT30U%20SPEC.pdf")
     (tags "RC Connector XT30")
     (property "Sheetfile" "battery-board.kicad_sch")
@@ -459,10 +459,10 @@
       (net 13 "-BATT") (pinfunction "Pin_1") (pintype "passive") (tstamp e07fa649-4e13-4bee-aaed-86e11b4662cd))
     (pad "2" thru_hole circle (at 5 0) (size 3.8 3.8) (drill 2.7) (layers *.Cu *.Mask)
       (net 14 "+BATT") (pinfunction "Pin_2") (pintype "passive") (tstamp 7e540c88-b84d-4388-8437-b417fdc7497f))
-    (model "${KICAD6_3DMODEL_DIR}/Connector_AMASS.3dshapes/AMASS_XT30U-M_1x02_P5.0mm_Vertical.wrl"
-      (offset (xyz 0 0 0))
+    (model "${KICAD_USER_LIBRARY}/connectors/connectors.pretty/3dmodels/XT30-male.step"
+      (offset (xyz 7.62 2.54 12.446))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
+      (rotate (xyz 0 -180 -90))
     )
   )
 
