@@ -12,6 +12,10 @@ Zuko himself! |
 ------------ | 
 Linked leg kinematic diagram. |
 
+<img src="https://github.com/reubenstr/Zuko/blob/main/scripts/kinematics-simulation/forward-kinematics-simulation-result.png" width="640"> | 
+------------ | 
+Linked leg kinematic simulation result. |
+
 <img src="https://github.com/reubenstr/Zuko/blob/main/images/v1/zuko-v1-first-standing-on-power.jpg" width="640"> | 
 ------------ | 
 v1 First time standing. |
