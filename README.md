@@ -16,9 +16,13 @@ Linked leg kinematic diagram. |
 ------------ | 
 Linked leg kinematic simulation result. |
 
+<img src="https://github.com/reubenstr/Zuko/blob/main/pcbs/motor-controller/motor-controller-render-2.jpg" width="640"> | 
+------------ | 
+Motor controller board. |
+
 <img src="https://github.com/reubenstr/Zuko/blob/main/images/v1/zuko-v1-first-standing-on-power.jpg" width="640"> | 
 ------------ | 
-v1 First time standing. |
+v1 first time standing. |
 
 
 Status: **Development.**   
