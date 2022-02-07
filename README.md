@@ -1,8 +1,8 @@
 # Zuko - A quadruped robot dog!
 
-<img src="https://github.com/reubenstr/Zuko/blob/main/images/v1/zuko-v1-render-side.png" width="640"> | 
+<img src="https://github.com/reubenstr/Zuko/blob/main/images/v2/zuko-robot-dog-cad-design.png" width="640"> | 
 ------------ | 
-CAD rendering. |
+CAD rendering of v2 design. |
 
 <img src="https://github.com/reubenstr/Zuko/blob/main/images/v1/zuko-australian-shepard-mini.jpg" width="640"> | 
 ------------ | 
@@ -14,18 +14,18 @@ Linked leg kinematic diagram. |
 
 <img src="https://github.com/reubenstr/Zuko/blob/main/images/v1/zuko-v1-first-standing-on-power.jpg" width="640"> | 
 ------------ | 
-First time standing. |
+v1 First time standing. |
 
 
 Status: **Development.**   
 
 
 Major Tasks To Do:
-- v1 to v2 frame rework (from belt driven hips to direct connect).
+- Assemble v2 frame and electronics.
 - Create URDF model for simulation.
-- Test motion controller and refine limits.
+- Refine motor limits.
 - Code BN055 IMU.
-- Reconnect machine learning algorithms.
+- Connect machine learning algorithms.
 
 ROS2 Workspace (contains quadruped source code): 
 
