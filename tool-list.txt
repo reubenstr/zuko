@@ -30,21 +30,23 @@ Hand tools:
 Electronics:
 	
 	multimeter - generic
-		verifies voltages
+		verifies voltages, continuity
 		
 	programmable power supply
 		provides power to robot dog during development to save battery recharge cycles
 		
 
-Soldering:
+Soldering / wiring:
 
 	soldering iron - T12 Soldering Station
-	soldering
-	solder flux
+	solering iron cleaner - generic brass scrubbber
+	solder flux - your preference
 
 	micro cutter, flush cut wire cutter - generic
 	
 	wire stripper - Engineer PA-14 and PA-07
+	
+	crimping tool for dupont headers - Engineers Precision Crimping Pliers Pa-09
 	
 3D printer:
 	

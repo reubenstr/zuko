@@ -11,9 +11,13 @@
 	
 	All servo drive gears should not need to be forced into their interfaces; adjust scaling accordingly.
 	
+	Most parts should printed in ABS for heat resistance properties (direct sunlight). 
+	Other materials such as ASA, carbon fiber, and polycarbonate may also work but are untested.
+	Some parts may be printed in PLA for convenience such as electronic mounting plates.
+		
 BLACK - Paramount ABS	
 	Notes:
-		Black Paramount ABS appears to have significant shrinkage.
+		Black Paramount ABS appears to have significant shrinkage, scale accordingly.
 
 	Default settings:
 		Layer height: 0.2mm
@@ -89,7 +93,6 @@ BROWN - eSUN ABS:
 Minimum layer time: 30s		
 		Scale: 100.6%
 		Support density: 50%
-		// Filter out tiny gaps: disabled
 		
 	Upper leg main body:				
 		Infill density: 10%
@@ -143,5 +146,20 @@ WHITE - eSUN ABS:
 		//Cooling Fan Speed: 25%
 		Scale: 100.35%
 			
+BLACK - Overture matte black PLA
+	Default settings:
+		Layer height: 0.2mm
+		Infill density: 20%
+		Print speed 150mm/s
+		Cooling: 100%
+		
+	BNO055 mount:
+		Default settings
+		
+	RPi mount:
+		Default settings
+		
+	Motor controller mount:
+		Default settings
 		
 		
