@@ -2,7 +2,7 @@
 
 <img src="https://github.com/reubenstr/Zuko/blob/main/images/v2/zuko-robot-dog-cad-design.png" width="640"> | 
 ------------ | 
-CAD rendering of v2 design. |
+v2 CAD design. |
 
 <img src="https://github.com/reubenstr/Zuko/blob/main/images/v1/zuko-australian-shepard-mini.jpg" width="640"> | 
 ------------ | 
@@ -36,10 +36,11 @@ v1 first time standing. |
 
 Zuko uses the ROS2 framework for communication, launching, and 3rd party addons. The ROS2 workspace contains the quadruped source code and operates inside Ubuntu either on a PC or RPi. The motors are controlled by a Teensy 4.0 microcontroller on a separate board which is connected to either the PC or RPi over USB or UART.
 
-### ROS2 Major Tasks To Do
+### Major Tasks To Do
 - Assemble v2 frame and electronics.
 - Create URDF model for simulation.
 - Refine motor limits.
+- Calibrate walking parameters.
 - Code BN055 IMU.
 - Connect machine learning algorithms.
 
