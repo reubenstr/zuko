@@ -62,6 +62,9 @@ Consumables:
 	super glue (extra thick) - BSI Maxi-Cure®
 		bonds 3D printed accents to frame parts
 		
+	VHB tape
+		mounts BNO055 IMU to mounting plate
+		
 
 	
 	
