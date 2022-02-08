@@ -20,6 +20,10 @@ Linked leg kinematic simulation result. |
 ------------ | 
 Motor controller board. |
 
+<img src="https://github.com/reubenstr/Zuko/blob/main/images/v2/zuko-robot-dog-printed-parts-exploded.jpg" width="640"> | 
+------------ | 
+v2 printed parts ready for assembly. |
+
 <img src="https://github.com/reubenstr/Zuko/blob/main/images/v1/zuko-v1-first-standing-on-power.jpg" width="640"> | 
 ------------ | 
 v1 first time standing. |

@@ -4,7 +4,7 @@ Change log from v1 to v2:
 
 	Replaced hip drive belts with direct drive by relocating hip motors into the electronics bay.
 	Updated front and back center frames to support direct drive.
-	Lengthended frame sides to accommodate space requirements for direct drive.
+	Lengthened frame sides to accommodate space requirements for direct drive.
 	Revised frame bridge from two peices into one to accommodate the removal of the hip servos. 
 	Added ring bearing to upper leg and leg linkage bridge.
 	Converted upper leg into two components, upper leg and gear interface, to accommodate the ring bearing's press fit joint.
@@ -14,7 +14,7 @@ Change log from v1 to v2:
 	Revised lower leg to include a flair at the paw area.
 	Removed brass insert requirement from hips, now using course threaded screws.
 	Relocated power switch with stury direct frame connection.
-	
+
 	Results: 
 		Pros:
 			Fewer 3D printed parts, filament types, and hardware.
