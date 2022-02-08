@@ -2,6 +2,7 @@
 
 	Printing settings are tuned to the filament and printers used to create the orginal Zuko.
 	Settings likley will need adjustment to match your filament, printers, ambient temperature, etc.
+	Naming convention follows Cura slicer.
 			
 	Printers:
 		Voron 2.4:
@@ -14,8 +15,9 @@
 	Most parts should printed in ABS for heat resistance properties (direct sunlight). 
 	Other materials such as ASA, carbon fiber, and polycarbonate may also work but are untested.
 	Some parts may be printed in PLA for convenience such as electronic mounting plates.
+	Feet and tail are printed in TPU filament.
 		
-BLACK - Paramount ABS	
+ABS BLACK - Paramount ABS:	
 	Notes:
 		Black Paramount ABS appears to have significant shrinkage, scale accordingly.
 
@@ -66,7 +68,7 @@ BLACK - Paramount ABS
 	Electronics - RPi & Teensy holder		
 		
 
-BROWN - eSUN ABS:
+ABS BROWN - eSUN ABS:
 	Default settings:
 		Wall line count: 3
 		Printing temperature: 250c
@@ -90,7 +92,7 @@ BROWN - eSUN ABS:
 		Infill density: 100%			
 		Cooling: enabled
 		Fan speed: 25%		
-Minimum layer time: 30s		
+		// Minimum layer time: 30s		
 		Scale: 100.6%
 		Support density: 50%
 		
@@ -115,7 +117,7 @@ Minimum layer time: 30s
 		Fan speed: 40%
 		
 			
-WHITE - eSUN ABS: 	
+ABS WHITE - eSUN ABS: 	
 	Default settings:
 		Wall line count: 3
 		Printing temperature: 250c
@@ -146,7 +148,7 @@ WHITE - eSUN ABS:
 		//Cooling Fan Speed: 25%
 		Scale: 100.35%
 			
-BLACK - Overture matte black PLA
+PLA - Overture matte black PLA:
 	Default settings:
 		Layer height: 0.2mm
 		Infill density: 20%
@@ -162,4 +164,16 @@ BLACK - Overture matte black PLA
 	Motor controller mount:
 		Default settings
 		
+TPU - Overture white TPU filament:
+	Default settings:
+		Layer height: 0.2mm
+		Infill density: 20%
+		Printing temperature: 225C
+		Build plate temperature: 60C
+		Print speed: 20mm/s
+		Enable cooling: enabled
+		Fan speed: 100%
+		Generate support: enabled
 		
+	Feet, tail:
+		Default settings
