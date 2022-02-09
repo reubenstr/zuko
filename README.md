@@ -32,6 +32,8 @@ v1 first time standing. |
 
 **Development.**  
 
+**V2 Frame is being tested and is not ready for replication**
+
 ### General
 
 Zuko uses the ROS2 framework for communication, launching, and 3rd party addons. The ROS2 workspace contains the quadruped source code and operates inside Ubuntu either on a PC or RPi. The motors are controlled by a Teensy 4.0 microcontroller on a separate board which is connected to either the PC or RPi over USB or UART.
