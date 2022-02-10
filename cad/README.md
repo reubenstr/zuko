@@ -1,6 +1,13 @@
 # Frame Versions
 
-Change log from v1 to v2:
+Select the latest version if you intend to make or redesign your own robot dog.
+
+### v2.1 Change Log
+
+	25t spline to gear adapters replaced with common servo horn to increase part accessibility and to reduce cost. Suggested by SnowGliderr.
+	Upper leg, lower leg servo horn, and hips redesigned to accept new servo horn.
+	
+### v2 Change Log
 
 	Replaced hip drive belts with direct drive by relocating hip motors into the electronics bay.
 	Updated front and back center frames to support direct drive.

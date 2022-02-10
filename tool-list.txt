@@ -4,10 +4,12 @@ Tool brands are suggestions, most generic brands will work just fine.
 List may not be comprehensive.
 
 
-Hand tools:
+Measuring:
 
-	digital calipers - Mitutoyo (mid grade generics work just as well)
+	digital calipers 150mm/6" - Mitutoyo (mid grade brands work just as well)
 		verifies printed part dimensions and helps make new parts
+	
+Hand tools:	
 	
 	tweezer bent nose pliers - Xuron 450BN
 		removes small support from 3D printed parts
@@ -25,6 +27,7 @@ Hand tools:
 	
 	2" C-clamp - or bench-top vise
 		presses bearing into bridge and gear interface.
+		
 
 
 Electronics:

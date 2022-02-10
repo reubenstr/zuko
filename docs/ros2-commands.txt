@@ -1,0 +1,187 @@
+Below are commands, notes, installation processes, etc.
+
+CHECK ROS ENVIRONMENT:
+	printenv | grep -i ROS
+	
+	Check installed packages:
+		sudo apt list --installed
+		sudo apt list --installed | grep screen
+
+VERIFY SETUP OR MODIFICATIONS:
+	cat ~/.bashrc
+	nano ~/.bashrc
+
+CREATE PACKAGE: 
+	(with hello world exe)
+	(inside my_workspace/src/)
+	FOR EMPTY PACKAGE:
+		ros2 pkg create my_package
+	FOR C++:
+		ros2 pkg create --build-type ament_cmake --node-name my_node my_package
+	FOR PYTHON:
+		ros2 pkg create --build-type ament_python --node-name my_node my_package
+
+BUILD:
+	(from the workspace directory)
+	BUILD ALL:
+		colcon build
+	BUILD SELECT PACKAGE: 
+		colcon build --packages-select quad
+	BUILD AND RUN
+		colcon build --packages-select quad; ros2 run quad quad
+	
+SOURCE:
+	SOURCE ROS:
+		source /opt/ros/foxy/setup.bash
+	SOURCE WORKSPACE:
+		(from workspace directory)
+		source install/setup.bash
+
+RUN:
+	ros2 run quad quad
+	
+LAUNCH:	
+	FROM LAUNCH FILE:
+		ros2 launch quad motion_servos_calibration.launch.py
+		ros2 launch quad quad.launch.py
+	LAUNCH WITH PARAMETERS:
+		ros2 run quad quad --ros-args --params-file src/quad/config/quad_params.yaml
+		colcon build --packages-select quad; ros2 launch quad quad.launch.py
+		colcon build --packages-select quad; ros2 launch quad motion_servos_calibration.launch.py 
+
+RQT CONSOLE:
+	ros2 run rqt_console rqt_console
+	
+	Set log severity level: 
+		ros2 run turtlesim turtlesim_node --ros-args --log-level WARN
+
+ROS2 GRAPH VISUALIZER:
+	rqt_graph
+
+RECORD:
+	ros2 bag record <topic_name>
+
+#ROS2 COMMANDS
+
+NODES:
+	ros2 node list
+	ros2 node info <node_name>
+
+TOPICS:
+	ros2 topic list
+	ros2 topic list -t
+	
+	See topic data:
+		ros2 topic echo <topic_name>
+	Show msg info:
+		ros2 interface show <type>.msg
+	Publish topic data:
+		ros2 topic pub <topic_name> <msg_type> '<args>'
+		Ex: ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+		Ex2: ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+
+SERVICES:
+	ros2 service list
+	ros2 service list -t
+	ros2 service type <service_name>
+	ros2 interface show <type_name>.srv
+	ros2 service call <service_name> <service_type> <arguments>
+	Ex: ros2 service call /spawn turtlesim/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
+
+PARAMETERS:
+	ros2 param list
+	ros2 param get <node_name> <parameter_name>
+	Ex: ros2 param get /turtlesim background_g
+	ros2 param set <node_name> <parameter_name> <value>
+	Ex: ros2 param set /turtlesim background_r 150
+	Save params:
+	ros2 param dump <node_name>
+	Load node with params:
+	ros2 run <package_name> <executable_name> --ros-args --params-file <file_name>
+	Ex: ros2 run turtlesim turtlesim_node --ros-args --params-file ./turtlesim.yaml
+
+ACTIONS:
+	ros2 action list
+	ros2 action list -t
+	ros2 action info <action_name>
+	ros2 interface show turtlesim/action/RotateAbsolute
+	ros2 action send_goal <action_name> <action_type> <values>
+	Ex: ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}"
+	Ex2 (feedback): ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: -1.57}" --feedback
+
+
+MICRO-ROS AGENT (https://github.com/micro-ROS/micro-ROS-Agent):
+	Build micro-ROS tools and source them:
+		colcon build
+		source install/local_setup.bash
+
+	Download micro-ROS-Agent packages:
+		ros2 run micro_ros_setup create_agent_ws.sh
+
+	Build step:
+		ros2 run micro_ros_setup build_agent.sh
+		source install/local_setup.bash
+
+	Run a micro-ROS agent:
+		ros2 run micro_ros_agent micro_ros_agent udp4 --port 8888
+		ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0
+
+#ADDON SOFTWARE
+
+	Note:
+		The joystick addon process is not yet determined and the below notes represent several approaches. 
+		Likey the quad_ws contains a working joystick node.
+
+	Joystick:
+		sudo apt-get install ros-foxy-joy-linux
+		
+		Install diagnostic updater:
+			sudo apt-get install ros-foxy-diagnostic-updater
+
+	Notes:
+		Joystick runs from the ros directory as a node is not contained our workspace.
+	
+	Joystick test program:
+		sudo apt-get install jstest-gtk
+
+	Joystick ROS2 addon (note needs modification to support latest Playstation controller (edit name of Joystick)):
+		https://github.com/FurqanHabibi/joystick_ros2
+		colcon build --packages-select joystick_ros2 ; ros2 run joystick_ros2 joystick_ros2
+
+
+SCRATCH PAD:
+
+  <xacro:include filename="$(find quad)/urdf/spot_macro.xacro" />
+  <xacro:include filename="$(find quad)/urdf/transmissions.xacro" />
+  
+
+XACRO:
+	Download appropriate branch from: https://github.com/ros/xacro/tree/ros2
+	create new ros2 workspace, add the download to the src, then colcon build
+
+	Note: the files must be transfered to the share folder during colcon build
+	which is commanded by the setup.py script in the package folder
+	
+	Run xacro:
+		ros2 run xacro xacro /home/devpc/Desktop/quad_ws/src/quad/quad/src/urdf/quad.urdf.xacro >/home/devpc/Desktop/quad_ws/src/quad/quad/src/urdf/quad.urdf
+
+
+SERIAL:
+	Find Teensy's serial connection:
+		dmesg | grep tty
+	serial device name
+		ls /dev/serial/by-id/*
+
+AGENT (microros):	
+
+	Run agent either by serial ID or device:
+		ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/serial/by-id/usb-Teensyduino_USB_Serial_6584060-if00
+		ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0
+	
+	Note:
+		Arguments passed to the micro_ros_agent must be formated inside a single argument divided by spaces because ROS does not preserve argument order at the time of developing this code. (Custom modification to support launching of microros).
+
+
+GENERIC NOTES:
+	General guide: https://roboticsbackend.com/ros2-yaml-params/
+	Node agnostic example: https://github.com/yossioo/ros2-yaml-unnamed-node

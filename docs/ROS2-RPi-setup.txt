@@ -1,0 +1,42 @@
+General instructions on installing ROS2 on the Raspberry Pi
+
+Install Ubuntu 20.04 and setup Wi-Fi:
+	https://roboticsbackend.com/install-ubuntu-on-raspberry-pi-without-monitor/
+	
+Install ROS2 Foxy on Raspberry Pi 4:
+
+	https://roboticsbackend.com/install-ros2-on-raspberry-pi/
+	
+Clone repository and build:
+	git clone https://github.com/reubenstr/rpi_quad_ws
+	cd rpi_quad_ws
+	colcon build
+	
+Source micro_ros:
+	...
+	
+	
+	
+For micro-ros:
+
+	micro-ros likey needs to be rebuild based on the architecture 
+	change from AMD to ARM.
+
+	---
+	sudo apt install python3-rosdep2
+	sudo apt update && rosdep update
+	rosdep install --from-path src --ignore-src -y
+
+	colcon build
+	source install/local_setup.bash
+	
+	---
+	ros2 run micro_ros_setup create_agent_ws.sh
+	ros2 run micro_ros_setup build_agent.sh
+	source install/local_setup.bash
+	---
+	ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0
+	
+	https://micro.ros.org/docs/tutorials/core/first_application_linux/
+	
+	
