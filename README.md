@@ -62,4 +62,4 @@ Quadruped source code: https://github.com/reubenstr/quad_ws
 ### Credits
 - Simulation, kinematics, bezier curves, and machine learning are largely based on the work from Spot Mini Mini: https://github.com/OpenQuadruped/spot_mini_mini 
 - Spot Mini Mini is based on SpotMicroAI: https://spotmicroai.readthedocs.io/en/latest/
-- Frame and leg linkage design inspired by Baris Alp's quadruped design: https://grabcad.com/library/diy-quadruped-robot-1
+- Frame and leg linkage design inspired by Baris Alp's Kangel robot dog: https://grabcad.com/library/diy-quadruped-robot-1

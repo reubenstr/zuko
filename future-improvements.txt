@@ -1,0 +1,2 @@
+Next major frame redesign/reprint:
+	Frame bridge holes spaced further apart.
