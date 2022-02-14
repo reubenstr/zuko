@@ -5,6 +5,12 @@ PCBs created in KiCad 6.0
 https://www.kicad.org/download/
 
 
+All works in progress, PCBs on the way for testing.
+
+### Expansion Board
+
+RPi expansion board to control servo motors and other peripherals without using a microcontroller.
+
 ### Motor Controller
 
 Controls 12 motion RC servos using a Teensy 4.0 microcontroller. 
