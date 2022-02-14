@@ -8,7 +8,9 @@ https://www.kicad.org/download/
 All works in progress, PCBs on the way for testing, not for production.
 
 There are currently two paths for controlling the servos and peripherals:
+
 	Expansion board: RPi 4 direct connect using PWM and ADC controllers of I2C
+	
 	Motor Controller: Teensy is responsible for PWM and ADC at the expense of complex micro-ros.
 
 
