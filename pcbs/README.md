@@ -5,11 +5,18 @@ PCBs created in KiCad 6.0
 https://www.kicad.org/download/
 
 
-All works in progress, PCBs on the way for testing.
+All works in progress, PCBs on the way for testing, not for production.
+
+There are currently two paths for controlling the servos and peripherals:
+	Expansion board: RPi 4 direct connect using PWM and ADC controllers of I2C
+	Motor Controller: Teensy is responsible for PWM and ADC at the expense of complex micro-ros.
+
 
 ### Expansion Board
 
 RPi expansion board to control servo motors and other peripherals without using a microcontroller.
+
+Fabrication specifications: 4 layer, 1oz (2oz preferred and may be required, testing still in progress).
 
 ### Motor Controller
 
