@@ -15,17 +15,17 @@
 	Filaments:
 		ABS:
 			Black: 
-				Paramount
+				eSun ABS+
 			Brown: 
-				eSun
+				eSun ABS
 			White: 
-				eSun
+				eSun ABS
 		TPU:
 			White: 
-				Overature
+				Overature TPU
 		PLA
 			Black: 
-				Overture matte
+				Overture Matte Black PLA
 	
 	Most parts should printed in ABS for heat resistance properties (direct sunlight). 
 	Other materials such as ASA, carbon fiber, and polycarbonate may also work but are untested.
