@@ -66,6 +66,7 @@ PARTS:
 			
 		Lower leg bearing press ring:
 			Scale: 100.6%
+			Z-Seam Alignment: Random (!important)
 			
 		Upper leg - servo horn support ring:
 			Scale: 100.6%
@@ -102,20 +103,14 @@ PARTS:
 			Support: disabled
 			
 		Center Frame - Front, Back:
+			Note:
+				Corner lifting is very bad with this part, may require a well 
+				sealed enclosure and extra build plate adhesion.
 			Layer Height: 0.3mm	
 			Infill: 20%
 			Support: enabled
 			Support density: 50%
 			Scale: 100.35%			
-
-		
-		Upper leg Gear interface:	
-			Scale: 100.6%	
-			Infill density: 100%			
-			Cooling: enabled
-			Fan speed: 25%		
-			// Minimum layer time: 30s
-			Support density: 50%
 			
 		Upper leg main body:				
 			Infill density: 10%

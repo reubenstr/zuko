@@ -1,4 +1,3 @@
-
 List of tools used to build Zuko.
 Tool brands are suggestions, most generic brands will work just fine.
 List may not be comprehensive.
@@ -25,7 +24,7 @@ Hand tools:
 	#2 phillips head screwdriver
 		drives course thread screws to mount servos to frames
 	
-	2" C-clamp - or bench-top vise
+	 One-Handed Bar Clamp or bench-top vise
 		presses bearing into bridge and gear interface.
 		
 

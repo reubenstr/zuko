@@ -1,160 +1,160 @@
 {
-"DesignRules": [
-{
-"Layers": "Outer",
-"MinLineWidth": 0.3302,
-"PadToPad": 0.0,
-"PadToTrack": 0.0,
-"RegionToRegion": 0.508,
-"TrackToRegion": 0.508,
-"TrackToTrack": 0.2
-},
-{
-"Layers": "Inner",
-"MinLineWidth": 0.3302,
-"PadToPad": 0.0,
-"PadToTrack": 0.0,
-"RegionToRegion": 0.508,
-"TrackToRegion": 0.508,
-"TrackToTrack": 0.2
-}
-],
-"FilesAttributes": [
-{
-"FileFunction": "Copper,L1,Top",
-"FilePolarity": "Positive",
-"Path": "expansion-board-F_Cu.gbr"
-},
-{
-"FileFunction": "Copper,L2,Inr",
-"FilePolarity": "Positive",
-"Path": "expansion-board-In1_Cu.gbr"
-},
-{
-"FileFunction": "Copper,L3,Inr",
-"FilePolarity": "Positive",
-"Path": "expansion-board-In2_Cu.gbr"
-},
-{
-"FileFunction": "Copper,L4,Bot",
-"FilePolarity": "Positive",
-"Path": "expansion-board-B_Cu.gbr"
-},
-{
-"FileFunction": "Legend,Top",
-"FilePolarity": "Positive",
-"Path": "expansion-board-F_Silkscreen.gbr"
-},
-{
-"FileFunction": "Legend,Bot",
-"FilePolarity": "Positive",
-"Path": "expansion-board-B_Silkscreen.gbr"
-},
-{
-"FileFunction": "SolderMask,Top",
-"FilePolarity": "Negative",
-"Path": "expansion-board-F_Mask.gbr"
-},
-{
-"FileFunction": "SolderMask,Bot",
-"FilePolarity": "Negative",
-"Path": "expansion-board-B_Mask.gbr"
-},
-{
-"FileFunction": "Profile",
-"FilePolarity": "Positive",
-"Path": "expansion-board-Edge_Cuts.gbr"
-}
-],
-"GeneralSpecs": {
-"BoardThickness": 1.6,
-"Finish": "None",
-"LayerNumber": 4,
-"ProjectId": {
-"GUID": "6d6f746f-722d-4636-9f6e-74726f6c6c65",
-"Name": "motor-controller",
-"Revision": "rev?"
-},
-"Size": {
-"X": 100.1,
-"Y": 40.1
-}
-},
-"Header": {
-"CreationDate": "2022-02-06T20:19:19-05:00",
-"GenerationSoftware": {
-"Application": "Pcbnew",
-"Vendor": "KiCad",
-"Version": "(6.0.1)"
-}
-},
-"MaterialStackup": [
-{
-"Name": "Top Silk Screen",
-"Type": "Legend"
-},
-{
-"Name": "Top Solder Paste",
-"Type": "SolderPaste"
-},
-{
-"Name": "Top Solder Mask",
-"Thickness": 0.01,
-"Type": "SolderMask"
-},
-{
-"Name": "F.Cu",
-"Thickness": 0.035,
-"Type": "Copper"
-},
-{
-"Material": "FR4",
-"Name": "F.Cu/In1.Cu",
-"Notes": "Type: dielectric layer 1 (from F.Cu to In1.Cu)",
-"Thickness": 0.48,
-"Type": "Dielectric"
-},
-{
-"Name": "In1.Cu",
-"Thickness": 0.035,
-"Type": "Copper"
-},
-{
-"Material": "FR4",
-"Name": "In1.Cu/In2.Cu",
-"Notes": "Type: dielectric layer 2 (from In1.Cu to In2.Cu)",
-"Thickness": 0.48,
-"Type": "Dielectric"
-},
-{
-"Name": "In2.Cu",
-"Thickness": 0.035,
-"Type": "Copper"
-},
-{
-"Material": "FR4",
-"Name": "In2.Cu/B.Cu",
-"Notes": "Type: dielectric layer 3 (from In2.Cu to B.Cu)",
-"Thickness": 0.48,
-"Type": "Dielectric"
-},
-{
-"Name": "B.Cu",
-"Thickness": 0.035,
-"Type": "Copper"
-},
-{
-"Name": "Bottom Solder Mask",
-"Thickness": 0.01,
-"Type": "SolderMask"
-},
-{
-"Name": "Bottom Solder Paste",
-"Type": "SolderPaste"
-},
-{
-"Name": "Bottom Silk Screen",
-"Type": "Legend"
-}
-]
+  "Header": {
+    "GenerationSoftware": {
+      "Vendor": "KiCad",
+      "Application": "Pcbnew",
+      "Version": "(6.0.1)"
+    },
+    "CreationDate": "2022-02-15T19:49:30-05:00"
+  },
+  "GeneralSpecs": {
+    "ProjectId": {
+      "Name": "expansion-board",
+      "GUID": "65787061-6e73-4696-9f6e-2d626f617264",
+      "Revision": "rev?"
+    },
+    "Size": {
+      "X": 100.2,
+      "Y": 49.95
+    },
+    "LayerNumber": 4,
+    "BoardThickness": 1.6,
+    "Finish": "None"
+  },
+  "DesignRules": [
+    {
+      "Layers": "Outer",
+      "PadToPad": 0.2032,
+      "PadToTrack": 0.2032,
+      "TrackToTrack": 0.2032,
+      "MinLineWidth": 0.254,
+      "TrackToRegion": 0.254,
+      "RegionToRegion": 0.254
+    },
+    {
+      "Layers": "Inner",
+      "PadToPad": 0.0,
+      "PadToTrack": 0.0,
+      "TrackToTrack": 0.2032,
+      "MinLineWidth": 0.254,
+      "TrackToRegion": 0.254,
+      "RegionToRegion": 0.254
+    }
+  ],
+  "FilesAttributes": [
+    {
+      "Path": "expansion-board-F_Cu.gbr",
+      "FileFunction": "Copper,L1,Top",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "expansion-board-In1_Cu.gbr",
+      "FileFunction": "Copper,L2,Inr",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "expansion-board-In2_Cu.gbr",
+      "FileFunction": "Copper,L3,Inr",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "expansion-board-B_Cu.gbr",
+      "FileFunction": "Copper,L4,Bot",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "expansion-board-F_Silkscreen.gbr",
+      "FileFunction": "Legend,Top",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "expansion-board-B_Silkscreen.gbr",
+      "FileFunction": "Legend,Bot",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "expansion-board-F_Mask.gbr",
+      "FileFunction": "SolderMask,Top",
+      "FilePolarity": "Negative"
+    },
+    {
+      "Path": "expansion-board-B_Mask.gbr",
+      "FileFunction": "SolderMask,Bot",
+      "FilePolarity": "Negative"
+    },
+    {
+      "Path": "expansion-board-Edge_Cuts.gbr",
+      "FileFunction": "Profile",
+      "FilePolarity": "Positive"
+    }
+  ],
+  "MaterialStackup": [
+    {
+      "Type": "Legend",
+      "Name": "Top Silk Screen"
+    },
+    {
+      "Type": "SolderPaste",
+      "Name": "Top Solder Paste"
+    },
+    {
+      "Type": "SolderMask",
+      "Thickness": 0.01,
+      "Name": "Top Solder Mask"
+    },
+    {
+      "Type": "Copper",
+      "Thickness": 0.035,
+      "Name": "F.Cu"
+    },
+    {
+      "Type": "Dielectric",
+      "Thickness": 0.48,
+      "Material": "FR4",
+      "Name": "F.Cu/In1.Cu",
+      "Notes": "Type: dielectric layer 1 (from F.Cu to In1.Cu)"
+    },
+    {
+      "Type": "Copper",
+      "Thickness": 0.035,
+      "Name": "In1.Cu"
+    },
+    {
+      "Type": "Dielectric",
+      "Thickness": 0.48,
+      "Material": "FR4",
+      "Name": "In1.Cu/In2.Cu",
+      "Notes": "Type: dielectric layer 2 (from In1.Cu to In2.Cu)"
+    },
+    {
+      "Type": "Copper",
+      "Thickness": 0.035,
+      "Name": "In2.Cu"
+    },
+    {
+      "Type": "Dielectric",
+      "Thickness": 0.48,
+      "Material": "FR4",
+      "Name": "In2.Cu/B.Cu",
+      "Notes": "Type: dielectric layer 3 (from In2.Cu to B.Cu)"
+    },
+    {
+      "Type": "Copper",
+      "Thickness": 0.035,
+      "Name": "B.Cu"
+    },
+    {
+      "Type": "SolderMask",
+      "Thickness": 0.01,
+      "Name": "Bottom Solder Mask"
+    },
+    {
+      "Type": "SolderPaste",
+      "Name": "Bottom Solder Paste"
+    },
+    {
+      "Type": "Legend",
+      "Name": "Bottom Silk Screen"
+    }
+  ]
 }
