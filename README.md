@@ -40,6 +40,7 @@ Zuko uses the ROS2 framework for communication, launching, and 3rd party addons.
 
 ### Major Tasks To Do
 - Assemble v2.1 frame and electronics.
+- Test expansion-board (RPi direct control, no Teensy)
 - Create URDF model for simulation.
 - Refine motor limits.
 - Calibrate walking parameters.
@@ -51,11 +52,11 @@ Zuko uses the ROS2 framework for communication, launching, and 3rd party addons.
 Quadruped source code: https://github.com/reubenstr/quad_ws
 
 ### My contributions
+- Frame redesign using larger servos, providing more space for electronics, rework of the leg/hip system, and addition of aesthetic features (tail, etc).
 - Migration of source code from ROS1 to ROS2 (Robot Operating System) frameworks.
 - Inverse kinematics for a linked leg system for OpenQuadruped / Spot Mini Mini based quadrupeds.
 - Parameterized duplicated hard-coded values.
-- Created servo calibration script for quicker calibration and servo support.
-- A frame redesign using larger servos, providing more space for electronics, rework of the leg/hip system, and addition of aesthetic features (tail, etc).
+- Created servo calibration script for quicker calibration and servo support.- 
 - A more feature rich motor and peripheral expansion board using a Teensy 4.0 supporting aux servos, foot sensors, NeoPixls, etc.
 - 8x 18650 user accessable battery holder with onboard BMS (battery management system). 
   
@@ -63,3 +64,8 @@ Quadruped source code: https://github.com/reubenstr/quad_ws
 - Simulation, kinematics, bezier curves, and machine learning are largely based on the work from Spot Mini Mini: https://github.com/OpenQuadruped/spot_mini_mini 
 - Spot Mini Mini is based on SpotMicroAI: https://spotmicroai.readthedocs.io/en/latest/
 - Frame and leg linkage design inspired by Baris Alp's Kangel robot dog: https://grabcad.com/library/diy-quadruped-robot-1
+
+### Communities
+- Quadrupedalism: https://quadrupedalism.com/
+- SpotMicroAI Discord: https://discord.gg/m5fsENhT
+

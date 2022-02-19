@@ -27,6 +27,10 @@ Hand tools:
 	 One-Handed Bar Clamp or bench-top vise
 		presses bearing into bridge and gear interface.
 		
+	file
+	hand deburring tool kit
+		3D prints post processing
+		
 
 
 Electronics:

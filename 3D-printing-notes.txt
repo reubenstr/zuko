@@ -63,6 +63,7 @@ PARTS:
 		
 		Link Bridge:	
 			Scale: 100.6%
+			Z-Seam Alignment: Random (!important)
 			
 		Lower leg bearing press ring:
 			Scale: 100.6%
@@ -88,11 +89,15 @@ PARTS:
 		Electronics - switch bracket			
 			Scale: 100.8%
 			Generate support: enabled
-			Support density: 20%		
+			Support density: 20%	
+
+		Tools  (all)
+			Scale: 100.8%
+			Infill: 80%
 		
 	ABS BROWN:
 		Default settings:
-			Wall line count: 3
+			Wall line count: 4
 			Printing temperature: 250c
 			Build plate temperature: 100c
 			Print Speed: 100mm/s			
@@ -113,11 +118,12 @@ PARTS:
 			Scale: 100.35%			
 			
 		Upper leg main body:				
-			Infill density: 10%
+			Infill density: 20%
 			Cooling: enabled
 			Fan speed: 40%			
 			Support: enabled
-			Support density: 20%		
+			Support placement: touching buildplate
+			Support density: 50%		
 			
 		Face plate, butt plate			
 			Layer height: 0.2mm

@@ -1,0 +1,17 @@
+
+CAD Assembly Actions:
+	12x frame bolts to side
+	lower leg servo horn bolts
+	battery board bolts
+	rpi / expansion screws/bolts
+	hip thrust washers
+	battery board, remove inserts, use M4 course thread screws
+	sides - add holes to fit battery board's solder lugs from the power wires
+	hip - add servo wire hold down
+	
+	// make center front/rear frame 1mm thinner to compensate for 
+	
+Battery Holder PCB:
+	Increase mounting screw size to fit M4 course thread screws
+	
+	
