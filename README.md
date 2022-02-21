@@ -1,48 +1,43 @@
 # Zuko - A quadruped robot dog!
 
-<img src="https://github.com/reubenstr/Zuko/blob/main/images/v2/zuko-robot-dog-cad-design.png" width="640"> | 
+<img src="https://github.com/reubenstr/Zuko/blob/main/images/v2.1/cad/zuko-v2.1-cad-rendering-side.png" width="640"> | 
 ------------ | 
-v2 CAD design. |
+Frame v2.1 CAD design. |
 
 <img src="https://github.com/reubenstr/Zuko/blob/main/images/v1/zuko-australian-shepard-mini.jpg" width="640"> | 
 ------------ | 
 Zuko himself! |
 
-<img src="https://github.com/reubenstr/Zuko/blob/main/diagrams/linked-leg-kinematic-dragram.png" width="640"> | 
+<img src="https://github.com/reubenstr/Zuko/blob/main/images/v2.1/assembling/zuko-robot-dog-printed-parts-exploded-v2.1.jpg" width="640"> | 
 ------------ | 
-Linked leg kinematic diagram. |
+Frame v2.1 parts printed. |
 
-<img src="https://github.com/reubenstr/Zuko/blob/main/scripts/kinematics-simulation/forward-kinematics-simulation-result.png" width="640"> | 
+<img src="https://github.com/reubenstr/Zuko/blob/main/pcbs/expansion-board/expansion-board-prototype-render.png" width="640"> | 
 ------------ | 
-Linked leg kinematic simulation result. |
+Expansion board v1 for direct RPi inteface. |
 
-<img src="https://github.com/reubenstr/Zuko/blob/main/pcbs/motor-controller/motor-controller-render-2.jpg" width="640"> | 
+<img src="https://github.com/reubenstr/Zuko/blob/main/images/v2.1/testing/zuko-v2.1-first-time-standing-2.jpg" width="640"> | 
 ------------ | 
-Motor controller board. |
+Zuko frame v2.1 first time standing. |
 
-<img src="https://github.com/reubenstr/Zuko/blob/main/images/v2/zuko-robot-dog-printed-parts-exploded.jpg" width="640"> | 
+<img src="https://github.com/reubenstr/Zuko/blob/main/images/v2.1/assembling/zuko-v2.1-linked-leg-bridge-bearing-assembly-front.jpg" width="640"> | 
 ------------ | 
-v2 printed parts ready for assembly. |
-
-<img src="https://github.com/reubenstr/Zuko/blob/main/images/v1/zuko-v1-first-standing-on-power.jpg" width="640"> | 
------------- | 
-v1 first time standing. |
+Frame v2.1 upper leg, linked leg bridge, and servo horn interfaces press fit together. |
 
 ### Status
 
 **Development.**  
 
-**V2.1 Frame is being tested and is not ready for replication**
+**V2.1 Frame is being tested and is nearly ready for replication**
 
 ### General
 
 Zuko uses the ROS2 framework for communication, launching, and 3rd party addons. The ROS2 workspace contains the quadruped source code and operates inside Ubuntu either on a PC or RPi. The motors are controlled by a Teensy 4.0 microcontroller on a separate board which is connected to either the PC or RPi over USB or UART.
 
-### Major Tasks To Do
-- Assemble v2.1 frame and electronics.
-- Test expansion-board (RPi direct control, no Teensy)
+### Major Tasks To Do-
+- Fab/test expansion-board (RPi direct control, no Teensy)
 - Create URDF model for simulation.
-- Refine motor limits.
+- Refine motor limits, update kinematic model to frame v2.1.
 - Calibrate walking parameters.
 - Code BN055 IMU.
 - Connect machine learning algorithms.
