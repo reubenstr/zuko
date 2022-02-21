@@ -7,10 +7,9 @@ CAD Assembly Actions:
 	hip thrust washers
 	battery board, remove inserts, use M4 course thread screws
 	sides - add holes to fit battery board's solder lugs from the power wires
-	hip - add servo wire hold down
-	
-	// make center front/rear frame 1mm thinner to compensate for 
-	
+	hip - add servo wire hold down	
+	make center front/rear frame 0.5mm thinner to compensate for part size discrepancies
+		
 Battery Holder PCB:
 	Increase mounting screw size to fit M4 course thread screws
 	

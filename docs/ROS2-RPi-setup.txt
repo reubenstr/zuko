@@ -1,4 +1,5 @@
 General instructions on installing ROS2 on the Raspberry Pi
+Work in progress, not ready for replication
 
 Install Ubuntu 20.04 and setup Wi-Fi:
 	https://roboticsbackend.com/install-ubuntu-on-raspberry-pi-without-monitor/
@@ -12,9 +13,42 @@ Clone repository and build:
 	cd rpi_quad_ws
 	colcon build
 	
-Source micro_ros:
-	...
+source ws:
+		source install/local_setup.bash
 	
+
+Grant access to I2C:
+	/* DID NOT WORK
+	sudo apt install rpi.gpio-common
+	sudo adduser "${USER}" input
+	sudo reboot
+	*/
+	
+	sudo chmod a+rw /dev/i2c-*
+
+
+Generate servo config yaml file
+	gen_servo... TODO
+
+	
+########	
+	
+I2C
+	https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16-channel-servo-driver-with-raspberry-pi.pdf	
+	
+	sudo apt-get install i2c-tools
+	
+	verify i2c device is detected:
+		sudo i2cdetect -y 1
+	
+	
+	sudo pip3 install adafruit-circuitpython-servokit
+	
+########
+
+
+calibrate servos, run tool to generate calibration file prior to launching quad
+	###colcon build --packages-select quad; ros2 launch quad motion_servo_calibration.launch.py 	
 	
 	
 For micro-ros:
