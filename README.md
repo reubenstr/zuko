@@ -18,11 +18,24 @@ Expansion board v1 for direct RPi inteface. |
 
 <img src="https://github.com/reubenstr/Zuko/blob/main/images/v2.1/testing/zuko-v2.1-first-time-standing-2.jpg" width="640"> | 
 ------------ | 
-Zuko frame v2.1 first time standing. |
+Frame v2.1 first time standing. |
 
 <img src="https://github.com/reubenstr/Zuko/blob/main/images/v2.1/assembling/zuko-v2.1-linked-leg-bridge-bearing-assembly-front.jpg" width="640"> | 
 ------------ | 
-Frame v2.1 upper leg, linked leg bridge, and servo horn interfaces press fit together. |
+Frame v2.1 upper leg's servo horn, linked leg bridge, and bridge bearing press fit together. |
+
+
+[![Watch the video](https://img.youtube.com/vi/D2snHtP22o0/hqdefault.jpg)](https://youtu.be/D2snHtP22o0) | 
+------------ | 
+Video: frame v2.1 first tests |
+
+[![Watch the video](https://img.youtube.com/vi/J1g2Bx3SKjw/hqdefault.jpg)](https://youtu.be/J1g2Bx3SKjw) | 
+------------ | 
+Video: Sydney meets Zuko |
+
+
+
+
 
 ### Status
 
