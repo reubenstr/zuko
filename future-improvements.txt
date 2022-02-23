@@ -1,2 +1,3 @@
 Next major frame redesign/reprint:
 	Frame bridge holes spaced further apart.
+	Use EVA foam tape for foot grip, remove TPU.
