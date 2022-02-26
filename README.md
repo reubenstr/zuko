@@ -33,10 +33,6 @@ Video: frame v2.1 first tests |
 ------------ | 
 Video: Sydney meets Zuko |
 
-
-
-
-
 ### Status
 
 **Development.**  
@@ -45,7 +41,7 @@ Video: Sydney meets Zuko |
 
 ### General
 
-Zuko uses the ROS2 framework for communication, launching, and 3rd party addons. The ROS2 workspace contains the quadruped source code and operates inside Ubuntu either on a PC or RPi. The motors are controlled by a Teensy 4.0 microcontroller on a separate board which is connected to either the PC or RPi over USB or UART.
+Zuko uses the ROS2 framework for communication, launching, and 3rd party addons. Zuko uses a Rasberry Pi 4 with a custom expansion board for motor and peripheral control via a Playstation 4 controller.
 
 ### Major Tasks To Do
 - Fab/test expansion-board (RPi direct control, no Teensy)
