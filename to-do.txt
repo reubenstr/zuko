@@ -1,4 +1,5 @@
-CAD Assembly Actions:	
+CAD Assembly Actions:
+	print/test electronics mounting plate, may need to be modified to sink into frame few mm to save precious space
 	rpi / expansion screws/bolts	
 	adjust expansion board mounting plate screw hole locations and risers
 	add 50mm fan screws
