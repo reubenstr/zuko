@@ -1,16 +1,18 @@
-
-CAD Assembly Actions:
-	12x frame bolts to side
-	lower leg servo horn bolts
-	battery board bolts
-	rpi / expansion screws/bolts
-	hip thrust washers
-	battery board, remove inserts, use M4 course thread screws
-	sides - add holes to fit battery board's solder lugs from the power wires
-	hip - add servo wire hold down	
-	make center front/rear frame 0.5mm thinner to compensate for part size discrepancies
+CAD Assembly Actions:	
+	rpi / expansion screws/bolts	
+	
+Reprint/Redesign:
+	Feet:
+		Replace TPU feet with EVA tape (after testing)	
 		
 Battery Holder PCB:
 	Increase mounting screw size to fit M4 course thread screws
 	
-	
+Temp notes:
+	Weight:
+		frame w/electronics: 1895g
+		batteries: 94g * 4 = 376g
+		top/bottom cover : 76g
+		fan: 12g
+		+misc.: 50g
+		=== ~2200g

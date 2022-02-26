@@ -7,6 +7,7 @@ Select the latest version if you intend to make or redesign your own robot dog.
 	25t spline to gear adapters replaced with common servo horn to increase part accessibility and to reduce cost. Suggested by SnowGliderr.
 	Upper leg, lower leg servo horn, and hips redesigned to accept new servo horn.
 	Frame bridge added top/bottom flair outs for aesthetics.
+	Minor tweaks applied during assembly.
 	
 ### v2 Change Log
 
