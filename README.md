@@ -47,8 +47,9 @@ Video: Sydney meets Zuko |
 
 Zuko uses the ROS2 framework for communication, launching, and 3rd party addons. The ROS2 workspace contains the quadruped source code and operates inside Ubuntu either on a PC or RPi. The motors are controlled by a Teensy 4.0 microcontroller on a separate board which is connected to either the PC or RPi over USB or UART.
 
-### Major Tasks To Do-
+### Major Tasks To Do
 - Fab/test expansion-board (RPi direct control, no Teensy)
+- Seperate simulation from rpi_quad_ws to able to execute the simulation of a PC over ROS2
 - Create URDF model for simulation.
 - Refine motor limits, update kinematic model to frame v2.1.
 - Calibrate walking parameters.
@@ -57,7 +58,9 @@ Zuko uses the ROS2 framework for communication, launching, and 3rd party addons.
 
 ### ROS2 Workspace 
 
-Quadruped source code: https://github.com/reubenstr/quad_ws
+Quadruped source code for RPi 4 & expansion board (active): https://github.com/reubenstr/rpi_quad_ws
+
+Quadruped source code for PC & Teensy 4.0 (inactive): https://github.com/reubenstr/quad_ws
 
 ### My contributions
 - Frame redesign using larger servos, providing more space for electronics, rework of the leg/hip system, and addition of aesthetic features (tail, etc).
