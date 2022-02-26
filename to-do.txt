@@ -1,5 +1,7 @@
 CAD Assembly Actions:	
 	rpi / expansion screws/bolts	
+	adjust expansion board mounting plate screw hole locations and risers
+	add 50mm fan screws
 	
 Reprint/Redesign:
 	Feet:
