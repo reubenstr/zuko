@@ -54,9 +54,7 @@ Zuko uses the ROS2 framework for communication, launching, and 3rd party addons.
 
 ### ROS2 Workspace 
 
-Quadruped source code for RPi 4 & expansion board (active): https://github.com/reubenstr/rpi_quad_ws
-
-Quadruped source code for PC & Teensy 4.0 (inactive): https://github.com/reubenstr/quad_ws
+ROS2 quadruped source code: https://github.com/reubenstr/quad_ws
 
 ### My contributions
 - Frame redesign using larger servos, providing more space for electronics, rework of the leg/hip system, and addition of aesthetic features (tail, etc).
