@@ -1,3 +1,3 @@
 # Docs
 
-May contain setup docs for ROS2 workspace as a temporary backup location.
+Documentation is currently being updated to reflect frame v2.1, the new RPi expansion board, and rpi_quad_ws.
