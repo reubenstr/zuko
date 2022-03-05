@@ -1,10 +1,10 @@
 # Zuko - A quadruped robot dog!
 
-<img src="https://github.com/reubenstr/Zuko/blob/main/images/v2.1/cad/zuko-v2.1-cad-rendering-side.png" width="640"> | 
+<img src="https://github.com/reubenstr/Zuko/blob/main/images/v2.2/cad/zuko-v2.2-cad-render-side.png" width="640"> | 
 ------------ | 
 Frame v2.1 CAD design. |
 
-<img src="https://github.com/reubenstr/Zuko/blob/main/images/v1/zuko-australian-shepard-mini.jpg" width="640"> | 
+<img src="https://github.com/reubenstr/Zuko/blob/main/images/general/zuko-mini-australian-shepard.jpg" width="640"> | 
 ------------ | 
 Zuko himself! |
 
