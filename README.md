@@ -37,19 +37,20 @@ Video: Sydney meets Zuko |
 
 **Development.**  
 
-**V2.1 Frame is being tested and is nearly ready for replication**
+**V2.2 Frame is being tested and is nearly ready for replication**
 
 ### General
 
 Zuko uses the ROS2 framework for communication, launching, and 3rd party addons. Zuko uses a Rasberry Pi 4 with a custom expansion board for motor and peripheral control via a Playstation 4 controller.
 
 ### Major Tasks To Do
+
 - Fab/test expansion-board (RPi direct control, no Teensy)
-- Seperate simulation from rpi_quad_ws to able to execute the simulation of a PC over ROS2
 - Create URDF model for simulation.
-- Refine motor limits, update kinematic model to frame v2.1.
+- Refine motor limits, update kinematic model to frame v2.2.
 - Calibrate walking parameters.
-- Code BN055 IMU.
+- Create high level documentation
+- Code in BN055 IMU.
 - Connect machine learning algorithms.
 
 ### ROS2 Workspace 

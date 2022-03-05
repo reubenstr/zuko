@@ -1,7 +1,5 @@
 3D PRINTING NOTES:
 
-	Frame v2.1 (notes are currently being adjusted to reflect v2.1)
-
 	Printing settings are tuned to the filament and printers used to create the orginal Zuko.
 	Settings likley will need adjustment to match your filament, printers, ambient temperature, etc.
 	Slicer configuration naming convention follows the Cura slicer nomenclature.
@@ -19,33 +17,25 @@
 			Brown: 
 				eSun ABS
 			White: 
-				eSun ABS
-		TPU:
-			White: 
-				Overature TPU
-		PLA
+				eSun ABS		
+		PLA (optional):
 			Black: 
 				Overture Matte Black PLA
 	
 	Most parts should printed in ABS for heat resistance properties (direct sunlight). 
-	Other materials such as ASA, carbon fiber, and polycarbonate may also work but are untested.
+	Other materials such as ASA, carbon fiber, and polycarbonate should also work but are untested.
 	Some parts may be printed in PLA for convenience such as electronic mounting plates.
-	Feet and tail are printed in TPU filament.
-		
+			
 	The upper leg bearing interface is a press fit, scaling trial and error is likely to acheive a tight press fit.
 		
 TIPS & TRICKS:
-	Note:
-		These adjustems taken during printing to increase print quality for the given printers, filament, and environment.
 	Shrinking parts:
 		ABS will shrink and parts likely will need to be scaled during slicing to match your brand of ABS.
 	Prevent lifted corners:
 		ABS must be printed in an enclosure free from air current, with a high bed temperature, and (in many cases) an enabled cooling fan.
 	Smoother top layers for better fits:
 		Top surface skin layers: 2
-		Top surface skin flow: 90%
-	Cleaner TPU surfaces:
-		Reduced temperature.	
+		Top surface skin flow: 90%	
 		
 PARTS:
 	ABS BLACK:	
@@ -86,14 +76,22 @@ PARTS:
 			Cooling: enabled			
 			Build plat adhesion type: brim		
 			
-		Electronics - switch bracket			
+		Electronics - switch bracket:			
 			Scale: 100.8%
 			Generate support: enabled
 			Support density: 20%	
 
-		Tools  (all)
+		Tools (all):
 			Scale: 100.8%
 			Infill: 80%
+			
+		Foot:			
+			Infill Density: 80%
+			Scale: 100.5%
+			Cooling: Enabled
+			Cooling Fan Speed: 50%
+			Support: enabled
+			Support density: 50%
 		
 	ABS BROWN:
 		Default settings:
@@ -162,7 +160,7 @@ PARTS:
 			Cooling fan: 25%
 			Support: enabled
 			
-			Suuport structure: grid
+			Support structure: grid
 			Support density: 60%
 			- or -
 			Support structure: Tree
@@ -173,9 +171,8 @@ PARTS:
 			Layer Height: 0.3mm	
 			Wall line count: 2
 			Infill Density: 15%
-			//Cooling: Enabled
-			//Cooling Fan Speed: 25%
-			
+			Cooling: Enabled
+			Cooling Fan Speed: 25%		
 				
 	PLA:
 		Default settings:
@@ -183,26 +180,7 @@ PARTS:
 			Infill density: 20%
 			Print speed 150mm/s
 			Cooling: 100%
-			
-		BNO055 mount:
-			Default settings
-			
-		RPi mount:
-			Default settings
-			
-		Motor controller mount:
-			Default settings
-			
-	TPU:
-		Default settings:
-			Layer height: 0.2mm
-			Infill density: 20%
-			Printing temperature: 225C
-			Build plate temperature: 60C
-			Print speed: 20mm/s
-			Enable cooling: enabled
-			Fan speed: 100%
-			Generate support: enabled
-			
-		Feet, tail:
-			Default settings
+				
+		Electronics mounting plate:
+			Default settings		
+	

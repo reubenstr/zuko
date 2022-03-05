@@ -2,15 +2,27 @@
 
 Select the latest version if you intend to make or redesign your own robot dog.
 
+See the STL folder for assembly tools.
+
+### v2.2 Change Log
+
+	Removed TPU feet.
+		Reduces filament types and lowers cost.
+	Added EVA tape feet.
+		Inceases grip.
+	Lower legs redesigend to accommodate EVA tape feet.
+	Added EVA tape feet glueing jig.
+
 ### v2.1 Change Log
 
-	25t spline to gear adapters replaced with common servo horn to increase part accessibility and to reduce cost. Suggested by SnowGliderr.
+	25t spline to gear adapters replaced with common servo horn.
+		Increases part accessibility and to reduce cost. Suggested by SnowGliderr.
 	Upper leg, lower leg servo horn, and hips redesigned to accept new servo horn.
 	Frame bridge added top/bottom flair outs for aesthetics.
 	Single unit electronics mounting plate for expansion board mounting direct to RPi4.
 	Minor tweaks applied during assembly.
 	
-### v2 Change Log
+### v2.0 Change Log
 
 	Replaced hip drive belts with direct drive by relocating hip motors into the electronics bay.
 	Updated front and back center frames to support direct drive.

@@ -31,8 +31,7 @@ Hand tools:
 	hand deburring tool kit
 		3D prints post processing
 		
-
-
+		
 Electronics:
 	
 	multimeter - generic
@@ -54,16 +53,18 @@ Soldering / wiring:
 	
 	crimping tool for dupont headers - Engineers Precision Crimping Pliers Pa-09
 	
+	
 3D printer:
 	
 	Requirements:
 		capable of printing ABS 1.75mm filament (enclosure, ventilation, etc.)
 		minimum bed size: 175mm square
 
+
 Consumables:
 
 	thread lock (blue)
-		assures bolted leg joints do not loosen
+		assures bolted leg joints do not loosen		
 	
 	super glue (extra thick) - BSI Maxi-Cure®
 		bonds 3D printed accents to frame parts

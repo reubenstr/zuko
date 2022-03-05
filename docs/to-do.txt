@@ -4,12 +4,20 @@ CAD Assembly Actions:
 	
 Reprint/Redesign:
 	print/test electronics mounting plate, may need to be modified to sink into frame few mm to save precious space
-	Feet:
-		Replace TPU feet with EVA tape (after testing)	
-		
+			
 Battery Holder PCB:
 	Increase mounting screw size to fit M4 course thread screws
 	
+Documentation:
+	print times per part
+	print material (grams per design)
+	
+###############################################################################	
+	
+Future improvements (for a later major revision, unplanned):
+	Widen space between bridge mounting holes.
+	Add contact sensors to feet.
+		
 Temp notes:
 	Weight:
 		frame w/electronics: 1895g
@@ -18,3 +26,4 @@ Temp notes:
 		fan: 12g
 		+misc.: 50g
 		=== ~2200g
+		
