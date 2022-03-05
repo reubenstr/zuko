@@ -2,7 +2,7 @@
 
 <img src="https://github.com/reubenstr/Zuko/blob/main/images/v2.2/cad/zuko-v2.2-cad-render-side.png" width="640"> | 
 ------------ | 
-Frame v2.1 CAD design. |
+Frame v2.2 CAD design. |
 
 <img src="https://github.com/reubenstr/Zuko/blob/main/images/general/zuko-mini-australian-shepard.jpg" width="640"> | 
 ------------ | 
