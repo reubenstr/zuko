@@ -14,9 +14,14 @@ Documentation:
 	
 ###############################################################################	
 	
-Future improvements (for a later major revision, unplanned):
+Future improvements and other thoughts (for a later major revision, unplanned):
+	Add battery charging capability without removing batteries.
 	Widen space between bridge mounting holes.
 	Add contact sensors to feet.
+	Watch lower leg and hip bearings, might need to increase size.
+	Add integrated camera / add face.
+	Add ears.
+	Add top plate with mounting hole grid for equipment (lidar) tests.
 		
 Temp notes:
 	Weight:

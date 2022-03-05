@@ -17,16 +17,23 @@
 			Brown: 
 				eSun ABS
 			White: 
-				eSun ABS		
+				eSun ABS
+		
+		TPU (optional):
+			White: 
+				Overature TPU				
+		
 		PLA (optional):
 			Black: 
-				Overture Matte Black PLA
+				Overture Matte Black PLA			
 	
 	Most parts should printed in ABS for heat resistance properties (direct sunlight). 
 	Other materials such as ASA, carbon fiber, and polycarbonate should also work but are untested.
 	Some parts may be printed in PLA for convenience such as electronic mounting plates.
 			
 	The upper leg bearing interface is a press fit, scaling trial and error is likely to acheive a tight press fit.
+	
+	TPU is optional if you want a tail as shown in the CAD model.
 		
 TIPS & TRICKS:
 	Shrinking parts:
@@ -35,7 +42,11 @@ TIPS & TRICKS:
 		ABS must be printed in an enclosure free from air current, with a high bed temperature, and (in many cases) an enabled cooling fan.
 	Smoother top layers for better fits:
 		Top surface skin layers: 2
-		Top surface skin flow: 90%	
+		Top surface skin flow: 90%
+	Cleaner TPU surfaces:
+		Reduce temperature.
+	Adhesion:
+		PEI build plates work very well. Clean them off with dish soap to remove oils from hands.
 		
 PARTS:
 	ABS BLACK:	
@@ -182,5 +193,19 @@ PARTS:
 			Cooling: 100%
 				
 		Electronics mounting plate:
-			Default settings		
+			Default settings	
+
+	TPU:
+		Default settings:
+			Layer height: 0.2mm
+			Infill density: 20%
+			Printing temperature: 225C
+			Build plate temperature: 60C
+			Print speed: 20mm/s
+			Enable cooling: enabled
+			Fan speed: 100%
+			Generate support: enabled
+			
+		Tail:
+			Default settings
 	

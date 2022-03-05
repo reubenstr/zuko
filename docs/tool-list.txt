@@ -31,6 +31,9 @@ Hand tools:
 	hand deburring tool kit
 		3D prints post processing
 		
+	sissors
+		trimming EVA tape from feet
+		
 		
 Electronics:
 	
@@ -44,6 +47,7 @@ Electronics:
 Soldering / wiring:
 
 	soldering iron - T12 Soldering Station
+	fume extractor / ventilation
 	solering iron cleaner - generic brass scrubbber
 	solder flux - your preference
 
@@ -52,6 +56,9 @@ Soldering / wiring:
 	wire stripper - Engineer PA-14 and PA-07
 	
 	crimping tool for dupont headers - Engineers Precision Crimping Pliers Pa-09
+	
+	hot-air rework station or hot-air blower (or flame lighter at last resort)
+		heat shrink forming
 	
 	
 3D printer:
@@ -69,8 +76,8 @@ Consumables:
 	super glue (extra thick) - BSI Maxi-Cure®
 		bonds 3D printed accents to frame parts
 		
-	VHB tape
-		mounts BNO055 IMU to mounting plate
+
+	
 		
 
 	
