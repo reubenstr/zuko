@@ -45,8 +45,8 @@ Zuko uses the ROS2 framework for communication, launching, and 3rd party addons.
 
 ### Major Tasks To Do
 
+- Create URDF model for simulation - in progress.
 - Fab/test expansion-board (RPi direct control, no Teensy)
-- Create URDF model for simulation.
 - Refine motor limits, update kinematic model to frame v2.2.
 - Calibrate walking parameters.
 - Create high level documentation
@@ -55,7 +55,7 @@ Zuko uses the ROS2 framework for communication, launching, and 3rd party addons.
 
 ### ROS2 Workspace 
 
-ROS2 quadruped source code: https://github.com/reubenstr/quad_ws
+ROS2 source code is contained the quad_ws directory.
 
 ### My contributions
 - Frame redesign using larger servos, providing more space for electronics, rework of the leg/hip system, and addition of aesthetic features (tail, etc).
