@@ -1,0 +1,653 @@
+<?xml version="1.0"?>
+<robot name="zuko" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!--
+<xacro:include filename="$(find quad_urdf)/urdf/zuko_hips_and_legs.urdf.xacro" />
+-->
+
+
+   <material name="brown">
+    <color rgba="0.588 0.294 0.0 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0.1 0.1 0.1 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+ 
+<xacro:macro name="mesh_link" params="name origin_xyz origin_rpy meshfile meshscale c_xyz matname mass i_xyz i_rpy length width height">
+	<link name="${name}">
+	  <visual>
+		<origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
+		<geometry>
+		  <mesh filename="${meshfile}" scale="${meshscale}"/>
+		</geometry>
+		<material name="${matname}"/>
+	  </visual>
+
+	  <collision>
+		<origin rpy="${origin_rpy}" xyz="${c_xyz}" />
+		<geometry>
+		  <box size="${length} ${width} ${height}" />
+		</geometry>
+	  </collision>
+
+	  <inertial>
+		<mass value="${mass}" />
+		<origin rpy="${i_rpy}" xyz="${i_xyz}" /> <!-- Inertial Axes -->
+		<inertia ixx="${mass * (width * width + height * height)/12.0}" ixy="${0}" ixz="${0}" iyx="${0}" iyy="${mass * (length * length + height * height)/12.0}" iyz="${0}" izx="${0}" izy="${0}" izz="${mass * (length * length + width * width)/12.0}" />
+	  </inertial>
+	</link>
+	<gazebo reference="${name}">
+		<xacro:if value="${matname == 'black'}">
+		  <material>Gazebo/Black</material>
+		</xacro:if>
+		<xacro:if value="${matname == 'orange'}">
+		  <material>Gazebo/Orange</material>
+		</xacro:if>
+	</gazebo>
+</xacro:macro>
+  
+<xacro:macro name="frame_joint" params="name type origin_rpy origin_xyz parent child">
+	<joint name="${name}" type="${type}">
+	  <origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
+	  <parent link="${parent}" />
+	  <child link="${child}" />
+	</joint>
+</xacro:macro>
+
+<xacro:macro name="rev_joint" params="name type axis_xyz origin_rpy origin_xyz parent child effort velocity damping friction upper lower">
+    <joint name="${name}" type="${type}">
+      <axis xyz="${axis_xyz}" />
+      <origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
+      <parent link="${parent}" />
+      <child link="${child}" />
+      <limit effort="${effort}" velocity="${velocity}" lower="${lower}" upper="${upper}"/>
+      <joint_properties damping="${damping}" friction="${friction}" />
+    </joint>
+  </xacro:macro>
+  
+<xacro:macro name="transmission" params="leg ">
+    <transmission name="${leg}_hip_joint_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="motor_${leg}_hip">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${leg}_hip_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="${leg}_upper_leg_joint_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="motor_${leg}_lower_leg">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${leg}_upper_leg_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="${leg}_lower_leg_joint_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="motor_${leg}_upper_leg">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${leg}_lower_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+</xacro:macro>
+  
+
+<!-- STATIC Links -->
+
+	<!-- Offsets-->
+	<xacro:property name="center_thickness" value="0.018" />
+	<xacro:property name="center_orgin_offset" value="0.0025" />
+	<xacro:property name="side_length" value="0.148" />
+	<xacro:property name="bridge_length" value="0.0535" />
+ 
+
+	<xacro:mesh_link name="base_link"
+		origin_rpy="${pi/2} 0 -${pi/2}"
+		origin_xyz="-${center_orgin_offset} 0 0"  
+		i_rpy="0 0 0"
+		i_xyz="0 0 0"
+		mass="0.6"
+		c_xyz="0 0 0"
+		length="0"
+		width="0"
+		height="0"
+		matname="brown"
+		meshfile="package://quad_urdf/stl/center_front.stl"
+		meshscale="1 1 1" />
+
+	<xacro:mesh_link name="side_left_link"
+		origin_rpy="${pi/2} 0 ${pi/2}"
+		origin_xyz="0 0 0"
+		i_rpy="0 0 0"
+		i_xyz="0 0 0"
+		mass="0.6"
+		c_xyz="0 0 0"
+		length="0"
+		width="0"
+		height="0"
+		matname="brown"
+		meshfile="package://quad_urdf/stl/side_left.stl"
+		meshscale="1 1 1" />
+		
+	<xacro:mesh_link name="side_right_link"
+		origin_rpy="${pi/2} 0 -${pi/2}"
+		origin_xyz="0 0 0"
+		i_rpy="0 0 0"
+		i_xyz="0 0 0"
+		mass="0.6"
+		c_xyz="0 0 0"
+		length="0"
+		width="0"
+		height="0"
+		matname="brown"
+		meshfile="package://quad_urdf/stl/side_right.stl"
+		meshscale="1 1 1" />
+		
+	<xacro:mesh_link name="center_back_link"
+		origin_rpy="${pi/2} 0 ${pi/2}"
+		origin_xyz="${center_orgin_offset} 0 0"
+		i_rpy="0 0 0"
+		i_xyz="0 0 0"
+		mass="0.6"
+		c_xyz="0 0 0"
+		length="0"
+		width="0"
+		height="0"
+		matname="brown"
+		meshfile="package://quad_urdf/stl/center_back.stl"
+		meshscale="1 1 1" />
+	
+	<xacro:mesh_link name="bridge_front_link"
+		origin_rpy="${pi/2} 0 -${pi/2}"
+		origin_xyz="0 0 0"
+		i_rpy="0 0 0"
+		i_xyz="0 0 0"
+		mass="0.6"
+		c_xyz="0 0 0"
+		length="0"
+		width="0"
+		height="0"
+		matname="white"
+		meshfile="package://quad_urdf/stl/bridge_front.stl"
+		meshscale="1 1 1" />
+		
+			
+	<xacro:mesh_link name="bridge_back_link"
+		origin_rpy="${pi/2} 0 -${pi/2}"
+		origin_xyz="0 0 0"
+		i_rpy="0 0 0"
+		i_xyz="0 0 0"
+		mass="0.6"
+		c_xyz="0 0 0"
+		length="0"
+		width="0"
+		height="0"
+		matname="white"
+		meshfile="package://quad_urdf/stl/bridge_back.stl"
+		meshscale="1 1 1" />
+		
+	<xacro:mesh_link name="face_link"
+		origin_rpy="${pi/2} 0 ${pi/2}"
+		origin_xyz="0 0 0"
+		i_rpy="0 0 0"
+		i_xyz="0 0 0"
+		mass="0.6"
+		c_xyz="0 0 0"
+		length="0"
+		width="0"
+		height="0"
+		matname="brown"
+		meshfile="package://quad_urdf/stl/face.stl"
+		meshscale="1 1 1" />
+		
+	<xacro:mesh_link name="butt_link"
+		origin_rpy="${pi/2} 0 -${pi/2}"
+		origin_xyz="0 0 0"
+		i_rpy="0 0 0"
+		i_xyz="0 0 0"
+		mass="0.6"
+		c_xyz="0 0 0"
+		length="0"
+		width="0"
+		height="0"
+		matname="brown"
+		meshfile="package://quad_urdf/stl/butt.stl"
+		meshscale="1 1 1" />
+		
+
+<!-- STATIC Joints -->
+
+<xacro:frame_joint name="side_left_joint"
+			type="fixed"
+			origin_rpy="0 0 0" 
+			origin_xyz="-${center_thickness + side_length} 0.060 0.015"
+			parent="base_link" 
+			child="side_left_link"/>
+
+<xacro:frame_joint name="side_right_joint"
+			type="fixed"
+			origin_rpy="0 0 0" 
+			origin_xyz="-${center_thickness} -0.060 0.015"
+			parent="base_link" 
+			child="side_right_link"/>
+
+<xacro:frame_joint name="center_back_joint"
+			type="fixed"
+			origin_rpy="0 0 0" 
+			origin_xyz="-${side_length + center_thickness + center_thickness} 0 0"
+			parent="base_link" 
+			child="center_back_link"/>
+			
+<xacro:frame_joint name="bridge_front_joint"
+			type="fixed"
+			origin_rpy="0 0  0"
+			origin_xyz="${bridge_length} 0 -0.011"
+			parent="base_link" 
+			child="bridge_front_link"/>
+  
+<xacro:frame_joint name="bridge_back_joint"
+			type="fixed"
+			origin_rpy="0 0 0" 
+			origin_xyz="0 0 -0.011"
+			parent="center_back_link" 
+			child="bridge_back_link"/>
+			
+<xacro:frame_joint name="face_joint"
+			type="fixed"
+			origin_rpy="0 0 0" 
+			origin_xyz="0 0 0"
+			parent="bridge_front_link" 
+			child="face_link"/>
+  
+<xacro:frame_joint name="butt_joint"
+			type="fixed"
+			origin_rpy="0 0 0" 
+			origin_xyz="-${bridge_length} 0 0"
+			parent="bridge_back_link" 
+			child="butt_link"/>  
+						
+
+
+<!-- Hips/Legs Links/Joints -->	
+	
+	<!-- Offsets -->		
+		<xacro:property name="servo_flange_protrusion_from_center_distance" value="0.002" /> 
+		<xacro:property name="hip_origin_to_upper_leg_servo_origin_x" value="${-0.0145}" /> 
+		<xacro:property name="hip_origin_to_upper_leg_servo_origin_back_x" value="${-0.0145 - .021}" /> 	
+		<xacro:property name="hip_origin_to_upper_leg_servo_origin_y" value="${-0.03175}" /> 		
+		<xacro:property name="upper_leg_origin_offset_to_center_of_leg" value="${0.0075}" /> 
+		
+	<!-- Lengths -->		
+		<xacro:property name="upper_leg_length_between_joints" value="${0.100}" /> 
+
+	<!-- Limits -->	
+		<xacro:property name="hip_upper_limit" value="${30 * pi/180}" /> 
+		<xacro:property name="hip_lower_limit" value="${-30 * pi/180}" /> 
+		<xacro:property name="upper_leg_upper_limit" value="${110 * pi/180}" /> 
+		<xacro:property name="upper_leg_lower_limit" value="${0 * pi/180}" /> 		
+		<xacro:property name="lower_leg_upper_limit" value="${59.5 * pi/180}" /> 
+		<xacro:property name="lower_leg_lower_limit" value="${-80 * pi/180}" /> 
+
+		
+	<!-- FRONT LEFT -->			
+		<xacro:mesh_link name="front_left_hip_link"
+				origin_rpy="0 0 0"
+				origin_xyz="0 0 0"
+				i_rpy="0 0 0"
+				i_xyz="0 0 0"
+				mass="0.6"
+				c_xyz="0 0 0"
+				length="0"
+				width="0"
+				height="0"
+				matname="white"
+				meshfile="package://quad_urdf/stl/hip_front.stl"
+				meshscale="1 1 1" />
+			  
+		<xacro:rev_joint name="front_left_hip_rev_joint" 
+				type="revolute"
+			    axis_xyz="-1 0 0"
+			    origin_rpy="0 0 ${pi}" 
+				origin_xyz="${servo_flange_protrusion_from_center_distance} 0.0455 0"    
+			    effort="4.0"
+			    velocity="4.0"
+			    damping="0.0"
+			    friction="0.0"
+			    upper="${hip_upper_limit}"
+			    lower="${hip_lower_limit}"            
+			    parent="base_link"
+			    child="front_left_hip_link" />
+				    
+		<xacro:mesh_link name="front_left_upper_leg_link"
+					origin_rpy="-${pi/2} ${pi/2} 0"
+					origin_xyz="0 0 0"
+					i_rpy="0 0 0"
+					i_xyz="0 0 0"
+					mass="0.6"
+					c_xyz="0 0 0"
+					length="0"
+					width="0"
+					height="0"
+					matname="brown"
+					meshfile="package://quad_urdf/stl/upper_leg.stl"
+					meshscale="1 1 1" />
+			  
+		<xacro:rev_joint name="front_left_upper_leg_rev_joint" 
+					type="revolute"
+				    axis_xyz="0 1 0"
+				    origin_rpy="0 0 ${pi}" 
+					origin_xyz="${hip_origin_to_upper_leg_servo_origin_x} ${hip_origin_to_upper_leg_servo_origin_y} 0"    
+				    effort="4.0"
+				    velocity="4.0"
+				    damping="0.0"
+				    friction="0.0"
+				    upper="${upper_leg_upper_limit}"
+				    lower="${upper_leg_lower_limit}"            
+				    parent="front_left_hip_link"
+				    child="front_left_upper_leg_link" />
+				    
+		<xacro:mesh_link name="front_left_lower_leg_link"
+					origin_rpy="${pi/2} 0 ${pi}"
+					origin_xyz="0 -${upper_leg_origin_offset_to_center_of_leg} 0"
+					i_rpy="0 0 0"
+					i_xyz="0 0 0"
+					mass="0.6"
+					c_xyz="0 0 0"
+					length="0"
+					width="0"
+					height="0"
+					matname="brown"
+					meshfile="package://quad_urdf/stl/lower_leg.stl"
+					meshscale="1 1 1" />
+			  
+		<xacro:rev_joint name="front_left_lower_leg_rev_joint" 
+					type="revolute"
+				    axis_xyz="0 1 0"
+				    origin_rpy="0 0 ${pi}" 
+					origin_xyz="${0} ${0} -${upper_leg_length_between_joints}"    
+				    effort="4.0"
+				    velocity="4.0"
+				    damping="0.0"
+				    friction="0.0"
+				    upper="${lower_leg_upper_limit}"
+				    lower="${lower_leg_lower_limit}"            
+				    parent="front_left_upper_leg_link"
+				    child="front_left_lower_leg_link" />      
+		
+		<!-- FRONT RIGHT -->			
+		<xacro:mesh_link name="front_right_hip_link"
+				origin_rpy="0 0 0"
+				origin_xyz="0 0 0"
+				i_rpy="0 0 0"
+				i_xyz="0 0 0"
+				mass="0.6"
+				c_xyz="0 0 0"
+				length="0"
+				width="0"
+				height="0"
+				matname="white"
+				meshfile="package://quad_urdf/stl/hip_front.stl"
+				meshscale="1 -1 1" />
+			  
+		<xacro:rev_joint name="front_right_hip_rev_joint" 
+				type="revolute"
+			    axis_xyz="1 0 0"
+			    origin_rpy="0 0 ${pi}" 
+				origin_xyz="${servo_flange_protrusion_from_center_distance} -0.0455 0"    
+			    effort="4.0"
+			    velocity="4.0"
+			    damping="0.0"
+			    friction="0.0"
+			    upper="${hip_upper_limit}"
+			    lower="${hip_lower_limit}"            
+			    parent="base_link"
+			    child="front_right_hip_link" />
+				    
+		<xacro:mesh_link name="front_right_upper_leg_link"
+					origin_rpy="-${pi/2} ${pi/2} ${pi}"
+					origin_xyz="0 0 0"
+					i_rpy="0 0 0"
+					i_xyz="0 0 0"
+					mass="0.6"
+					c_xyz="0 0 0"
+					length="0"
+					width="0"
+					height="0"
+					matname="brown"
+					meshfile="package://quad_urdf/stl/upper_leg.stl"
+					meshscale="1 1 1" />
+			  
+		<xacro:rev_joint name="front_right_upper_leg_rev_joint" 
+					type="revolute"
+				    axis_xyz="0 1 0"
+				    origin_rpy="0 0 ${pi}" 
+					origin_xyz="${hip_origin_to_upper_leg_servo_origin_x} ${-hip_origin_to_upper_leg_servo_origin_y} 0"    
+				    effort="4.0"
+				    velocity="4.0"
+				    damping="0.0"
+				    friction="0.0"
+				    upper="${upper_leg_upper_limit}"
+				    lower="${upper_leg_lower_limit}"            
+				    parent="front_right_hip_link"
+				    child="front_right_upper_leg_link" />
+				    
+		<xacro:mesh_link name="front_right_lower_leg_link"
+					origin_rpy="${pi/2} 0 ${pi}"
+					origin_xyz="0 ${upper_leg_origin_offset_to_center_of_leg} 0"
+					i_rpy="0 0 0"
+					i_xyz="0 0 0"
+					mass="0.6"
+					c_xyz="0 0 0"
+					length="0"
+					width="0"
+					height="0"
+					matname="brown"
+					meshfile="package://quad_urdf/stl/lower_leg.stl"
+					meshscale="1 1 -1" />
+			  
+		<xacro:rev_joint name="front_right_lower_leg_rev_joint" 
+					type="revolute"
+				    axis_xyz="0 1 0"
+				    origin_rpy="0 0 ${pi}" 
+					origin_xyz="${0} ${0} -${upper_leg_length_between_joints}"    
+				    effort="4.0"
+				    velocity="4.0"
+				    damping="0.0"
+				    friction="0.0"
+				    upper="${lower_leg_upper_limit}"
+				    lower="${lower_leg_lower_limit}"            
+				    parent="front_right_upper_leg_link"
+				    child="front_right_lower_leg_link" />   
+				    
+	    <!-- BACK LEFT -->			
+		<xacro:mesh_link name="back_left_hip_link"
+				origin_rpy="0 0 ${pi}"
+				origin_xyz="0 0 0"
+				i_rpy="0 0 0"
+				i_xyz="0 0 0"
+				mass="0.6"
+				c_xyz="0 0 0"
+				length="0"
+				width="0"
+				height="0"
+				matname="white"
+				meshfile="package://quad_urdf/stl/hip_back.stl"
+				meshscale="1 1 1" />
+			  
+		<xacro:rev_joint name="back_left_hip_rev_joint" 
+				type="revolute"
+			    axis_xyz="1 0 0"
+			    origin_rpy="0 0 0" 
+				origin_xyz="-${servo_flange_protrusion_from_center_distance} 0.0455 0"    
+			    effort="4.0"
+			    velocity="4.0"
+			    damping="0.0"
+			    friction="0.0"
+			    upper="${hip_upper_limit}"
+			    lower="${hip_lower_limit}"            
+			    parent="center_back_link"
+			    child="back_left_hip_link" />
+				    
+		<xacro:mesh_link name="back_left_upper_leg_link"
+					origin_rpy="-${pi/2} ${pi/2} 0"
+					origin_xyz="0 0 0"
+					i_rpy="0 0 0"
+					i_xyz="0 0 0"
+					mass="0.6"
+					c_xyz="0 0 0"
+					length="0"
+					width="0"
+					height="0"
+					matname="brown"
+					meshfile="package://quad_urdf/stl/upper_leg.stl"
+					meshscale="1 1 1" />
+			  
+		<xacro:rev_joint name="back_left_upper_leg_rev_joint" 
+					type="revolute"
+				    axis_xyz="0 1 0"
+				    origin_rpy="0 0 0" 
+					origin_xyz="${hip_origin_to_upper_leg_servo_origin_back_x} ${-hip_origin_to_upper_leg_servo_origin_y} 0"    
+				    effort="4.0"
+				    velocity="4.0"
+				    damping="0.0"
+				    friction="0.0"
+				    upper="${upper_leg_upper_limit}"
+				    lower="${upper_leg_lower_limit}"            
+				    parent="back_left_hip_link"
+				    child="back_left_upper_leg_link" />
+				    
+		<xacro:mesh_link name="back_left_lower_leg_link"
+					origin_rpy="${pi/2} 0 ${pi}"
+					origin_xyz="0 -${upper_leg_origin_offset_to_center_of_leg} 0"
+					i_rpy="0 0 0"
+					i_xyz="0 0 0"
+					mass="0.6"
+					c_xyz="0 0 0"
+					length="0"
+					width="0"
+					height="0"
+					matname="brown"
+					meshfile="package://quad_urdf/stl/lower_leg.stl"
+					meshscale="1 1 1" />
+			  
+		<xacro:rev_joint name="back_left_lower_leg_rev_joint" 
+					type="revolute"
+				    axis_xyz="0 1 0"
+				    origin_rpy="0 0 ${pi}" 
+					origin_xyz="${0} ${0} -${upper_leg_length_between_joints}"    
+				    effort="4.0"
+				    velocity="4.0"
+				    damping="0.0"
+				    friction="0.0"
+				    upper="${lower_leg_upper_limit}"
+				    lower="${lower_leg_lower_limit}"            
+				    parent="back_left_upper_leg_link"
+				    child="back_left_lower_leg_link" />
+
+		<!-- BACK RIGHT -->			
+		<xacro:mesh_link name="back_right_hip_link"
+				origin_rpy="0 0 ${pi}"
+				origin_xyz="0 0 0"
+				i_rpy="0 0 0"
+				i_xyz="0 0 0"
+				mass="0.6"
+				c_xyz="0 0 0"
+				length="0"
+				width="0"
+				height="0"
+				matname="white"
+				meshfile="package://quad_urdf/stl/hip_back.stl"
+				meshscale="1 -1 1" />
+			  
+		<xacro:rev_joint name="back_right_hip_rev_joint" 
+				type="revolute"
+			    axis_xyz="-1 0 0"
+			    origin_rpy="0 0 0" 
+				origin_xyz="-${servo_flange_protrusion_from_center_distance} -0.0455 0"    
+			    effort="4.0"
+			    velocity="4.0"
+			    damping="0.0"
+			    friction="0.0"
+			    upper="${hip_upper_limit}"
+			    lower="${hip_lower_limit}"            
+			    parent="center_back_link"
+			    child="back_right_hip_link" />
+				    
+		<xacro:mesh_link name="back_right_upper_leg_link"
+					origin_rpy="-${pi/2} ${pi/2} ${pi} "
+					origin_xyz="0 0 0"
+					i_rpy="0 0 0"
+					i_xyz="0 0 0"
+					mass="0.6"
+					c_xyz="0 0 0"
+					length="0"
+					width="0"
+					height="0"
+					matname="brown"
+					meshfile="package://quad_urdf/stl/upper_leg.stl"
+					meshscale="1 1 1" />
+			  
+		<xacro:rev_joint name="back_right_upper_leg_rev_joint" 
+					type="revolute"
+				    axis_xyz="0 1 0"
+				    origin_rpy="0 0 0" 
+					origin_xyz="${hip_origin_to_upper_leg_servo_origin_back_x} ${hip_origin_to_upper_leg_servo_origin_y} 0"    
+				    effort="4.0"
+				    velocity="4.0"
+				    damping="0.0"
+				    friction="0.0"
+				    upper="${upper_leg_upper_limit}"
+				    lower="${upper_leg_lower_limit}"            
+				    parent="back_right_hip_link"
+				    child="back_right_upper_leg_link" />
+				    
+		<xacro:mesh_link name="back_right_lower_leg_link"
+					origin_rpy="${pi/2} 0 ${pi}"
+					origin_xyz="0 ${upper_leg_origin_offset_to_center_of_leg} 0"
+					i_rpy="0 0 0"
+					i_xyz="0 0 0"
+					mass="0.6"
+					c_xyz="0 0 0"
+					length="0"
+					width="0"
+					height="0"
+					matname="brown"
+					meshfile="package://quad_urdf/stl/lower_leg.stl"
+					meshscale="1 1 -1" />
+			  
+		<xacro:rev_joint name="back_right_lower_leg_rev_joint" 
+					type="revolute"
+				    axis_xyz="0 1 0"
+				    origin_rpy="0 0 ${pi}" 
+					origin_xyz="${0} ${0} -${upper_leg_length_between_joints}"    
+				    effort="4.0"
+				    velocity="4.0"
+				    damping="0.0"
+				    friction="0.0"
+				    upper="${lower_leg_upper_limit}"
+				    lower="${lower_leg_lower_limit}"            
+				    parent="back_right_upper_leg_link"
+				    child="back_right_lower_leg_link" />
+				    		        		
+<!--
+<xacro:transmission leg="front_left"/>
+<xacro:transmission leg="front_right"/>
+<xacro:transmission leg="back_left"/>
+<xacro:transmission leg="back_right"/>  
+-->
+
+  
+  
+</robot>

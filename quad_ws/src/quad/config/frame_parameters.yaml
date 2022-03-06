@@ -1,0 +1,18 @@
+ # from shoulder pivot to center of leg (or foot) of the y plane
+ shoulder_length: 0.0348
+ # upper leg length from rotation points (connections to hip and lower leg)
+ upper_leg_length: 0.100
+ # lower leg length from rotation points (connection to upper leg and contact point on the ground)
+ lower_leg_length: 0.117
+ # x distance between pivot points (at upper leg servo connection)
+ hip_x: 0.225
+  # y distance between pivot points (at upper leg servo connection)
+ hip_y: 0.1045
+ # x distance between left side and right side foot point (at ground touch)
+ foot_x: 0.225
+  # x distance between left side and right side foot point (at ground touch)
+ foot_y: 0.175
+ # how high center of body is off the ground
+ height: 0.20
+ # foot under upper leg servo offset
+ com_offset: 0.016

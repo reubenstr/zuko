@@ -1,0 +1,46 @@
+General instructions to setup Ubuntu, and ROS2 on Desktop and RPi.
+
+Install Ubuntu 20.04.0x LTS and setup Wi-Fi:
+	RPi:
+		https://roboticsbackend.com/install-ubuntu-on-raspberry-pi-without-monitor/
+		User: ubuntu
+		Pass: password
+		(or your choice of user/pass)
+	Desktop:
+		https://ubuntu.com/download/desktop		
+	
+Install ROS2 Foxy:
+	RPi:
+		https://roboticsbackend.com/install-ros2-on-raspberry-pi/
+	Desktop:
+		https://roboticsbackend.com/install-ros2-on-raspberry-pi/
+		Instead of installing ros-base install the desktop version:		
+			sudo apt install ros-foxy-desktop
+	
+Clone repository and build:
+	RPi & Desktop:
+		git clone https://github.com/reubenstr/zuko
+		cd zuko/quad_ws
+		colcon build
+	
+CD into the workspace and source the workspace every startup:
+	RPi & Desktop:
+		echo "cd zuko/quad_ws" >> ~/.bashrc
+		echo "source install/local_setup.bash" >> ~/.bashrc
+
+RPi only:	
+	Grant access to I2C every startup:	
+		echo "sudo chmod a+rw /dev/i2c-*" >> ~/.bashrc	
+
+	Install dependencies:
+		pip install smbus2
+		TODO: add more dependencies!
+
+	Servo calibration (execute from the workspace directory):
+		./quad_ws/src/quad/quad/servo_calibration.py
+		
+RPi & Desktop:
+	Launch:
+		See ros-commands document to startup the robot.
+	
+	
