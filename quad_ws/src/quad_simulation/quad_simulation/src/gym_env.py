@@ -28,13 +28,13 @@ from src.heightfield import HeightField
 # from spotmicro.open_loop_controller import BezierStepper
 import src.matrix_transforms as LA
 from src.env_randomizer import EnvRandomizer
+import src.model as model
+
 
 import sys
-sys.path.append("/home/devpc/Desktop/quad_ws/src/quad/quad/src")
-sys.path.append("/home/devpc/Desktop/quad_ws/install/quad/lib/quad/")
+# sys.path.append("/home/devpc/Desktop/quad_ws/src/quad/quad/src")
+# sys.path.append("/home/devpc/Desktop/quad_ws/install/quad/lib/quad/")
 import urdf
-import model 
-
 
 
 NUM_SUBSTEPS = 5
@@ -636,7 +636,10 @@ class GymEnv(gym.Env):
             self._pybullet_client.resetDebugVisualizerCamera(
                 dist, yaw, pitch, base_pos)
 
-        action = self._transform_action_to_motor_command(action)
+        # code 
+        # action = self._transform_action_to_motor_command(action)
+
+
         self.spot.Step(action)
         # NOTE: SMACH is passed to the reward method
         reward = self._reward()
