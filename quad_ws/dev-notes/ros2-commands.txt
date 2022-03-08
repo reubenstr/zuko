@@ -149,6 +149,9 @@ Scratch Pad:
 UUID: Human Interface Device... (00001124-0000-1000-8000-00805f9b34fb)
 UUID: PnP Information           (00001200-0000-1000-8000-00805f9b34fb)
 
+
+<xacro:property name="lower_leg_upper_limit" value="${59.5 * pi/180}" /> 
+<xacro:property name="lower_leg_lower_limit" value="${-80 * pi/180}" /> 
 	
 	
 	

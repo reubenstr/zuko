@@ -11,7 +11,7 @@
  # x distance between left side and right side foot point (at ground touch)
  foot_x: 0.225
   # x distance between left side and right side foot point (at ground touch)
- foot_y: 0.175
+ foot_y: 0.09
  # how high center of body is off the ground
  height: 0.20
  # foot under upper leg servo offset

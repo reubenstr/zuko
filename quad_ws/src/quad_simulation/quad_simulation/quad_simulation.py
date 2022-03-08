@@ -20,7 +20,7 @@ from src.env_randomizer import EnvRandomizer
 class Commander():
     def __init__(self):
         self.env = GymEnv(render=True,
-                                on_rack=False,
+                                on_rack=True,
                                 height_field=False,
                                 draw_foot_path=False,
                                 env_randomizer=None)

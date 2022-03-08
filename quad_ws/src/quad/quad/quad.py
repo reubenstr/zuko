@@ -102,8 +102,14 @@ def main(args=None):
     
     while rclpy.ok():
         motion_parameters = joystick_subscriber.get_motion_parameters()
+        
+        # TEMP
+        #motion_parameters.pos[2] = .05
+        
         joint_angles, joint_angles_linked_leg = quad_commander.tick(
             motion_parameters)
+        # TEMP
+        # joint_angles = np.full(12, np.pi/4)
         joint_angles_publisher_node.set_joint_angles(joint_angles)
         joint_angles_publisher_node.set_joint_angles_linked_leg(joint_angles_linked_leg)
 

@@ -39,8 +39,8 @@ class MotionParameters:
     pos_x_max: float = 0.1
     pos_y_min: float = -0.1
     pos_y_max: float = 0.1
-    pos_z_min: float = -0.1
-    pos_z_max: float = 0.1
+    pos_z_min: float = -0.2
+    pos_z_max: float = 0.2
 
     yaw_rate_min: float = -np.pi / 4
     yaw_rate_max: float = np.pi / 4

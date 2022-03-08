@@ -635,10 +635,8 @@ class GymEnv(gym.Env):
                 8:11]
             self._pybullet_client.resetDebugVisualizerCamera(
                 dist, yaw, pitch, base_pos)
-
-        # code 
-        # action = self._transform_action_to_motor_command(action)
-
+        
+        action = self._transform_action_to_motor_command(action)
 
         self.spot.Step(action)
         # NOTE: SMACH is passed to the reward method

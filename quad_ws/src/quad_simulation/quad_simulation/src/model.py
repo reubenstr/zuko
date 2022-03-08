@@ -51,14 +51,15 @@ MOTOR_NAMES = [
     "back_right_upper_leg_rev_joint", "back_right_lower_leg_rev_joint"
 ]
 
+# TODO: UPDATE MOTOR LIMITS
 MOTOR_LIMITS_BY_NAME = {}
 for name in MOTOR_NAMES:
     if "hip" in name:
-        MOTOR_LIMITS_BY_NAME[name] = [-1.04, 1.04]
+        MOTOR_LIMITS_BY_NAME[name] = [-2.04, 2.04]
     elif "upper_leg" in name:
-        MOTOR_LIMITS_BY_NAME[name] = [-1.571, 2.59]
+        MOTOR_LIMITS_BY_NAME[name] = [-4.571, 25.59]
     elif "lower_leg" in name:
-        MOTOR_LIMITS_BY_NAME[name] = [-2.9, 1.671]
+        MOTOR_LIMITS_BY_NAME[name] = [-4.9, 9.671]
 
 FOOT_NAMES = [
     "front_left_leg_foot", "front_right_leg_foot", 
@@ -357,13 +358,7 @@ class Model(object):
 
         if reload_urdf:
 
-            uPath = urdf.getDataPath() + "/zuko.urdf"
-
-            print ("***********************************")
-            print ("***********************************")
-            print (uPath)
-            print ("***********************************")
-                    
+            uPath = urdf.getDataPath() + "/zuko.urdf"            
           
             if self._self_collision_enabled:
                 self.quadruped = self._pybullet_client.loadURDF(
@@ -763,8 +758,11 @@ class Model(object):
           motor_commands: The eight desired motor angles.
         """
         # FIRST, APPLY MOTOR LIMITS:
-        motor_commands = self.ApplyMotorLimits(motor_commands)
+        # TEMP DISABLE TO TEST URDF LIMITS
+        # motor_commands = self.ApplyMotorLimits(motor_commands)
 
+        # TEMP DISABLE
+        '''
         if self._motor_velocity_limit < np.inf:
             current_motor_angle = self.GetMotorAngles()
             motor_commands_max = (current_motor_angle +
@@ -773,7 +771,16 @@ class Model(object):
                                   self.time_step * self._motor_velocity_limit)
             motor_commands = np.clip(motor_commands, motor_commands_min,
                                      motor_commands_max)
+        '''
 
+        # MOVE FROM BELOW FOR NOW
+        motor_commands_with_direction = np.multiply(
+            motor_commands, self._motor_direction)
+        for motor_id, motor_command_with_direction in zip(
+                self._motor_id_list, motor_commands_with_direction):
+            self._SetDesiredMotorAngleById(motor_id,
+                                            motor_command_with_direction)
+        '''
         if self._accurate_motor_model_enabled or self._pd_control_enabled:
             q = self.GetMotorAngles()
             qdot = self.GetMotorVelocities()
@@ -827,6 +834,7 @@ class Model(object):
                     self._motor_id_list, motor_commands_with_direction):
                 self._SetDesiredMotorAngleById(motor_id,
                                                motor_command_with_direction)
+        '''
 
     def Step(self, action):
         for _ in range(self._action_repeat):

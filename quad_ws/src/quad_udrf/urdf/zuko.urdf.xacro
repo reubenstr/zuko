@@ -71,7 +71,7 @@
 <xacro:macro name="transmission" params="leg ">
     <transmission name="${leg}_hip_joint_trans">
         <type>transmission_interface/SimpleTransmission</type>
-        <joint name="motor_${leg}_hip">
+        <joint name="${leg}_hip_rev_joint">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
         <actuator name="${leg}_hip_joint_motor">
@@ -82,7 +82,7 @@
 
     <transmission name="${leg}_upper_leg_joint_trans">
         <type>transmission_interface/SimpleTransmission</type>
-        <joint name="motor_${leg}_lower_leg">
+        <joint name="${leg}_lower_leg_rev_joint">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
         <actuator name="${leg}_upper_leg_joint_motor">
@@ -93,7 +93,7 @@
 
     <transmission name="${leg}_lower_leg_joint_trans">
         <type>transmission_interface/SimpleTransmission</type>
-        <joint name="motor_${leg}_upper_leg">
+        <joint name="${leg}_upper_leg_rev_joint">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
         <actuator name="${leg}_lower_joint_motor">
@@ -297,8 +297,8 @@
 		<xacro:property name="hip_lower_limit" value="${-30 * pi/180}" /> 
 		<xacro:property name="upper_leg_upper_limit" value="${110 * pi/180}" /> 
 		<xacro:property name="upper_leg_lower_limit" value="${0 * pi/180}" /> 		
-		<xacro:property name="lower_leg_upper_limit" value="${59.5 * pi/180}" /> 
-		<xacro:property name="lower_leg_lower_limit" value="${-80 * pi/180}" /> 
+		<xacro:property name="lower_leg_upper_limit" value="${180 * pi/180}" /> 
+		<xacro:property name="lower_leg_lower_limit" value="${-180 * pi/180}" /> 
 
 		
 	<!-- FRONT LEFT -->			
@@ -359,7 +359,7 @@
 				    child="front_left_upper_leg_link" />
 				    
 		<xacro:mesh_link name="front_left_lower_leg_link"
-					origin_rpy="${pi/2} 0 ${pi}"
+					origin_rpy="${pi/2} ${pi/2} ${pi}"
 					origin_xyz="0 -${upper_leg_origin_offset_to_center_of_leg} 0"
 					i_rpy="0 0 0"
 					i_xyz="0 0 0"
@@ -374,7 +374,7 @@
 			  
 		<xacro:rev_joint name="front_left_lower_leg_rev_joint" 
 					type="revolute"
-				    axis_xyz="0 1 0"
+				    axis_xyz="0 -1 0"
 				    origin_rpy="0 0 ${pi}" 
 					origin_xyz="${0} ${0} -${upper_leg_length_between_joints}"    
 				    effort="4.0"
@@ -403,7 +403,7 @@
 			  
 		<xacro:rev_joint name="front_right_hip_rev_joint" 
 				type="revolute"
-			    axis_xyz="1 0 0"
+			    axis_xyz="-1 0 0"
 			    origin_rpy="0 0 ${pi}" 
 				origin_xyz="${servo_flange_protrusion_from_center_distance} -0.0455 0"    
 			    effort="4.0"
@@ -444,12 +444,12 @@
 				    child="front_right_upper_leg_link" />
 				    
 		<xacro:mesh_link name="front_right_lower_leg_link"
-					origin_rpy="${pi/2} 0 ${pi}"
+					origin_rpy="${pi/2} ${pi/2}  ${pi}"
 					origin_xyz="0 ${upper_leg_origin_offset_to_center_of_leg} 0"
 					i_rpy="0 0 0"
 					i_xyz="0 0 0"
 					mass="0.6"
-					c_xyz="0 0 0"
+					c_xyz="0 0 -0.06"
 					length="0"
 					width="0"
 					height="0"
@@ -459,7 +459,7 @@
 			  
 		<xacro:rev_joint name="front_right_lower_leg_rev_joint" 
 					type="revolute"
-				    axis_xyz="0 1 0"
+				    axis_xyz="0 -1 0"
 				    origin_rpy="0 0 ${pi}" 
 					origin_xyz="${0} ${0} -${upper_leg_length_between_joints}"    
 				    effort="4.0"
@@ -529,7 +529,7 @@
 				    child="back_left_upper_leg_link" />
 				    
 		<xacro:mesh_link name="back_left_lower_leg_link"
-					origin_rpy="${pi/2} 0 ${pi}"
+					origin_rpy="${pi/2} ${pi/2} ${pi}"
 					origin_xyz="0 -${upper_leg_origin_offset_to_center_of_leg} 0"
 					i_rpy="0 0 0"
 					i_xyz="0 0 0"
@@ -544,7 +544,7 @@
 			  
 		<xacro:rev_joint name="back_left_lower_leg_rev_joint" 
 					type="revolute"
-				    axis_xyz="0 1 0"
+				    axis_xyz="0 -1 0"
 				    origin_rpy="0 0 ${pi}" 
 					origin_xyz="${0} ${0} -${upper_leg_length_between_joints}"    
 				    effort="4.0"
@@ -573,7 +573,7 @@
 			  
 		<xacro:rev_joint name="back_right_hip_rev_joint" 
 				type="revolute"
-			    axis_xyz="-1 0 0"
+			    axis_xyz="1 0 0"
 			    origin_rpy="0 0 0" 
 				origin_xyz="-${servo_flange_protrusion_from_center_distance} -0.0455 0"    
 			    effort="4.0"
@@ -614,12 +614,12 @@
 				    child="back_right_upper_leg_link" />
 				    
 		<xacro:mesh_link name="back_right_lower_leg_link"
-					origin_rpy="${pi/2} 0 ${pi}"
+					origin_rpy="${pi/2} ${pi/2} ${pi}"
 					origin_xyz="0 ${upper_leg_origin_offset_to_center_of_leg} 0"
 					i_rpy="0 0 0"
 					i_xyz="0 0 0"
 					mass="0.6"
-					c_xyz="0 0 0"
+					c_xyz="0  -0.06 0"
 					length="0"
 					width="0"
 					height="0"
@@ -629,7 +629,7 @@
 			  
 		<xacro:rev_joint name="back_right_lower_leg_rev_joint" 
 					type="revolute"
-				    axis_xyz="0 1 0"
+				    axis_xyz="0 -1 0"
 				    origin_rpy="0 0 ${pi}" 
 					origin_xyz="${0} ${0} -${upper_leg_length_between_joints}"    
 				    effort="4.0"

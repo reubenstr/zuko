@@ -302,14 +302,14 @@
   </joint>
   <link name="front_left_lower_leg_link">
     <visual>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 -0.0075 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 -0.0075 0"/>
       <geometry>
         <mesh filename="package://stl/lower_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 0 0"/>
       <geometry>
         <box size="0 0 0"/>
       </geometry>
@@ -324,11 +324,11 @@
   <gazebo reference="front_left_lower_leg_link">
   </gazebo>
   <joint name="front_left_lower_leg_rev_joint" type="revolute">
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <origin rpy="0 0 3.141592653589793" xyz="0 0 -0.1"/>
     <parent link="front_left_upper_leg_link"/>
     <child link="front_left_lower_leg_link"/>
-    <limit effort="4.0" lower="-1.3962634015954636" upper="1.038470904936626" velocity="4.0"/>
+    <limit effort="4.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.0"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
   <link name="front_right_hip_link">
@@ -355,7 +355,7 @@
   <gazebo reference="front_right_hip_link">
   </gazebo>
   <joint name="front_right_hip_rev_joint" type="revolute">
-    <axis xyz="1 0 0"/>
+    <axis xyz="-1 0 0"/>
     <origin rpy="0 0 3.141592653589793" xyz="0.002 -0.0455 0"/>
     <parent link="base_link"/>
     <child link="front_right_hip_link"/>
@@ -395,14 +395,14 @@
   </joint>
   <link name="front_right_lower_leg_link">
     <visual>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0.0075 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966  3.141592653589793" xyz="0 0.0075 0"/>
       <geometry>
         <mesh filename="package://stl/lower_leg.stl" scale="1 1 -1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966  3.141592653589793" xyz="0 0 -0.06"/>
       <geometry>
         <box size="0 0 0"/>
       </geometry>
@@ -417,11 +417,11 @@
   <gazebo reference="front_right_lower_leg_link">
   </gazebo>
   <joint name="front_right_lower_leg_rev_joint" type="revolute">
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <origin rpy="0 0 3.141592653589793" xyz="0 0 -0.1"/>
     <parent link="front_right_upper_leg_link"/>
     <child link="front_right_lower_leg_link"/>
-    <limit effort="4.0" lower="-1.3962634015954636" upper="1.038470904936626" velocity="4.0"/>
+    <limit effort="4.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.0"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
   <link name="back_left_hip_link">
@@ -488,14 +488,14 @@
   </joint>
   <link name="back_left_lower_leg_link">
     <visual>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 -0.0075 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 -0.0075 0"/>
       <geometry>
         <mesh filename="package://stl/lower_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 0 0"/>
       <geometry>
         <box size="0 0 0"/>
       </geometry>
@@ -510,11 +510,11 @@
   <gazebo reference="back_left_lower_leg_link">
   </gazebo>
   <joint name="back_left_lower_leg_rev_joint" type="revolute">
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <origin rpy="0 0 3.141592653589793" xyz="0 0 -0.1"/>
     <parent link="back_left_upper_leg_link"/>
     <child link="back_left_lower_leg_link"/>
-    <limit effort="4.0" lower="-1.3962634015954636" upper="1.038470904936626" velocity="4.0"/>
+    <limit effort="4.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.0"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
   <link name="back_right_hip_link">
@@ -541,7 +541,7 @@
   <gazebo reference="back_right_hip_link">
   </gazebo>
   <joint name="back_right_hip_rev_joint" type="revolute">
-    <axis xyz="-1 0 0"/>
+    <axis xyz="1 0 0"/>
     <origin rpy="0 0 0" xyz="-0.002 -0.0455 0"/>
     <parent link="center_back_link"/>
     <child link="back_right_hip_link"/>
@@ -581,14 +581,14 @@
   </joint>
   <link name="back_right_lower_leg_link">
     <visual>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0.0075 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 0.0075 0"/>
       <geometry>
         <mesh filename="package://stl/lower_leg.stl" scale="1 1 -1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0  -0.06 0"/>
       <geometry>
         <box size="0 0 0"/>
       </geometry>
@@ -603,11 +603,11 @@
   <gazebo reference="back_right_lower_leg_link">
   </gazebo>
   <joint name="back_right_lower_leg_rev_joint" type="revolute">
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <origin rpy="0 0 3.141592653589793" xyz="0 0 -0.1"/>
     <parent link="back_right_upper_leg_link"/>
     <child link="back_right_lower_leg_link"/>
-    <limit effort="4.0" lower="-1.3962634015954636" upper="1.038470904936626" velocity="4.0"/>
+    <limit effort="4.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.0"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
   <!--
