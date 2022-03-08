@@ -20,9 +20,9 @@ from src.motor_model import MotorModel
 from src.kinematics import Kinematics
 # import .matrix_transforms as LA
 
-import sys
-sys.path.append("/home/devpc/Desktop/quad_ws/src/quad/quad/src/urdf")
-sys.path.append("/home/devpc/Desktop/quad_ws/install/quad/lib/quad/urdf")
+#import sys
+#sys.path.append("/home/devpc/Desktop/quad_ws/src/quad/quad/src/urdf")
+#sys.path.append("/home/devpc/Desktop/quad_ws/install/quad/lib/quad/urdf")
 
 import urdf
 
@@ -43,12 +43,12 @@ OVERHEAT_SHUTDOWN_TIME = 1.0
 LEG_POSITION = ["front_left", "front_right", "back_left", "back_right"]
 
 MOTOR_NAMES = [
-    "motor_front_left_hip", "motor_front_left_upper_leg",
-    "motor_front_left_lower_leg", "motor_front_right_hip",
-    "motor_front_right_upper_leg", "motor_front_right_lower_leg",
-    "motor_back_left_hip", "motor_back_left_upper_leg",
-    "motor_back_left_lower_leg", "motor_back_right_hip",
-    "motor_back_right_upper_leg", "motor_back_right_lower_leg"
+    "front_left_hip_rev_joint", "front_left_upper_leg_rev_joint",
+    "front_left_lower_leg_rev_joint", "front_right_hip_rev_joint",
+    "front_right_upper_leg_rev_joint", "front_right_lower_leg_rev_joint",
+    "back_left_hip_rev_joint", "back_left_upper_leg_rev_joint",
+    "back_left_lower_leg_rev_joint", "back_right_hip_rev_joint",
+    "back_right_upper_leg_rev_joint", "back_right_lower_leg_rev_joint"
 ]
 
 MOTOR_LIMITS_BY_NAME = {}
@@ -128,7 +128,7 @@ class Model(object):
                  motor_overheat_protection=False,
                  on_rack=False,
                  kd_for_pd_controllers=0.3,
-                 pose_id='stand',
+                 pose_id='zero',
                  np_random=np.random,
                  contacts=True):
         """Constructs a spot and reset it to the initial states.
@@ -357,7 +357,7 @@ class Model(object):
 
         if reload_urdf:
 
-            uPath = urdf.getDataPath() + "/quad.urdf"
+            uPath = urdf.getDataPath() + "/zuko.urdf"
 
             print ("***********************************")
             print ("***********************************")
@@ -382,7 +382,7 @@ class Model(object):
             if self._remove_default_joint_damping:
                 self._RemoveDefaultJointDamping()
             self._BuildMotorIdList()
-            self._BuildFootIdList()
+            # self._BuildFootIdList()
             self._RecordMassInfoFromURDF()
             self._RecordInertiaInfoFromURDF()
             self.ResetPose(add_constraint=True)
@@ -460,8 +460,21 @@ class Model(object):
     Args:
       add_constraint: Whether to add a constraint at the joints of two feet.
     """
+
+        knee_friction_force = 0
+        pi = math.pi
+        for i in range(len(MOTOR_NAMES)):
+            self._pybullet_client.resetJointState(
+                self.quadruped,
+                self._joint_name_to_id[MOTOR_NAMES[i]],
+                self.INIT_POSES[self._pose_id][i],
+                targetVelocity=0)
+
+
+    '''
         for i in range(self.num_legs):
             self._ResetPoseForLeg(i, add_constraint)
+    '''
 
     def _ResetPoseForLeg(self, leg_id, add_constraint):
         """Reset the initial pose for the leg.
@@ -485,6 +498,7 @@ class Model(object):
             self._joint_name_to_id["motor_" + leg_position + "_upper_leg"],
             self.INIT_POSES[self._pose_id][3 * leg_id + 1],
             targetVelocity=0)
+        
         self._pybullet_client.resetJointState(
             self.quadruped,
             self._joint_name_to_id["motor_" + leg_position + "_lower_leg"],
@@ -663,7 +677,7 @@ class Model(object):
         FRC = 0
         BLC = 0
         BRC = 0
-
+        '''
         if len(CONTACT) > 0:
             for i in range(len(CONTACT)):
                 Contact_Link_Index = CONTACT[i][3]
@@ -679,6 +693,8 @@ class Model(object):
                 if Contact_Link_Index == self._foot_id_list[3]:
                     BRC = 1
                     # print("BR CONTACT")
+        '''
+
         # order: roll, pitch, gyro(x,y,z), acc(x, y, z)
         observation.append(roll)
         observation.append(pitch)

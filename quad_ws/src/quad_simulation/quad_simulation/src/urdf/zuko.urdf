@@ -21,7 +21,7 @@
     <visual>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="-0.0025 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/center_front.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/center_front.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
@@ -44,7 +44,7 @@
     <visual>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/side_left.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/side_left.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
@@ -67,7 +67,7 @@
     <visual>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/side_right.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/side_right.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
@@ -90,7 +90,7 @@
     <visual>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0.0025 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/center_back.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/center_back.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
@@ -113,7 +113,7 @@
     <visual>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/bridge_front.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/bridge_front.stl" scale="1 1 1"/>
       </geometry>
       <material name="white"/>
     </visual>
@@ -136,7 +136,7 @@
     <visual>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/bridge_back.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/bridge_back.stl" scale="1 1 1"/>
       </geometry>
       <material name="white"/>
     </visual>
@@ -159,7 +159,7 @@
     <visual>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/face.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/face.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
@@ -182,7 +182,7 @@
     <visual>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/butt.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/butt.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
@@ -242,7 +242,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/hip_front.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/hip_front.stl" scale="1 1 1"/>
       </geometry>
       <material name="white"/>
     </visual>
@@ -273,7 +273,7 @@
     <visual>
       <origin rpy="-1.5707963267948966 1.5707963267948966 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/upper_leg.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
@@ -304,7 +304,7 @@
     <visual>
       <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 -0.0075 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/lower_leg.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/lower_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
@@ -335,7 +335,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/hip_front.stl" scale="1 -1 1"/>
+        <mesh filename="package://stl/hip_front.stl" scale="1 -1 1"/>
       </geometry>
       <material name="white"/>
     </visual>
@@ -366,7 +366,7 @@
     <visual>
       <origin rpy="-1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/upper_leg.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
@@ -397,7 +397,7 @@
     <visual>
       <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0.0075 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/lower_leg.stl" scale="1 1 -1"/>
+        <mesh filename="package://stl/lower_leg.stl" scale="1 1 -1"/>
       </geometry>
       <material name="brown"/>
     </visual>
@@ -428,7 +428,7 @@
     <visual>
       <origin rpy="0 0 3.141592653589793" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/hip_back.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/hip_back.stl" scale="1 1 1"/>
       </geometry>
       <material name="white"/>
     </visual>
@@ -459,7 +459,7 @@
     <visual>
       <origin rpy="-1.5707963267948966 1.5707963267948966 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/upper_leg.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
@@ -490,7 +490,7 @@
     <visual>
       <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 -0.0075 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/lower_leg.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/lower_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
@@ -521,7 +521,7 @@
     <visual>
       <origin rpy="0 0 3.141592653589793" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/hip_back.stl" scale="1 -1 1"/>
+        <mesh filename="package://stl/hip_back.stl" scale="1 -1 1"/>
       </geometry>
       <material name="white"/>
     </visual>
@@ -552,7 +552,7 @@
     <visual>
       <origin rpy="-1.5707963267948966 1.5707963267948966 3.141592653589793 " xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/upper_leg.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
@@ -583,7 +583,7 @@
     <visual>
       <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0.0075 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/lower_leg.stl" scale="1 1 -1"/>
+        <mesh filename="package://stl/lower_leg.stl" scale="1 1 -1"/>
       </geometry>
       <material name="brown"/>
     </visual>

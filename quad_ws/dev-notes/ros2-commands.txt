@@ -121,19 +121,23 @@ ACTIONS:
 	Ex2 (feedback): ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: -1.57}" --feedback
 
 #ADDON SOFTWARE
-
 	Joystick test program (GUI):
 		sudo apt-get install jstest-gtk	
  
 XACRO/URDF:
-	Download appropriate branch from: https://github.com/ros/xacro/tree/ros2
-	create new ros2 workspace, add the download to the src, then colcon build
+	Create URDF with the help of RVIZ:
+		http://wiki.ros.org/urdf/Tutorials
+		ros2 launch quad_urdf display.launch.py
 
-	Note: the files must be transfered to the share folder during colcon build
-	which is commanded by the setup.py script in the package folder
-	
-	Run xacro to build URDF:
-		ros2 run xacro xacro /home/ubuntu/zuko/quad_ws/src/quad/quad/src/urdf/quad.urdf.xacro >/home/ubuntu/zuko/quad_ws/src/quad/quad/src/urdf/quad.urdf
+	Build UDRF with xacro (when ready to be used for gym):
+		Download appropriate branch from: https://github.com/ros/xacro/tree/ros2
+		create new ros2 workspace, add the download to the src, then colcon build
+
+		Note: the files must be transfered to the share folder during colcon build
+		which is commanded by the setup.py script in the package folder
+		
+		Run xacro to build URDF:
+			ros2 run xacro xacro /home/ubuntu/zuko/quad_ws/src/quad_udrf/urdf/zuko.urdf.xacro > /home/ubuntu/zuko/quad_ws/src/quad_simulation/quad_simulation/src/urdf/quad.urdf
 
 
 GENERIC NOTES:
