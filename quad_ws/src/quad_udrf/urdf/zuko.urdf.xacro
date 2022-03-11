@@ -5,7 +5,6 @@
 <xacro:include filename="$(find quad_urdf)/urdf/zuko_hips_and_legs.urdf.xacro" />
 -->
 
-
    <material name="brown">
     <color rgba="0.588 0.294 0.0 1"/>
   </material>
@@ -29,7 +28,8 @@
 	  <collision>
 		<origin rpy="${origin_rpy}" xyz="${c_xyz}" />
 		<geometry>
-		  <box size="${length} ${width} ${height}" />
+		  <!--<box size="${length} ${width} ${height}" />-->
+		  <mesh filename="${meshfile}" scale="${meshscale}"/>
 		</geometry>
 	  </collision>
 
@@ -79,7 +79,6 @@
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
-
     <transmission name="${leg}_upper_leg_joint_trans">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="${leg}_lower_leg_rev_joint">
@@ -90,7 +89,6 @@
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
-
     <transmission name="${leg}_lower_leg_joint_trans">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="${leg}_upper_leg_rev_joint">
@@ -246,7 +244,7 @@
 <xacro:frame_joint name="center_back_joint"
 			type="fixed"
 			origin_rpy="0 0 0" 
-			origin_xyz="-${side_length + center_thickness + center_thickness} 0 0"
+			origin_xyz="-${side_length + center_thickness} 0 0"
 			parent="base_link" 
 			child="center_back_link"/>
 			
@@ -292,15 +290,20 @@
 	<!-- Lengths -->		
 		<xacro:property name="upper_leg_length_between_joints" value="${0.100}" /> 
 
-	<!-- Limits -->	
+	<!-- Limits -->
+	<!-- No effective limits in the URDF model as they are defined elsewhere,
+	 and we want to see if the kinematics don't breach the intended limits -->
 		<xacro:property name="hip_upper_limit" value="${30 * pi/180}" /> 
 		<xacro:property name="hip_lower_limit" value="${-30 * pi/180}" /> 
-		<xacro:property name="upper_leg_upper_limit" value="${110 * pi/180}" /> 
-		<xacro:property name="upper_leg_lower_limit" value="${0 * pi/180}" /> 		
+		<xacro:property name="upper_leg_upper_limit" value="${180 * pi/180}" /> 
+		<xacro:property name="upper_leg_lower_limit" value="${-180 * pi/180}" /> 		
 		<xacro:property name="lower_leg_upper_limit" value="${180 * pi/180}" /> 
 		<xacro:property name="lower_leg_lower_limit" value="${-180 * pi/180}" /> 
 
-		
+<!--
+<xacro:property name="path" value="package://stl" /> 
+-->
+
 	<!-- FRONT LEFT -->			
 		<xacro:mesh_link name="front_left_hip_link"
 				origin_rpy="0 0 0"
@@ -364,7 +367,7 @@
 					i_rpy="0 0 0"
 					i_xyz="0 0 0"
 					mass="0.6"
-					c_xyz="0 0 0"
+					c_xyz="0 -${upper_leg_origin_offset_to_center_of_leg} 0"
 					length="0"
 					width="0"
 					height="0"
@@ -449,7 +452,7 @@
 					i_rpy="0 0 0"
 					i_xyz="0 0 0"
 					mass="0.6"
-					c_xyz="0 0 -0.06"
+					c_xyz="0 ${upper_leg_origin_offset_to_center_of_leg} 0"
 					length="0"
 					width="0"
 					height="0"
@@ -534,7 +537,7 @@
 					i_rpy="0 0 0"
 					i_xyz="0 0 0"
 					mass="0.6"
-					c_xyz="0 0 0"
+					c_xyz="0 -${upper_leg_origin_offset_to_center_of_leg} 0"
 					length="0"
 					width="0"
 					height="0"
@@ -619,10 +622,10 @@
 					i_rpy="0 0 0"
 					i_xyz="0 0 0"
 					mass="0.6"
-					c_xyz="0  -0.06 0"
-					length="0"
-					width="0"
-					height="0"
+					c_xyz="0 ${upper_leg_origin_offset_to_center_of_leg} 0"
+					length="0.1125"
+					width="0.25"
+					height="0.25"
 					matname="brown"
 					meshfile="package://stl/lower_leg.stl"
 					meshscale="1 1 -1" />

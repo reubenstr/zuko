@@ -55,11 +55,11 @@ MOTOR_NAMES = [
 MOTOR_LIMITS_BY_NAME = {}
 for name in MOTOR_NAMES:
     if "hip" in name:
-        MOTOR_LIMITS_BY_NAME[name] = [-2.04, 2.04]
+        MOTOR_LIMITS_BY_NAME[name] = [-np.pi, np.pi]
     elif "upper_leg" in name:
-        MOTOR_LIMITS_BY_NAME[name] = [-4.571, 25.59]
+        MOTOR_LIMITS_BY_NAME[name] = [-np.pi, np.pi]
     elif "lower_leg" in name:
-        MOTOR_LIMITS_BY_NAME[name] = [-4.9, 9.671]
+        MOTOR_LIMITS_BY_NAME[name] = [-np.pi, np.pi]
 
 FOOT_NAMES = [
     "front_left_leg_foot", "front_right_leg_foot", 

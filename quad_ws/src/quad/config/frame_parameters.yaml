@@ -1,18 +1,29 @@
- # from shoulder pivot to center of leg (or foot) of the y plane
- shoulder_length: 0.0348
- # upper leg length from rotation points (connections to hip and lower leg)
- upper_leg_length: 0.100
- # lower leg length from rotation points (connection to upper leg and contact point on the ground)
- lower_leg_length: 0.117
- # x distance between pivot points (at upper leg servo connection)
- hip_x: 0.225
-  # y distance between pivot points (at upper leg servo connection)
- hip_y: 0.1045
- # x distance between left side and right side foot point (at ground touch)
- foot_x: 0.225
-  # x distance between left side and right side foot point (at ground touch)
- foot_y: 0.09
- # how high center of body is off the ground
- height: 0.20
- # foot under upper leg servo offset
- com_offset: 0.016
+# Frame parameters for Zuko v2.2
+# Units in meters.
+
+# x distance from hip pivot x-axis to perpendicular upper leg pivot y-axis
+shoulder_length: 0.03175 #0.01725 # 0.03175
+
+# upper leg length from upper pivot point to lower pivot point
+upper_leg_length: 0.100
+
+# lower leg length from upper pivot point to foot ground contact point
+lower_leg_length: 0.11225
+
+# x distance between front and back upper legs pivot points 
+hip_x: 0.238
+
+# y distance between left and right upper legs pivot points 
+hip_y: 0.1545 #0.1545
+
+# x distance between front and back feet centers at ground touch 
+foot_x: 0.238
+
+# y distance between left and right feet centers at ground touch 
+foot_y: 0.169 #0.169
+
+# how high center of body is off the ground
+height: 0.195
+
+# foot under upper leg servo offset
+com_offset: 0.0105

@@ -5,6 +5,24 @@ RPi 4 ROS2 workspace Zuko.
 
 Development.
 
+### Immediate To Do
+
+- Update motor limits
+- Parameterize motion_parameters limits
+- Finish URDF: add final STLs, add weights
+- Add discovery to launch for remote simulation from RPi
+- Connect game controller via Bluetooth, create BT joy node
+- Update walking parameters
+- Code in IMU, V/I sense, LEDs
+- Pythonize code (clean up code)
+
+### Long Term To Do
+
+- Reconnect machine learning for better terrain navigation
+- Update URDF for Gazebo
+- Add speakers for barks
+- Add camera for CV
+
 ### Notes
 
 View documentation in the dev-notes folder 

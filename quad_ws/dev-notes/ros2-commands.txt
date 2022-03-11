@@ -44,6 +44,7 @@ SOURCE:
 		source install/setup.bash
 
 RUN:
+	Note: some packages will fail if using run because they require parameters provided by launch
 	ros2 run quad quad
 	ros2 run quad_simulation quad_simulation
 	
@@ -138,6 +139,8 @@ XACRO/URDF:
 		
 		Run xacro to build URDF:
 			ros2 run xacro xacro /home/ubuntu/zuko/quad_ws/src/quad_udrf/urdf/zuko.urdf.xacro > /home/ubuntu/zuko/quad_ws/src/quad_simulation/quad_simulation/src/urdf/quad.urdf
+		Genrate xacro, build, run:
+			ros2 run xacro xacro /home/ubuntu/zuko/quad_ws/src/quad_udrf/urdf/zuko.urdf.xacro > /home/ubuntu/zuko/quad_ws/src/quad_simulation/quad_simulation/src/urdf/zuko.urdf; colcon build --packages-select quad_simulation; ros2 run quad_simulation quad_simulation
 
 
 GENERIC NOTES:
@@ -152,8 +155,12 @@ UUID: PnP Information           (00001200-0000-1000-8000-00805f9b34fb)
 
 <xacro:property name="lower_leg_upper_limit" value="${59.5 * pi/180}" /> 
 <xacro:property name="lower_leg_lower_limit" value="${-80 * pi/180}" /> 
-	
-	
+
+temp
+	rviz:	
+		meshfile="package://quad_urdf/stl/lower_leg.stl"
+	quad_simulation:
+		meshfile="package://stl/side_right.stl"	
 	
 	
 	
