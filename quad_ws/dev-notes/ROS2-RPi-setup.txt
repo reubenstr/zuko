@@ -90,6 +90,10 @@ Desktop only:
 		TODO: add more dependencies!
 		
 RPi & Desktop:
+	Add permission:
+		Joystick/gamepad:
+			sudo usermod -a -G input $USER
+
 	Install dependencies:
 		...
 	Launch:

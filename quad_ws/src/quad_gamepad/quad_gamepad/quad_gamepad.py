@@ -1,6 +1,14 @@
-# Gamepad code extracted from library:  https://github.com/piborg/Gamepad/
-# Library fix for Ubuntu 64-bit : # https://github.com/piborg/Gamepad/pull/6
-# Library supports other controllers
+'''
+Wired and wireless game controller ROS2 wrapper
+
+Gamepad code (Gamepad.py, Controllers.py) extracted from library:  https://github.com/piborg/Gamepad/
+Library fix for Ubuntu 64-bit : # https://github.com/piborg/Gamepad/pull/6
+Library supports other controllers types.
+
+Setup for Playstation 4 controller. 
+Other controllers will need to be remapped, see Controllers.py
+
+'''
 
 from src import Gamepad
 import time
@@ -12,7 +20,7 @@ from rclpy.node import Node
 from rclpy.logging import LoggingSeverity
 from sensor_msgs.msg import Joy
 from std_msgs.msg import Header
-   
+
 
 class GamepadRos2(Node):
 
@@ -21,13 +29,16 @@ class GamepadRos2(Node):
 
         rclpy.logging._root_logger.log("quad_gamepad startup.", LoggingSeverity.INFO)
      
+        # Joy message
         self.joy = Joy()
         self.joy.header = Header()
         self.joy.header.frame_id = ''
         self.joy.axes = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
         self.joy.buttons = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-        self.publisher_ = self.create_publisher(Joy, 'joy', 10)       
+        
+        # Joy node
+        self.publish_rate_ms = 10
+        self.publisher_ = self.create_publisher(Joy, 'joy', self.publish_rate_ms)       
         self.last_event = None
         self.last_publish_time = 0
 
@@ -37,26 +48,21 @@ class GamepadRos2(Node):
         self.joy.header.stamp.nanosec = int(current_time[0] * 1000000000) & 0xffffffff
         self.publisher_.publish(self.joy)
         self.last_publish_time = time.time()    
-        
-        
-    def run(self):
 
-        # This is where you change your controller type.
-        # Reference /src/Controller.py for coded controllers.
+    def run(self):     
         gamepadType = Gamepad.PS4
         num_axes = 8
         num_buttons = 13
-
-        pollInterval = 0.010
+        poll_interval_seconds = self.publish_rate_ms / 1000
 
         # Wait for a connection
-        if not Gamepad.available():           
-            rclpy.logging._root_logger.log("Gamepad not detected...", LoggingSeverity.ERROR)
+        if not Gamepad.available():
             while not Gamepad.available():
+                rclpy.logging._root_logger.log("Gamepad not detected...", LoggingSeverity.WARN)
                 time.sleep(1.0)
-        gamepad = gamepadType()
+        
         rclpy.logging._root_logger.log("Gamepad connected.", LoggingSeverity.INFO)
-      
+        gamepad = gamepadType()              
         gamepad.startBackgroundUpdates()
 
         # Joystick events handled in the background
@@ -68,21 +74,23 @@ class GamepadRos2(Node):
                 
                 for i in range (num_buttons):
                     if gamepad.beenPressed(i):                   
-                        self.joy.buttons[i] = 1                      
+                        self.joy.buttons[i] = 1                                             
                     if gamepad.beenReleased(i):                   
                         self.joy.buttons[i] = 0                  
                              
                 self.publish_joy()
-                time.sleep(pollInterval)
+                time.sleep(poll_interval_seconds)
         finally:           
-            gamepad.disconnect()
-
+            gamepad.disconnect()    
+    
 
 def main(args=None):
     rclpy.init(args=args)
 
-    gamepad_ros2 = GamepadRos2()
-    gamepad_ros2.run() 
+    gamepad_ros2 = GamepadRos2()  
+
+    while rclpy.ok():
+        gamepad_ros2.run()       
     
     gamepad_ros2.destroy_node()
     rclpy.shutdown()
