@@ -76,9 +76,7 @@ RPi only:
 		Add the controller to the trusted list automatically connect:
 			trust 84:30:95:48:0F:3C	
 
-		For Desktop, test the controller using jstest-gtk:
-			sudo apt install jstest-gtk
-				
+		
 	
 	Servo calibration (execute from the workspace directory):
 		./quad_ws/src/quad/quad/servo_calibration.py
@@ -88,30 +86,16 @@ Desktop only:
 		pip install gym
 		pip install pybullet
 		TODO: add more dependencies!
+
+	Test the controller using jstest-gtk:
+			sudo apt install jstest-gtk
+
 		
 RPi & Desktop:
-	Add permission:
-		Joystick/gamepad:
-			sudo usermod -a -G input $USER
-
-	Install dependencies:
-		...
 	Launch:
 		See ros-commands document to startup the robot.
 
 
-
-
-
-Misc:
-	Show connect wireless controller info:
-		cat /proc/bus/input/devices
-		ls /dev/input/by-id/
-		dmesg | grep input
-
-	sudo apt install bluez-tools
-
-	sudo apt install evtest
 
 	
 	

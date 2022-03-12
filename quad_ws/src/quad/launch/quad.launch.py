@@ -28,12 +28,13 @@ def generate_launch_description():
         output='screen',  
         parameters = [{"motion_servo_parameters_path": motion_servo_parameters_path}, {"frame_parameters_path": frame_parameters_path},{"linked_leg_parameters_path": linked_leg_parameters_path}])
     
-    joy_node=Node(
-        package = 'joystick_ros2',
+    quad_gamepad=Node(
+        package = 'quad_gamepad',
         # name = 'quad_node',
-        executable = 'joystick_ros2',
-        output='screen',          
+        executable = 'quad_gamepad',
+        output='screen',
+        parameters=[{"joystick_number": 1}]        
     )      
     ld.add_action(quad_node)
-    ld.add_action(joy_node)
+    ld.add_action(quad_gamepad)
     return ld    

@@ -25,10 +25,14 @@ from std_msgs.msg import Header
 class GamepadRos2(Node):
 
     def __init__(self):
-        super().__init__('quad_gamepad')
-
+        super().__init__('quad_gamepad')        
         rclpy.logging._root_logger.log("quad_gamepad startup.", LoggingSeverity.INFO)
-     
+
+        self.declare_parameter('joystick_number', 0)        
+        self.joystick_number = self.get_parameter('joystick_number').value     
+        rclpy.logging._root_logger.log(f"Joystick number: {str(self.joystick_number)}", LoggingSeverity.INFO)
+       
+
         # Joy message
         self.joy = Joy()
         self.joy.header = Header()
@@ -55,19 +59,18 @@ class GamepadRos2(Node):
         num_buttons = 13
         poll_interval_seconds = self.publish_rate_ms / 1000
 
-        # Wait for a connection
-        if not Gamepad.available():
-            while not Gamepad.available():
-                rclpy.logging._root_logger.log("Gamepad not detected...", LoggingSeverity.WARN)
-                time.sleep(1.0)
+        # Wait for a connection      
+        while not Gamepad.available(self.joystick_number):
+            rclpy.logging._root_logger.log("Gamepad not detected...", LoggingSeverity.WARN)
+            time.sleep(1.0)
         
         rclpy.logging._root_logger.log("Gamepad connected.", LoggingSeverity.INFO)
-        gamepad = gamepadType()              
+        gamepad = gamepadType(self.joystick_number)              
         gamepad.startBackgroundUpdates()
 
         # Joystick events handled in the background
         try:
-            while gamepad.isConnected():
+            while gamepad.isConnected() and rclpy.ok():
                
                 for i in range (num_axes):
                     self.joy.axes[i] = gamepad.axis(i)  
@@ -80,17 +83,18 @@ class GamepadRos2(Node):
                              
                 self.publish_joy()
                 time.sleep(poll_interval_seconds)
+        except KeyboardInterrupt:
+            gamepad.disconnect()
+            return
         finally:           
             gamepad.disconnect()    
     
 
 def main(args=None):
-    rclpy.init(args=args)
-
-    gamepad_ros2 = GamepadRos2()  
-
-    while rclpy.ok():
-        gamepad_ros2.run()       
+    rclpy.init(args=args)    
+   
+    gamepad_ros2 = GamepadRos2()
+    gamepad_ros2.run() 
     
     gamepad_ros2.destroy_node()
     rclpy.shutdown()

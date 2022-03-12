@@ -21,14 +21,15 @@
     <visual>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="-0.0025 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/center_front.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/center_front.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/center_front.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -44,14 +45,15 @@
     <visual>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/side_left.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/side_left.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/side_left.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -67,14 +69,15 @@
     <visual>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/side_right.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/side_right.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/side_right.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -90,14 +93,15 @@
     <visual>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0.0025 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/center_back.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/center_back.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/center_back.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -113,14 +117,15 @@
     <visual>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/bridge_front.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/bridge_front.stl" scale="1 1 1"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/bridge_front.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -136,14 +141,15 @@
     <visual>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/bridge_back.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/bridge_back.stl" scale="1 1 1"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/bridge_back.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -159,14 +165,15 @@
     <visual>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/face.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/face.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/face.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -182,14 +189,15 @@
     <visual>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/butt.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/butt.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/butt.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -213,7 +221,7 @@
     <child link="side_right_link"/>
   </joint>
   <joint name="center_back_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.18399999999999997 0 0"/>
+    <origin rpy="0 0 0" xyz="-0.16599999999999998 0 0"/>
     <parent link="base_link"/>
     <child link="center_back_link"/>
   </joint>
@@ -238,18 +246,22 @@
     <child link="butt_link"/>
   </joint>
   <!-- Hips/Legs Links/Joints -->
+  <!--
+<xacro:property name="path" value="package://stl" /> 
+-->
   <link name="front_left_hip_link">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/hip_front.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/hip_front.stl" scale="1 1 1"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/hip_front.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -273,14 +285,15 @@
     <visual>
       <origin rpy="-1.5707963267948966 1.5707963267948966 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/upper_leg.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
       <origin rpy="-1.5707963267948966 1.5707963267948966 0" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -297,21 +310,22 @@
     <origin rpy="0 0 3.141592653589793" xyz="-0.0145 -0.03175 0"/>
     <parent link="front_left_hip_link"/>
     <child link="front_left_upper_leg_link"/>
-    <limit effort="4.0" lower="0.0" upper="1.9198621771937625" velocity="4.0"/>
+    <limit effort="4.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.0"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
   <link name="front_left_lower_leg_link">
     <visual>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 -0.0075 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 -0.0075 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/lower_leg.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/lower_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 -0.0075 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/lower_leg.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -324,25 +338,26 @@
   <gazebo reference="front_left_lower_leg_link">
   </gazebo>
   <joint name="front_left_lower_leg_rev_joint" type="revolute">
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <origin rpy="0 0 3.141592653589793" xyz="0 0 -0.1"/>
     <parent link="front_left_upper_leg_link"/>
     <child link="front_left_lower_leg_link"/>
-    <limit effort="4.0" lower="-1.3962634015954636" upper="1.038470904936626" velocity="4.0"/>
+    <limit effort="4.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.0"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
   <link name="front_right_hip_link">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/hip_front.stl" scale="1 -1 1"/>
+        <mesh filename="package://stl/hip_front.stl" scale="1 -1 1"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/hip_front.stl" scale="1 -1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -355,7 +370,7 @@
   <gazebo reference="front_right_hip_link">
   </gazebo>
   <joint name="front_right_hip_rev_joint" type="revolute">
-    <axis xyz="1 0 0"/>
+    <axis xyz="-1 0 0"/>
     <origin rpy="0 0 3.141592653589793" xyz="0.002 -0.0455 0"/>
     <parent link="base_link"/>
     <child link="front_right_hip_link"/>
@@ -366,14 +381,15 @@
     <visual>
       <origin rpy="-1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/upper_leg.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
       <origin rpy="-1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -390,21 +406,22 @@
     <origin rpy="0 0 3.141592653589793" xyz="-0.0145 0.03175 0"/>
     <parent link="front_right_hip_link"/>
     <child link="front_right_upper_leg_link"/>
-    <limit effort="4.0" lower="0.0" upper="1.9198621771937625" velocity="4.0"/>
+    <limit effort="4.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.0"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
   <link name="front_right_lower_leg_link">
     <visual>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0.0075 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966  3.141592653589793" xyz="0 0.0075 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/lower_leg.stl" scale="1 1 -1"/>
+        <mesh filename="package://stl/lower_leg.stl" scale="1 1 -1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966  3.141592653589793" xyz="0 0.0075 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/lower_leg.stl" scale="1 1 -1"/>
       </geometry>
     </collision>
     <inertial>
@@ -417,25 +434,26 @@
   <gazebo reference="front_right_lower_leg_link">
   </gazebo>
   <joint name="front_right_lower_leg_rev_joint" type="revolute">
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <origin rpy="0 0 3.141592653589793" xyz="0 0 -0.1"/>
     <parent link="front_right_upper_leg_link"/>
     <child link="front_right_lower_leg_link"/>
-    <limit effort="4.0" lower="-1.3962634015954636" upper="1.038470904936626" velocity="4.0"/>
+    <limit effort="4.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.0"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
   <link name="back_left_hip_link">
     <visual>
       <origin rpy="0 0 3.141592653589793" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/hip_back.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/hip_back.stl" scale="1 1 1"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="0 0 3.141592653589793" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/hip_back.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -459,14 +477,15 @@
     <visual>
       <origin rpy="-1.5707963267948966 1.5707963267948966 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/upper_leg.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
       <origin rpy="-1.5707963267948966 1.5707963267948966 0" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -483,21 +502,22 @@
     <origin rpy="0 0 0" xyz="-0.035500000000000004 0.03175 0"/>
     <parent link="back_left_hip_link"/>
     <child link="back_left_upper_leg_link"/>
-    <limit effort="4.0" lower="0.0" upper="1.9198621771937625" velocity="4.0"/>
+    <limit effort="4.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.0"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
   <link name="back_left_lower_leg_link">
     <visual>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 -0.0075 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 -0.0075 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/lower_leg.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/lower_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 -0.0075 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/lower_leg.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -510,25 +530,26 @@
   <gazebo reference="back_left_lower_leg_link">
   </gazebo>
   <joint name="back_left_lower_leg_rev_joint" type="revolute">
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <origin rpy="0 0 3.141592653589793" xyz="0 0 -0.1"/>
     <parent link="back_left_upper_leg_link"/>
     <child link="back_left_lower_leg_link"/>
-    <limit effort="4.0" lower="-1.3962634015954636" upper="1.038470904936626" velocity="4.0"/>
+    <limit effort="4.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.0"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
   <link name="back_right_hip_link">
     <visual>
       <origin rpy="0 0 3.141592653589793" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/hip_back.stl" scale="1 -1 1"/>
+        <mesh filename="package://stl/hip_back.stl" scale="1 -1 1"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="0 0 3.141592653589793" xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/hip_back.stl" scale="1 -1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -541,7 +562,7 @@
   <gazebo reference="back_right_hip_link">
   </gazebo>
   <joint name="back_right_hip_rev_joint" type="revolute">
-    <axis xyz="-1 0 0"/>
+    <axis xyz="1 0 0"/>
     <origin rpy="0 0 0" xyz="-0.002 -0.0455 0"/>
     <parent link="center_back_link"/>
     <child link="back_right_hip_link"/>
@@ -552,14 +573,15 @@
     <visual>
       <origin rpy="-1.5707963267948966 1.5707963267948966 3.141592653589793 " xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/upper_leg.stl" scale="1 1 1"/>
+        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
       <origin rpy="-1.5707963267948966 1.5707963267948966 3.141592653589793 " xyz="0 0 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <inertial>
@@ -576,38 +598,39 @@
     <origin rpy="0 0 0" xyz="-0.035500000000000004 -0.03175 0"/>
     <parent link="back_right_hip_link"/>
     <child link="back_right_upper_leg_link"/>
-    <limit effort="4.0" lower="0.0" upper="1.9198621771937625" velocity="4.0"/>
+    <limit effort="4.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.0"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
   <link name="back_right_lower_leg_link">
     <visual>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0.0075 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 0.0075 0"/>
       <geometry>
-        <mesh filename="package://quad_urdf/stl/lower_leg.stl" scale="1 1 -1"/>
+        <mesh filename="package://stl/lower_leg.stl" scale="1 1 -1"/>
       </geometry>
       <material name="brown"/>
     </visual>
     <collision>
-      <origin rpy="1.5707963267948966 0 3.141592653589793" xyz="0 0 0"/>
+      <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 0.0075 0"/>
       <geometry>
-        <box size="0 0 0"/>
+        <!--<box size="${length} ${width} ${height}" />-->
+        <mesh filename="package://stl/lower_leg.stl" scale="1 1 -1"/>
       </geometry>
     </collision>
     <inertial>
       <mass value="0.6"/>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <!-- Inertial Axes -->
-      <inertia ixx="0.0" ixy="0" ixz="0" iyx="0" iyy="0.0" iyz="0" izx="0" izy="0" izz="0.0"/>
+      <inertia ixx="0.0062499999999999995" ixy="0" ixz="0" iyx="0" iyy="0.0037578125000000003" iyz="0" izx="0" izy="0" izz="0.0037578125000000003"/>
     </inertial>
   </link>
   <gazebo reference="back_right_lower_leg_link">
   </gazebo>
   <joint name="back_right_lower_leg_rev_joint" type="revolute">
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <origin rpy="0 0 3.141592653589793" xyz="0 0 -0.1"/>
     <parent link="back_right_upper_leg_link"/>
     <child link="back_right_lower_leg_link"/>
-    <limit effort="4.0" lower="-1.3962634015954636" upper="1.038470904936626" velocity="4.0"/>
+    <limit effort="4.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="4.0"/>
     <joint_properties damping="0.0" friction="0.0"/>
   </joint>
   <!--
