@@ -2,8 +2,8 @@
 '''
     Converts joystick axes and button input into motion parameters for robot control.
 
-    Coded to match a Playstation 4 controller schema. 
-    Adjustments may be required for other joysticks/controllers.
+    Button map derived from Controllers.py in quad_gamepad/quad_gamepad/src
+    
 '''
 
 import copy
@@ -20,43 +20,39 @@ class JoystickInterpreter():
 
     def get_motion_parameters(self, axes, buttons):
 
-        # button: triangle
-        if buttons[3] == True and self.mode_toggle_button_release_flag == True:
+        # Button: triangle
+        if buttons[2] == True and self.mode_toggle_button_release_flag == True:
             self.mode_toggle_button_release_flag = False
             if self.motion_parameters.motion_state == MotionState.MOTION:
                 self.motion_parameters.motion_state = MotionState.POSE
             elif self.motion_parameters.motion_state == MotionState.POSE:
                 self.motion_parameters.motion_state = MotionState.MOTION
-        elif buttons[3] == False:
+        elif buttons[2] == False:
             self.mode_toggle_button_release_flag = True
 
-        # TODO: fetch parameters from a centalized param file
-       
-        zLimit = 0.1
 
+        # TODO: fetch parameters from a centalized param file       
+        zLimit = 0.1
         ornLimit = np.pi / 4
 
         # pos: X, Y, Z coordinates
         # orn: Roll, Pitch, Yaw angles
-
         if self.motion_parameters.motion_state == MotionState.POSE:
-
-            # pos
-
+           
             # left analog stick up/down
             self.motion_parameters.orn[1] = self.map(
                 axes[1], -1, 1, self.motion_parameters.orn_y_min, self.motion_parameters.orn_y_max)
 
             # left analog stick left/right
-            self.motion_parameters.orn[2] = - self.map(
+            self.motion_parameters.orn[0] = - self.map(
                 axes[0], -1, 1, self.motion_parameters.orn_z_min, self.motion_parameters.orn_z_max)
 
             # right analog stick left/right
-            self.motion_parameters.orn[0] = self.map(
+            self.motion_parameters.orn[3] = self.map(
                 axes[2], -1, 1, self.motion_parameters.orn_x_min, self.motion_parameters.orn_x_max)
 
             # right analog stick up/down
-            self.motion_parameters.pos[2] = - self.map(
+            self.motion_parameters.pos[4] = - self.map(
                 axes[5], -1, 1, self.motion_parameters.pos_z_min, self.motion_parameters.pos_z_max)
 
         if self.motion_parameters.motion_state == MotionState.MOTION:
@@ -71,10 +67,10 @@ class JoystickInterpreter():
 
             # right analog stick left/right
             #self.motion_parameters.orn[0] = self.map(
-            #    axes[2], -1, 1, -ornLimit, ornLimit)
+            #    axes[4], -1, 1, -ornLimit, ornLimit)
 
             # right analog stick up/down
             self.motion_parameters.pos[2] = - self.map(
-                axes[5], -1, 1, self.motion_parameters.pos_z_min, self.motion_parameters.pos_z_max)
+                axes[4], -1, 1, self.motion_parameters.pos_z_min, self.motion_parameters.pos_z_max)
 
         return copy.deepcopy(self.motion_parameters)

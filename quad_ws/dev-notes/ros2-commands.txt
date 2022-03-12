@@ -35,6 +35,9 @@ BUILD:
 		colcon build --packages-select quad; ros2 run quad quad
 		colcon build --packages-select quad_simulation; ros2 run quad_simulation quad_simulation
 		colcon build --packages-select quad_motors; ros2 run quad_motors quad_motors
+		colcon build --packages-select quad_joy_bluetooth; ros2 run quad_joy_bluetooth quad_joy_bluetooth
+		colcon build --packages-select joystick_ros2; ros2 run joystick_ros2 joystick_ros2		
+
 	
 SOURCE:
 	SOURCE ROS:

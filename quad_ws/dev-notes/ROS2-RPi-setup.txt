@@ -90,7 +90,24 @@ Desktop only:
 		TODO: add more dependencies!
 		
 RPi & Desktop:
+	Install dependencies:
+		...
 	Launch:
 		See ros-commands document to startup the robot.
+
+
+
+
+
+Misc:
+	Show connect wireless controller info:
+		cat /proc/bus/input/devices
+		ls /dev/input/by-id/
+		dmesg | grep input
+
+	sudo apt install bluez-tools
+
+	sudo apt install evtest
+
 	
 	
