@@ -86,11 +86,13 @@ XACRO/URDF:
 		Note: the files must be transfered to the share folder during colcon build
 		which is commanded by the setup.py script in the package folder
 		
-		Run xacro to build URDF:
-			ros2 run xacro xacro /home/ubuntu/zuko/quad_ws/src/quad_udrf/urdf/zuko.urdf.xacro > /home/ubuntu/zuko/quad_ws/src/quad_simulation/quad_simulation/src/urdf/quad.urdf
-		Genrate xacro, build, run:
-			ros2 run xacro xacro /home/ubuntu/zuko/quad_ws/src/quad_udrf/urdf/zuko.urdf.xacro > /home/ubuntu/zuko/quad_ws/src/quad_simulation/quad_simulation/src/urdf/zuko.urdf; colcon build --packages-select quad_simulation; ros2 run quad_simulation quad_simulation
-
+		Run xacro to build URDF:		
+			ros2 run xacro xacro ~/zuko/quad_ws/src/quad_simulation/quad_simulation/urdf/zuko.urdf.xacro > ~/zuko/quad_ws/src/quad_simulation/quad_simulation/urdf/zuko.urdf
+			
+		Generate xacro, build, run:
+			... ; colcon build --packages-select quad_simulation; ros2 run quad_simulation quad_simulation
+		Launch UDRF in RVIZ: 
+			ros2 launch quad_urdf display.launch.py
 
 #ADDON SOFTWARE
 	Joystick test program (GUI):

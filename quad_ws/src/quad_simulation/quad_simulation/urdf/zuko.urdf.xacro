@@ -43,8 +43,8 @@
 		<xacro:if value="${matname == 'black'}">
 		  <material>Gazebo/Black</material>
 		</xacro:if>
-		<xacro:if value="${matname == 'orange'}">
-		  <material>Gazebo/Orange</material>
+		<xacro:if value="${matname == 'white'}">
+		  <material>Gazebo/White</material>
 		</xacro:if>
 	</gazebo>
 </xacro:macro>
@@ -125,7 +125,7 @@
 		width="0"
 		height="0"
 		matname="brown"
-		meshfile="package://quad_urdf/stl/center_front.stl"
+		meshfile="package://stl/center_front.stl"
 		meshscale="1 1 1" />
 
 	<xacro:mesh_link name="side_left_link"
@@ -139,7 +139,7 @@
 		width="0"
 		height="0"
 		matname="brown"
-		meshfile="package://quad_urdf/stl/side_left.stl"
+		meshfile="package://stl/side_left.stl"
 		meshscale="1 1 1" />
 		
 	<xacro:mesh_link name="side_right_link"
@@ -153,7 +153,7 @@
 		width="0"
 		height="0"
 		matname="brown"
-		meshfile="package://quad_urdf/stl/side_right.stl"
+		meshfile="package://stl/side_right.stl"
 		meshscale="1 1 1" />
 		
 	<xacro:mesh_link name="center_back_link"
@@ -167,7 +167,7 @@
 		width="0"
 		height="0"
 		matname="brown"
-		meshfile="package://quad_urdf/stl/center_back.stl"
+		meshfile="package://stl/center_back.stl"
 		meshscale="1 1 1" />
 	
 	<xacro:mesh_link name="bridge_front_link"
@@ -181,7 +181,7 @@
 		width="0"
 		height="0"
 		matname="white"
-		meshfile="package://quad_urdf/stl/bridge_front.stl"
+		meshfile="package://stl/bridge_front.stl"
 		meshscale="1 1 1" />
 		
 			
@@ -196,7 +196,7 @@
 		width="0"
 		height="0"
 		matname="white"
-		meshfile="package://quad_urdf/stl/bridge_back.stl"
+		meshfile="package://stl/bridge_back.stl"
 		meshscale="1 1 1" />
 		
 	<xacro:mesh_link name="face_link"
@@ -210,7 +210,7 @@
 		width="0"
 		height="0"
 		matname="brown"
-		meshfile="package://quad_urdf/stl/face.stl"
+		meshfile="package://stl/face.stl"
 		meshscale="1 1 1" />
 		
 	<xacro:mesh_link name="butt_link"
@@ -224,7 +224,7 @@
 		width="0"
 		height="0"
 		matname="brown"
-		meshfile="package://quad_urdf/stl/butt.stl"
+		meshfile="package://stl/butt.stl"
 		meshscale="1 1 1" />
 
 	<xacro:mesh_link name="electronics_cover_link"
@@ -238,7 +238,7 @@
 		width="0"
 		height="0"
 		matname="brown"
-		meshfile="package://quad_urdf/stl/electronics_cover.stl"
+		meshfile="package://stl/electronics_cover.stl"
 		meshscale="1 1 1" />
 
 	<xacro:mesh_link name="battery_cover_link"
@@ -252,7 +252,7 @@
 		width="0"
 		height="0"
 		matname="brown"
-		meshfile="package://quad_urdf/stl/battery_cover.stl"
+		meshfile="package://stl/battery_cover.stl"
 		meshscale="1 1 1" />
 
 	<xacro:mesh_link name="tail_link"
@@ -266,7 +266,7 @@
 		width="0"
 		height="0"
 		matname="white"
-		meshfile="package://quad_urdf/stl/tail.stl"
+		meshfile="package://stl/tail.stl"
 		meshscale="1 1 1" />
 		
 		
@@ -378,7 +378,7 @@
 				width="0"
 				height="0"
 				matname="white"
-				meshfile="package://quad_urdf/stl/hip_front.stl"
+				meshfile="package://stl/hip_front.stl"
 				meshscale="1 1 1" />
 			  
 		<xacro:rev_joint name="front_left_hip_rev_joint" 
@@ -406,7 +406,7 @@
 					width="0"
 					height="0"
 					matname="brown"
-					meshfile="package://quad_urdf/stl/upper_leg.stl"
+					meshfile="package://stl/upper_leg.stl"
 					meshscale="1 1 1" />
 			  
 		<xacro:rev_joint name="front_left_upper_leg_rev_joint" 
@@ -434,7 +434,7 @@
 					width="0"
 					height="0"
 					matname="brown"
-					meshfile="package://quad_urdf/stl/lower_leg.stl"
+					meshfile="package://stl/lower_leg.stl"
 					meshscale="1 1 1" />
 			  
 		<xacro:rev_joint name="front_left_lower_leg_rev_joint" 
@@ -463,7 +463,7 @@
 				width="0"
 				height="0"
 				matname="white"
-				meshfile="package://quad_urdf/stl/hip_front.stl"
+				meshfile="package://stl/hip_front.stl"
 				meshscale="1 -1 1" />
 			  
 		<xacro:rev_joint name="front_right_hip_rev_joint" 
@@ -491,7 +491,7 @@
 					width="0"
 					height="0"
 					matname="brown"
-					meshfile="package://quad_urdf/stl/upper_leg.stl"
+					meshfile="package://stl/upper_leg.stl"
 					meshscale="1 1 1" />
 			  
 		<xacro:rev_joint name="front_right_upper_leg_rev_joint" 
@@ -519,7 +519,7 @@
 					width="0"
 					height="0"
 					matname="brown"
-					meshfile="package://quad_urdf/stl/lower_leg.stl"
+					meshfile="package://stl/lower_leg.stl"
 					meshscale="1 1 -1" />
 			  
 		<xacro:rev_joint name="front_right_lower_leg_rev_joint" 
@@ -548,7 +548,7 @@
 				width="0"
 				height="0"
 				matname="white"
-				meshfile="package://quad_urdf/stl/hip_back.stl"
+				meshfile="package://stl/hip_back.stl"
 				meshscale="1 1 1" />
 			  
 		<xacro:rev_joint name="back_left_hip_rev_joint" 
@@ -576,7 +576,7 @@
 					width="0"
 					height="0"
 					matname="brown"
-					meshfile="package://quad_urdf/stl/upper_leg.stl"
+					meshfile="package://stl/upper_leg.stl"
 					meshscale="1 1 1" />
 			  
 		<xacro:rev_joint name="back_left_upper_leg_rev_joint" 
@@ -604,7 +604,7 @@
 					width="0"
 					height="0"
 					matname="brown"
-					meshfile="package://quad_urdf/stl/lower_leg.stl"
+					meshfile="package://stl/lower_leg.stl"
 					meshscale="1 1 1" />
 			  
 		<xacro:rev_joint name="back_left_lower_leg_rev_joint" 
@@ -633,7 +633,7 @@
 				width="0"
 				height="0"
 				matname="white"
-				meshfile="package://quad_urdf/stl/hip_back.stl"
+				meshfile="package://stl/hip_back.stl"
 				meshscale="1 -1 1" />
 			  
 		<xacro:rev_joint name="back_right_hip_rev_joint" 
@@ -661,7 +661,7 @@
 					width="0"
 					height="0"
 					matname="brown"
-					meshfile="package://quad_urdf/stl/upper_leg.stl"
+					meshfile="package://stl/upper_leg.stl"
 					meshscale="1 1 1" />
 			  
 		<xacro:rev_joint name="back_right_upper_leg_rev_joint" 
@@ -689,7 +689,7 @@
 					width="0.25"
 					height="0.25"
 					matname="brown"
-					meshfile="package://quad_urdf/stl/lower_leg.stl"
+					meshfile="package://stl/lower_leg.stl"
 					meshscale="1 1 -1" />
 			  
 		<xacro:rev_joint name="back_right_lower_leg_rev_joint" 
