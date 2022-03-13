@@ -45,39 +45,45 @@ PCA9685_PWM_MASK = 0x0FFF
 class PCA9685Servos:
     """
     Class interfacing with an PCA9685 16-channel PWM driver.
-    :param int bus_index: The RPi I2C bus number: Default bus: 1.    
-    :param int address: The I2C address of the PCA9685. Default address: 0x40.    
+    :param int bus_index: RPi I2C bus number. Default bus: 1.    
+    :param int address: I2C address of the PCA9685. Default address: 0x40.    
     """
     def __init__(
         self, 
         bus_index = 1,
         device_address=0x40      
-    ):
+    ):      
         self.bus_index = bus_index
         self.address = device_address
         self.reference_clock_speed_hz = 25000000
-        self.frequency_hz = 50  
+        self.pwm_frequency_hz = 50  
         self.min_pulse_width = 0
         self.max_pulse_width = 3000      
                    
-        bus = SMBus(self.bus_index)
-
+        bus = SMBus(self.bus_index)      
         # Set PWM frequency
         bus.write_byte_data(self.address, PCA9685_MODE1_REG, PCA9685_MODE1_SLEEP)
-        prescale_val = int((self.reference_clock_speed_hz / (4096 * self.frequency_hz)) - 1)    
+        prescale_val = int((self.reference_clock_speed_hz / (4096 * self.pwm_frequency_hz)) - 1)    
         bus.write_byte_data(self.address, PCA9685_PRESCALE_REG, prescale_val)
         bus.write_byte_data(self.address, PCA9685_MODE1_REG, ~PCA9685_MODE1_SLEEP) 
         sleep(0.005)       
 
         bus.close()
 
-    def set_pulse_width(self, channel, pulse_width):
+    def is_alive(self):
+        bus = SMBus(self.bus_index)                 
+        try:
+            bus.read_byte_data(self.bus_index, PCA9685_MODE1_REG)
+        except OSError:
+            return False
+        return True
 
-        bus = SMBus(self.bus_index)
+    def set_pulse_width(self, channel, pulse_width):            
         '''
         :param int channel: 0 - 16 PCA9685 channel.  
         :param int pulse_width: Servo pulse width typically 1500 - 2500 microseconds.  
         '''
+        bus = SMBus(self.bus_index) 
         if channel < 0 | channel > 15:
             return
         
@@ -98,3 +104,4 @@ class PCA9685Servos:
         bus.write_byte_data(self.address, reg + 3, (phase_end >> 8) & 0xFF)
 
         bus.close()
+        

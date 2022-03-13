@@ -79,8 +79,14 @@ def print_screen(motion_servo_parameters_path, selected_servo, joint_pulse_width
 def main(args=None):
 
     warn_user()
-
+    
     servo_driver = PCA9685Servos(1, 0x40) 
+
+    # TODO: read exception is occuring despite device working, might be a timing issue
+    if servo_driver.is_alive() == False:
+        print("I2C device not responding.")
+        exit()
+
     selected_servo = 0
     servo_pulse_widths = [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500]
     servo_min_pulse_width = 250
@@ -107,7 +113,11 @@ def main(args=None):
     while True:
         print_screen(motion_servo_parameters_path, selected_servo, servo_pulse_widths, parameters)
 
-        read_line = sys.stdin.readline()
+        try:
+            read_line = sys.stdin.readline()
+        except KeyboardInterrupt:
+            exit()
+
         read_line_split = read_line.split()
 
         if len(read_line_split) > 0:
