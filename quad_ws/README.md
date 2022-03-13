@@ -10,11 +10,12 @@ Development.
 - Update motor limits
 - Parameterize motion_parameters limits
 - Finish URDF: add final STLs, add weights
+- Remove not needed collision meshs in URDF- 
 - Add discovery to launch for remote simulation from RPi
-- Connect game controller via Bluetooth, create BT joy node
 - Update walking parameters
 - Code in IMU, V/I sense, LEDs
 - Pythonize code (clean up code)
+- (clean model.py, urdf pathing)
 
 ### Long Term To Do
 

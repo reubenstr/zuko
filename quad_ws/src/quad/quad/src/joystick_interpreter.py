@@ -20,6 +20,10 @@ class JoystickInterpreter():
 
     def get_motion_parameters(self, axes, buttons):
 
+        # Reorient axes
+        axes[1] = -axes[1]
+        axes[4] = -axes[4]
+
         # Button: triangle
         if buttons[2] == True and self.mode_toggle_button_release_flag == True:
             self.mode_toggle_button_release_flag = False
@@ -44,16 +48,16 @@ class JoystickInterpreter():
                 axes[1], -1, 1, self.motion_parameters.orn_y_min, self.motion_parameters.orn_y_max)
 
             # left analog stick left/right
-            self.motion_parameters.orn[0] = - self.map(
-                axes[0], -1, 1, self.motion_parameters.orn_z_min, self.motion_parameters.orn_z_max)
+            self.motion_parameters.orn[2] = - self.map(
+                axes[1], -1, 1, self.motion_parameters.orn_z_min, self.motion_parameters.orn_z_max)
 
             # right analog stick left/right
-            self.motion_parameters.orn[3] = self.map(
-                axes[2], -1, 1, self.motion_parameters.orn_x_min, self.motion_parameters.orn_x_max)
+            self.motion_parameters.orn[2] = self.map(
+                axes[3], -1, 1, self.motion_parameters.orn_x_min, self.motion_parameters.orn_x_max)
 
             # right analog stick up/down
-            self.motion_parameters.pos[4] = - self.map(
-                axes[5], -1, 1, self.motion_parameters.pos_z_min, self.motion_parameters.pos_z_max)
+            self.motion_parameters.pos[2] = - self.map(
+                axes[4], -1, 1, self.motion_parameters.pos_z_min, self.motion_parameters.pos_z_max)
 
         if self.motion_parameters.motion_state == MotionState.MOTION:
 
