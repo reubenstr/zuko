@@ -81,7 +81,8 @@ RPi only:
 				
 	
 	Servo calibration (execute from the workspace directory):
-		./quad_ws/src/quad/quad/servo_calibration.py
+		./src/quad_motors/quad_motors/servo_calibration.py
+
 
 Desktop only:
 	Install dependencies:		
@@ -100,7 +101,13 @@ RPi & Desktop:
 		See ros-commands document to startup the robot.
 
 
-
+I2C:
+	Tools:
+		sudo apt-get install i2c-tools
+	Scan for device addresses on bus:
+		sudo i2cdetect -y 1
+	Scan and dump registers on device:
+		i2cdump -y 1 0x40
 
 
 Misc:
