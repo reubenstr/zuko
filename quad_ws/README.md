@@ -10,7 +10,6 @@ Development.
 - Update motor limits
 - Parameterize motion_parameters limits
 - Finish URDF: add final STLs, add weights
-- Remove not needed collision meshs in URDF- 
 - Add discovery to launch for remote simulation from RPi
 - Update walking parameters
 - Code in IMU, V/I sense, LEDs

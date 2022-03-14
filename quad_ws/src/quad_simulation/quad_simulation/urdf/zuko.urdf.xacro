@@ -24,15 +24,43 @@
 		</geometry>
 		<material name="${matname}"/>
 	  </visual>
-
 	  <collision>
 		<origin rpy="${origin_rpy}" xyz="${c_xyz}" />
 		<geometry>
-		  <!--<box size="${length} ${width} ${height}" />-->
+		  <box size="${length} ${width} ${height}" />		 
+		</geometry>
+	  </collision>
+	  <inertial>
+		<mass value="${mass}" />
+		<origin rpy="${i_rpy}" xyz="${i_xyz}" /> <!-- Inertial Axes -->
+		<inertia ixx="${mass * (width * width + height * height)/12.0}" ixy="${0}" ixz="${0}" iyx="${0}" iyy="${mass * (length * length + height * height)/12.0}" iyz="${0}" izx="${0}" izy="${0}" izz="${mass * (length * length + width * width)/12.0}" />
+	  </inertial>
+	</link>
+	<gazebo reference="${name}">
+		<xacro:if value="${matname == 'black'}">
+		  <material>Gazebo/Black</material>
+		</xacro:if>
+		<xacro:if value="${matname == 'white'}">
+		  <material>Gazebo/White</material>
+		</xacro:if>
+	</gazebo>
+</xacro:macro>
+
+<xacro:macro name="mesh_mesh_link" params="name origin_xyz origin_rpy meshfile meshscale c_xyz matname mass i_xyz i_rpy length width height">
+	<link name="${name}">
+	  <visual>
+		<origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
+		<geometry>
+		  <mesh filename="${meshfile}" scale="${meshscale}"/>
+		</geometry>
+		<material name="${matname}"/>
+	  </visual>
+	  <collision>
+		<origin rpy="${origin_rpy}" xyz="${c_xyz}" />
+		<geometry>		 
 		  <mesh filename="${meshfile}" scale="${meshscale}"/>
 		</geometry>
 	  </collision>
-
 	  <inertial>
 		<mass value="${mass}" />
 		<origin rpy="${i_rpy}" xyz="${i_xyz}" /> <!-- Inertial Axes -->
@@ -423,7 +451,7 @@
 				    parent="front_left_hip_link"
 				    child="front_left_upper_leg_link" />
 				    
-		<xacro:mesh_link name="front_left_lower_leg_link"
+		<xacro:mesh_mesh_link name="front_left_lower_leg_link"
 					origin_rpy="${pi/2} ${pi/2} ${pi}"
 					origin_xyz="0 -${upper_leg_origin_offset_to_center_of_leg} 0"
 					i_rpy="0 0 0"
@@ -508,7 +536,7 @@
 				    parent="front_right_hip_link"
 				    child="front_right_upper_leg_link" />
 				    
-		<xacro:mesh_link name="front_right_lower_leg_link"
+		<xacro:mesh_mesh_link name="front_right_lower_leg_link"
 					origin_rpy="${pi/2} ${pi/2}  ${pi}"
 					origin_xyz="0 ${upper_leg_origin_offset_to_center_of_leg} 0"
 					i_rpy="0 0 0"
@@ -593,7 +621,7 @@
 				    parent="back_left_hip_link"
 				    child="back_left_upper_leg_link" />
 				    
-		<xacro:mesh_link name="back_left_lower_leg_link"
+		<xacro:mesh_mesh_link name="back_left_lower_leg_link"
 					origin_rpy="${pi/2} ${pi/2} ${pi}"
 					origin_xyz="0 -${upper_leg_origin_offset_to_center_of_leg} 0"
 					i_rpy="0 0 0"
@@ -678,7 +706,7 @@
 				    parent="back_right_hip_link"
 				    child="back_right_upper_leg_link" />
 				    
-		<xacro:mesh_link name="back_right_lower_leg_link"
+		<xacro:mesh_mesh_link name="back_right_lower_leg_link"
 					origin_rpy="${pi/2} ${pi/2} ${pi}"
 					origin_xyz="0 ${upper_leg_origin_offset_to_center_of_leg} 0"
 					i_rpy="0 0 0"

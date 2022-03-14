@@ -28,8 +28,7 @@
     <collision>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="-0.0025 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/center_front.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -52,8 +51,7 @@
     <collision>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/side_left.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -76,8 +74,7 @@
     <collision>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/side_right.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -100,8 +97,7 @@
     <collision>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0.0025 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/center_back.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -124,8 +120,7 @@
     <collision>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/bridge_front.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -149,8 +144,7 @@
     <collision>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/bridge_back.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -174,8 +168,7 @@
     <collision>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/face.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -198,8 +191,7 @@
     <collision>
       <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/butt.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -222,8 +214,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/electronics_cover.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -246,8 +237,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/battery_cover.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -270,8 +260,7 @@
     <collision>
       <origin rpy="1.5707963267948966 0.6108652381980153 0" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/tail.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -347,8 +336,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/hip_front.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -380,8 +368,7 @@
     <collision>
       <origin rpy="-1.5707963267948966 1.5707963267948966 0" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -412,7 +399,6 @@
     <collision>
       <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 -0.0075 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
         <mesh filename="package://stl/lower_leg.stl" scale="1 1 1"/>
       </geometry>
     </collision>
@@ -444,8 +430,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/hip_front.stl" scale="1 -1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -477,8 +462,7 @@
     <collision>
       <origin rpy="-1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -509,7 +493,6 @@
     <collision>
       <origin rpy="1.5707963267948966 1.5707963267948966  3.141592653589793" xyz="0 0.0075 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
         <mesh filename="package://stl/lower_leg.stl" scale="1 1 -1"/>
       </geometry>
     </collision>
@@ -541,8 +524,7 @@
     <collision>
       <origin rpy="0 0 3.141592653589793" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/hip_back.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -574,8 +556,7 @@
     <collision>
       <origin rpy="-1.5707963267948966 1.5707963267948966 0" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -606,7 +587,6 @@
     <collision>
       <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 -0.0075 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
         <mesh filename="package://stl/lower_leg.stl" scale="1 1 1"/>
       </geometry>
     </collision>
@@ -638,8 +618,7 @@
     <collision>
       <origin rpy="0 0 3.141592653589793" xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/hip_back.stl" scale="1 -1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -671,8 +650,7 @@
     <collision>
       <origin rpy="-1.5707963267948966 1.5707963267948966 3.141592653589793 " xyz="0 0 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
-        <mesh filename="package://stl/upper_leg.stl" scale="1 1 1"/>
+        <box size="0 0 0"/>
       </geometry>
     </collision>
     <inertial>
@@ -703,7 +681,6 @@
     <collision>
       <origin rpy="1.5707963267948966 1.5707963267948966 3.141592653589793" xyz="0 0.0075 0"/>
       <geometry>
-        <!--<box size="${length} ${width} ${height}" />-->
         <mesh filename="package://stl/lower_leg.stl" scale="1 1 -1"/>
       </geometry>
     </collision>
