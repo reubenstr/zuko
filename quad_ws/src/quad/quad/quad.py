@@ -19,24 +19,24 @@ from rclpy.parameter import Parameter
 
 from src.quad_commander import QuadCommander
 from src.joystick_interpreter import JoystickInterpreter
-from src.motion_parameters import MotionParameters
+from src.motion_inputs import MotionInputs
 
 class JoystickSubscriber(Node):
-    def __init__(self):
+    def __init__(self, motion_parameters):
         super().__init__('joy_subscriber_node')
         self.subscription = self.create_subscription(
             Joy, 'joy', self.listener_callback, 10)
-        self.joystick_interpreter = JoystickInterpreter()
-        self.motion_parameters = MotionParameters()
+        self.joystick_interpreter = JoystickInterpreter(motion_parameters)
+        self.motion_inputs = MotionInputs()
 
     def listener_callback(self, msg):
         axes = msg.axes
         buttons = msg.buttons
-        self.motion_parameters = self.joystick_interpreter.get_motion_parameters(
+        self.motion_inputs = self.joystick_interpreter.get_motion_inputs(
             axes, buttons)
 
     def get_motion_parameters(self):
-        return copy.deepcopy(self.motion_parameters)
+        return copy.deepcopy(self.motion_inputs)
 
 
 class JointAnglesPublisher(Node):
@@ -67,25 +67,33 @@ def main(args=None):
     rclpy.logging._root_logger.log("QUAD STARTED", LoggingSeverity.INFO)
 
     joint_angles_publisher_node = JointAnglesPublisher()
-    joystick_subscriber = JoystickSubscriber()
-
+    
     joint_angles_publisher_node.declare_parameters(
         namespace='',
-        parameters=[          
+        parameters=[      
+            ('motion_parameters_path', None),   
             ('frame_parameters_path', None),
             ('linked_leg_parameters_path', None)])
    
+    motion_parameters_path = joint_angles_publisher_node.get_parameter(
+        'motion_parameters_path').get_parameter_value().string_value
     frame_parameters_path = joint_angles_publisher_node.get_parameter(
         'frame_parameters_path').get_parameter_value().string_value
     linked_leg_parameters_path = joint_angles_publisher_node.get_parameter(
         'linked_leg_parameters_path').get_parameter_value().string_value       
     
     rclpy.logging._root_logger.log(
+        "motion_parameters_path: " + motion_parameters_path, LoggingSeverity.INFO)
+    rclpy.logging._root_logger.log(
         "frame_parameters_path: " + frame_parameters_path, LoggingSeverity.INFO)
     rclpy.logging._root_logger.log(
         "linked_leg_parameters_path: " + linked_leg_parameters_path, LoggingSeverity.INFO)
   
     # TODO: catch exception if file not found
+    if path.exists(motion_parameters_path):
+        with open(motion_parameters_path, 'r') as stream:
+            motion_parameters = yaml.safe_load(stream)
+
     if path.exists(frame_parameters_path):
         with open(frame_parameters_path, 'r') as stream:
             frame_parameters = yaml.safe_load(stream)
@@ -94,49 +102,23 @@ def main(args=None):
         with open(linked_leg_parameters_path, 'r') as stream:
             linked_leg_parameters = yaml.safe_load(stream)
 
-    quad_commander = QuadCommander(frame_parameters, linked_leg_parameters)
+    joystick_subscriber = JoystickSubscriber(motion_parameters)
+    
+    quad_commander = QuadCommander(motion_parameters, frame_parameters, linked_leg_parameters)
 
     executor = SingleThreadedExecutor()
     executor.add_node(joint_angles_publisher_node)
     executor.add_node(joystick_subscriber)
     
     while rclpy.ok():
-        motion_parameters = joystick_subscriber.get_motion_parameters()
-        
-        # TEMP
-        #motion_parameters.pos[2] = .05
-        
+        motion_inputs = joystick_subscriber.get_motion_parameters()
+          
         joint_angles, joint_angles_linked_leg = quad_commander.tick(
-            motion_parameters)
-        # TEMP
-        # joint_angles = np.full(12, np.pi/4)
+            motion_inputs)
+       
         joint_angles_publisher_node.set_joint_angles(joint_angles)
         joint_angles_publisher_node.set_joint_angles_linked_leg(joint_angles_linked_leg)
-
-              
-        '''    
-        print (joint_angles[5]  * 180/3.1415) 
-        print (joint_angles_linked_leg[5]  * 180/3.1415) 
-        print (kit.servo[5].angle)
-        print ()
-        '''  
-                     
-        """  
-        temp = temp + 1
-        if temp > 5:
-    quad_publisher.destroy_node()
-    joystick_subscriber.destroy_node()
-    rclpy.shutdown()gingSeverity.INFO)    
-            rclpy.logging._root_logger.log("servo_pulse_widths[0] : " + str(servo_pulse_widths[offset + 0]), LoggingSeverity.INFO)
-            rclpy.logging._root_logger.log("servo_pulse_widths[1] : " + str(servo_pulse_widths[offset + 1]), LoggingSeverity.INFO)
-            rclpy.logging._root_logger.log("servo_pulse_widths[2] : " + str(servo_pulse_widths[offset + 2]), LoggingSeverity.INFO)
-            rclpy.logging._root_logger.log("FR-HIP [0]  : " + str(joint_angles[offset + 0] * 180/np.pi), LoggingSeverity.INFO)
-            rclpy.logging._root_logger.log("FR-ULEG [1] : " + str(joint_angles[offset + 1] * 180/np.pi), LoggingSeverity.INFO)
-            rclpy.logging._root_logger.log("FR-LLEG [2] : " + str(joint_angles[offset + 2] * 180/np.pi), LoggingSeverity.INFO)
-            rclpy.logging._root_logger.log("[L] FR-HIP [0]  : " + str(joint_angles_linked_leg[offset + 0] * 180/np.pi), LoggingSeverity.INFO)
-            rclpy.logging._root_logger.log("[L] FR-ULEG [1] : " + str(joint_angles_linked_leg[offset + 1] * 180/np.pi), LoggingSeverity.INFO)
-            rclpy.logging._root_logger.log("[L] FR-LLEG [2] : " + str(joint_angles_linked_leg[offset + 2] * 180/np.pi), LoggingSeverity.INFO)
-            """   
+      
         executor.spin_once()
 
     executor.shutdown()

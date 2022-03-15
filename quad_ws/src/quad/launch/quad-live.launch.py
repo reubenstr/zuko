@@ -6,6 +6,11 @@ from launch_ros.actions import Node
 def generate_launch_description():
     ld = LaunchDescription()
        
+    motion_parameters_path = os.path.join(
+        get_package_share_directory('quad'),
+        'config',
+        'motion_parameters.yaml') 
+        
     frame_parameters_path = os.path.join(
         get_package_share_directory('quad'),
         'config',
@@ -21,8 +26,8 @@ def generate_launch_description():
         #name = 'quad_node',
         executable = 'quad',
         output='screen',  
-        parameters = [{"frame_parameters_path": frame_parameters_path},{"linked_leg_parameters_path": linked_leg_parameters_path}])
- 
+        parameters = [{"motion_parameters_path": motion_parameters_path}, {"frame_parameters_path": frame_parameters_path},{"linked_leg_parameters_path": linked_leg_parameters_path}])
+     
     servo_parameters_path = os.path.join(
         get_package_share_directory('quad_motors'),
         'config',

@@ -8,7 +8,6 @@ Development.
 ### Immediate To Do
 
 - Update motor limits
-- Parameterize motion_parameters limits
 - Finish URDF: add final STLs, add weights
 - Add discovery to launch for remote simulation from RPi
 - Update walking parameters
