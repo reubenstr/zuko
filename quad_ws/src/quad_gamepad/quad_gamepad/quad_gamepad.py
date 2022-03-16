@@ -22,7 +22,7 @@ from sensor_msgs.msg import Joy
 from std_msgs.msg import Header
 
 
-class GamepadRos2(Node):
+class GamepadPublisher(Node):
 
     def __init__(self):
         super().__init__('quad_gamepad')        
@@ -32,7 +32,6 @@ class GamepadRos2(Node):
         self.joystick_number = self.get_parameter('joystick_number').value     
         rclpy.logging._root_logger.log(f"Joystick number: {str(self.joystick_number)}", LoggingSeverity.INFO)
        
-
         # Joy message
         self.joy = Joy()
         self.joy.header = Header()
@@ -93,10 +92,10 @@ class GamepadRos2(Node):
 def main(args=None):
     rclpy.init(args=args)    
    
-    gamepad_ros2 = GamepadRos2()
-    gamepad_ros2.run() 
+    gamepad_publisher = GamepadPublisher()
+    gamepad_publisher.run() 
     
-    gamepad_ros2.destroy_node()
+    gamepad_publisher.destroy_node()
     rclpy.shutdown()
 
 

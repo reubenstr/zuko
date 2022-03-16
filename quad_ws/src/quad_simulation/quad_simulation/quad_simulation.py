@@ -61,7 +61,7 @@ class JointAnglesSubscriber(Node):
 def main(args=None):
     rclpy.init(args=args)
     rclpy.logging._root_logger.log(
-        "QUAD SIMULATION STARTED", LoggingSeverity.INFO)
+        "QUAD_SIMULATION STARTED", LoggingSeverity.INFO)
 
     joint_angles_subscriber = JointAnglesSubscriber()
     executor = SingleThreadedExecutor()
