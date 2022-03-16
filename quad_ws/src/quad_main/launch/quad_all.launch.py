@@ -5,47 +5,43 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     ld = LaunchDescription()
-       
+    
     motion_parameters_path = os.path.join(
-        get_package_share_directory('quad'),
+        get_package_share_directory('quad_main'),
         'config',
         'motion_parameters.yaml') 
         
     frame_parameters_path = os.path.join(
-        get_package_share_directory('quad'),
+        get_package_share_directory('quad_main'),
         'config',
         'frame_parameters.yaml')    
           
     linked_leg_parameters_path = os.path.join(
-        get_package_share_directory('quad'),
+        get_package_share_directory('quad_main'),
         'config',
         'linked_leg_parameters.yaml')  
         
-    quad_node=Node(
-        package = 'quad',
-        #name = 'quad_node',
-        executable = 'quad',
+    quad_main=Node(
+        package = 'quad_main',
+        #name = 'quad_main',
+        executable = 'quad_main',
         output='screen',  
         parameters = [{"motion_parameters_path": motion_parameters_path}, {"frame_parameters_path": frame_parameters_path},{"linked_leg_parameters_path": linked_leg_parameters_path}])
-     
-    servo_parameters_path = os.path.join(
-        get_package_share_directory('quad_motors'),
-        'config',
-        'servo_parameters.yaml') 
-
-    quad_motors=Node(
-        package = 'quad_motors',
-        executable = 'quad_motors',
-        output='screen',  
-        parameters = [{"servo_parameters_path": servo_parameters_path}])    
-           
+    
     quad_gamepad=Node(
         package = 'quad_gamepad',
         # name = 'quad_node',
         executable = 'quad_gamepad',
-        output='screen')   
+        output='screen',
+        parameters=[{"joystick_number": 2}])  
     
-    ld.add_action(quad_node)    
-    ld.add_action(quad_motors)
+    quad_simulation=Node(
+        package = 'quad_simulation',
+        # name = 'quad_node',
+        executable = 'quad_simulation',
+        output='screen')    
+
+    ld.add_action(quad_main)
     ld.add_action(quad_gamepad)
+    ld.add_action(quad_simulation)
     return ld    

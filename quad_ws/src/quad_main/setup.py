@@ -2,7 +2,7 @@ import os
 from glob import glob
 from setuptools import setup
 
-package_name = 'quad'
+package_name = 'quad_main'
 
 setup(
     name=package_name,
@@ -25,14 +25,14 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='devpc',
-    maintainer_email='devpc@todo.todo',
-    description='TODO: Package description',
+    maintainer='reubenstr',
+    maintainer_email='reubenstrangelove@gmail.com',
+    description='Zuko (quadruped robot) main code',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'quad = quad.quad:main'            
+            'quad_main = quad_main.quad_main:main'            
         ],
     },
 )

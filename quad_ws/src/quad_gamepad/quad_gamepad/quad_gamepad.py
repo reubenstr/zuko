@@ -28,7 +28,7 @@ class GamepadRos2(Node):
         super().__init__('quad_gamepad')        
         rclpy.logging._root_logger.log("quad_gamepad startup.", LoggingSeverity.INFO)
 
-        self.declare_parameter('joystick_number', 0)        
+        self.declare_parameter('joystick_number')        
         self.joystick_number = self.get_parameter('joystick_number').value     
         rclpy.logging._root_logger.log(f"Joystick number: {str(self.joystick_number)}", LoggingSeverity.INFO)
        

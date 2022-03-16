@@ -49,7 +49,7 @@ class JoystickInterpreter():
 
             # right analog stick left/right
             self.motion_inputs.orn[2] = self.map(
-                axes[3], -1, 1, self.motion_parameters['orn_x_min,'], self.motion_parameters['orn_x_max'])
+                axes[3], -1, 1, self.motion_parameters['orn_x_min'], self.motion_parameters['orn_x_max'])
 
             # right analog stick up/down
             self.motion_inputs.pos[2] = - self.map(
@@ -62,12 +62,13 @@ class JoystickInterpreter():
                 axes[1], -1, 1, self.motion_parameters['step_length_min'], self.motion_parameters['step_length_max'])
 
             # left analog stick left/right
-            self.motion_inputs.yaw_rate = self.map(
-                axes[0], -1, 1, self.motion_parameters['yaw_rate_min'], self.motion_parameters['yaw_rate_max'])
+            #self.motion_inputs.yaw_rate = self.map(
+            #    axes[0], -1, 1, self.motion_parameters['yaw_rate_min'], self.motion_parameters['yaw_rate_max'])
 
             # right analog stick left/right
-            #self.motion_parameters.orn[0] = self.map(
-            #    axes[4], -1, 1, -ornLimit, ornLimit)
+            self.motion_inputs.yaw_rate = self.map(
+               axes[0], -1, 1, self.motion_parameters['yaw_rate_min'], self.motion_parameters['yaw_rate_max'])
+
 
             # right analog stick up/down
             self.motion_inputs.pos[2] = - self.map(
