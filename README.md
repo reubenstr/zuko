@@ -43,15 +43,15 @@ Video: Sydney meets Zuko |
 
 Zuko uses the ROS2 framework for communication, launching, and 3rd party addons. Zuko uses a Rasberry Pi 4 with a custom expansion board for motor and peripheral control via a Playstation 4 controller.
 
-### Major Tasks To Do
+### Current Major Tasks 
 
-- Create URDF model for simulation - in progress.
-- Fab/test expansion-board (RPi direct control, no Teensy)
-- Refine motor limits, update kinematic model to frame v2.2.
-- Calibrate walking parameters.
-- Create high level documentation
-- Code in BN055 IMU.
-- Connect machine learning algorithms.
+- Complete ROS2 tasks - in progress
+- Fab/test expansion-board PCB
+- Update BOM
+- Create PCB BOM
+- Upload STL's
+- Create print time/weight sheet
+- Create how to documentation for end user
 
 ### ROS2 Workspace 
 
@@ -72,6 +72,6 @@ ROS2 source code is contained the quad_ws directory.
 - Frame and leg linkage design inspired by Baris Alp's Kangel robot dog: https://grabcad.com/library/diy-quadruped-robot-1
 
 ### Communities
-- Quadrupedalism: https://quadrupedalism.com/
 - SpotMicroAI Discord: https://discord.gg/m5fsENhT
+- Quadrupedalism: https://quadrupedalism.com/
 

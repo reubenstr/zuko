@@ -6,12 +6,11 @@ import sys
 
 class GuiParamControl:
     def __init__(self, quadruped):
-
-        time.sleep(0.5)
+        self.quadruped = quadruped
 
         self.cyaw = 0
         self.cpitch = -7
-        self.cdist = 0.66
+        self.cdist = 0.50
 
         self.xId = pb.addUserDebugParameter("x", -0.10, 0.10, 0.)
         self.yId = pb.addUserDebugParameter("y", -0.10, 0.10, 0.)
@@ -36,34 +35,7 @@ class GuiParamControl:
         self.PenetrationDepthId = pb.addUserDebugParameter(
             "Penetration Depth", 0.0, 0.05, 0.003)
 
-        self.quadruped = quadruped
-
-    def UserInput(self):
-
-        quadruped_pos, _ = pb.getBasePositionAndOrientation(self.quadruped)
-        
-        pb.resetDebugVisualizerCamera(cameraDistance=self.cdist,
-                                      cameraYaw=self.cyaw,
-                                      cameraPitch=self.cpitch,
-                                      cameraTargetPosition=quadruped_pos)
-        
-        keys = pb.getKeyboardEvents()
-        # Keys to change camera
-        if keys.get(100):  # D
-            self.cyaw += 1
-        if keys.get(97):  # A
-            self.cyaw -= 1
-        if keys.get(99):  # C
-            self.cpitch += 1
-        if keys.get(102):  # F
-            self.cpitch -= 1
-        if keys.get(122):  # Z
-            self.cdist += .01
-        if keys.get(120):  # X
-            self.cdist -= .01
-        if keys.get(27):  # ESC
-            pb.disconnect()
-            sys.exit()
+    def get_motion_parameters_from_gui(self):
 
         # Read Robot Transform from GUI
         pos = np.array([
@@ -84,4 +56,31 @@ class GuiParamControl:
         PenetrationDepth = pb.readUserDebugParameter(self.PenetrationDepthId)
         SwingPeriod = pb.readUserDebugParameter(self.SwingPeriodId)
 
-        return pos, orn, StepLength, LateralFraction, YawRate, StepVelocity, ClearanceHeight, PenetrationDepth, SwingPeriod     
+        return pos, orn, StepLength, LateralFraction, YawRate, StepVelocity, ClearanceHeight, PenetrationDepth, SwingPeriod
+
+    def update_camera(self):
+
+        keys = pb.getKeyboardEvents()
+        # Keys to change camera
+        if keys.get(100):  # D
+            self.cyaw += 1
+        if keys.get(97):  # A
+            self.cyaw -= 1
+        if keys.get(99):  # C
+            self.cpitch += 1
+        if keys.get(102):  # F
+            self.cpitch -= 1
+        if keys.get(122):  # Z
+            self.cdist += .01
+        if keys.get(120):  # X
+            self.cdist -= .01
+        if keys.get(27):  # ESC
+            pb.disconnect()
+            sys.exit()
+
+        quadruped_pos, _ = pb.getBasePositionAndOrientation(self.quadruped)
+
+        pb.resetDebugVisualizerCamera(cameraDistance=self.cdist,
+                                      cameraYaw=self.cyaw,
+                                      cameraPitch=self.cpitch,
+                                      cameraTargetPosition=quadruped_pos)

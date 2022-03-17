@@ -2,9 +2,7 @@
 '''
     Standalone servo calibration script.
     Does not require ROS to execute.
-
-    TODO:
-        Add motor index to joint index remapping.
+    
 '''
 
 from time import sleep
@@ -14,15 +12,17 @@ import os
 from time import sleep 
 from src.PCA9685Servos import PCA9685Servos
 
+# Map joint indexes to the expansion board's PCA9685 hardware pinouts.
+map_joint_index_to_driver_pin = [8, 9, 10, 11, 12, 13, 14, 15, 9, 8, 7, 6] 
+
+
 def warn_user():
     os.system('clear')
     print("*** WARNING ***")
-    print("Servo calibration may attempt to move the hips and legs beyond their mechanical causing over current and physical damage. Detach hips and legs to prevent over-current and physical damage.")
-    print("")
-    print("Do you want to continue [Y/n]?")
-    read_line = sys.stdin.readline().split()[0]
-    if read_line not in ["Y", "y", "yes", "Yes", "YES"]:
-        sys.exit(-1)
+    print("Servo calibration may attempt to move the hips and legs beyond their mechanical limits causing over current and physical damage.")
+    print("Detach hips and legs to prevent over-current and physical damage.")
+    print("")   
+    if not input("Are you sure? (y/n): ").lower().strip()[:1] == "y": sys.exit(1)
     os.system('clear')
 
 def clamp(num, min_val, max_val):
@@ -79,8 +79,7 @@ def print_screen(motion_servo_parameters_path, selected_servo, joint_pulse_width
 def main(args=None):
 
     warn_user()
-
-    servo_driver = PCA9685Servos(1, 0x40) 
+       
     selected_servo = 0
     servo_pulse_widths = [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500]
     servo_min_pulse_width = 250
@@ -90,9 +89,8 @@ def main(args=None):
     parameters = {"zero_degrees_pulse_width": [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500],
                     "pulse_width_per_degree": [10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0],
                     "invert_direction": [False, False, False, False, False, False, False, False, False, False, False, False],
-                    "min_pulse_width": [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000],
-                    "max_pulse_width": [2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500] }
-    
+                    "min_pulse_width": [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000],                    
+                    "map_joint_index_to_driver_pin": map_joint_index_to_driver_pin}
     try:       
         with open(motion_servo_parameters_path, 'r') as stream:
             parameters = yaml.safe_load(stream)
@@ -103,11 +101,26 @@ def main(args=None):
         print()
         input("Press Enter to continue...")
         save_parameters(motion_servo_parameters_path, parameters)
+    try:
+        servo_driver = PCA9685Servos(1, 0x40)
+    except FileNotFoundError:
+        os.system("clear")
+        print("Error: I2C not found!")
+        exit(1)
+
+    # TODO: read exception is occuring despite device working, might be a timing issue
+    #if servo_driver.is_alive() == False:
+    #   print("I2C device not responding.")
+    #    exit()
     
     while True:
         print_screen(motion_servo_parameters_path, selected_servo, servo_pulse_widths, parameters)
 
-        read_line = sys.stdin.readline()
+        try:
+            read_line = sys.stdin.readline()
+        except KeyboardInterrupt:
+            exit()
+
         read_line_split = read_line.split()
 
         if len(read_line_split) > 0:

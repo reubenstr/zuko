@@ -11,19 +11,19 @@ invert_direction:
 - false
 - false
 - false
-max_pulse_width:
-- 2500
-- 2500
-- 2500
-- 2500
-- 2500
-- 2500
-- 2500
-- 2500
-- 2500
-- 2500
-- 2500
-- 2500
+map_joint_index_to_driver_pin:
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 9
+- 8
+- 7
+- 6
 min_pulse_width:
 - 1000
 - 1000

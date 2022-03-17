@@ -1,1 +1,0 @@
-<a foo="$(arg foo)" bar="$(arg bar)"/>

@@ -1,5 +1,5 @@
 Below is a scratch pad of commands taken while learning ROS2.
-Not intended as a guide.
+
 
 CHECK ROS ENVIRONMENT:
 	printenv | grep -i ROS
@@ -12,16 +12,6 @@ VERIFY SETUP OR MODIFICATIONS:
 	cat ~/.bashrc
 	nano ~/.bashrc
 
-CREATE PACKAGE: 
-	(with hello world exe)
-	(inside my_workspace/src/)
-	FOR EMPTY PACKAGE:
-		ros2 pkg create my_package
-	FOR C++:
-		ros2 pkg create --build-type ament_cmake --node-name my_node my_package
-	FOR PYTHON:
-		ros2 pkg create --build-type ament_python --node-name my_node my_package
-
 BUILD:
 	(from the workspace directory)
 	(some packages will fail without required parameters)
@@ -29,12 +19,7 @@ BUILD:
 		colcon build
 	
 	BUILD SELECT PACKAGE: 
-		colcon build --packages-select quad
-	
-	BUILD AND RUN:
-		colcon build --packages-select quad; ros2 run quad quad
-		colcon build --packages-select quad_simulation; ros2 run quad_simulation quad_simulation
-		colcon build --packages-select quad_motors; ros2 run quad_motors quad_motors
+		colcon build --packages-select quad_main
 	
 SOURCE:
 	SOURCE ROS:
@@ -44,97 +29,74 @@ SOURCE:
 		source install/setup.bash
 
 RUN:
-	ros2 run quad quad
+	Note: some packages will fail if using run because they require parameters provided by launch
+	ros2 run quad_main quad_main
 	ros2 run quad_simulation quad_simulation
 	
 	Run with parameters:
-		ros2 run quad quad --ros-args --params-file src/quad/config/quad_params.yaml		
-	
+		ros2 run quad_main quad_main --ros-args --params-file src/quad/config/quad_params.yaml		
+
+	Build then run with parameters:
+		colcon build --packages-select quad_gamepad; ros2 run quad_gamepad quad_gamepad --ros-args -p joystick_number:=1
+		
 LAUNCH:	
 	FROM LAUNCH FILE:		
-		ros2 launch quad quad.launch.py		
+		ros2 launch quad_main quad_main.launch.py		
 	
 	BUILD THEN LAUNCH:
-		colcon build --packages-select quad; ros2 launch quad quad.launch.py	
+		colcon build --packages-select quad_main; ros2 launch quad_main quad_main.launch.py	
 		colcon build --packages-select quad_motors; ros2 launch quad_motors quad_motors.launch.py	
+
+		colcon build; ros2 launch quad_main quad-all.launch.py	
 
 		RPi 4 LIVE MOTORS:
 			colcon build --packages-select quad quad_motors; ros2 launch quad quad-live.launch.py	
 
 
-RQT CONSOLE:
-	ros2 run rqt_console rqt_console
-	
-	Set log severity level: 
-		ros2 run turtlesim turtlesim_node --ros-args --log-level WARN
+GENERAL ROS COMMANDS:
 
-ROS2 GRAPH VISUALIZER:
-	rqt_graph
-
-RECORD:
-	ros2 bag record <topic_name>
-
-NODES:
 	ros2 node list
 	ros2 node info <node_name>
 
-TOPICS:
-	ros2 topic list
-	ros2 topic list -t
-	
-	See topic data:
-		ros2 topic echo <topic_name>
-	Show msg info:
-		ros2 interface show <type>.msg
-	Publish topic data:
-		ros2 topic pub <topic_name> <msg_type> '<args>'
-		Ex: ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
-		Ex2: ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+	ros2 topic list		
+	ros2 topic echo <topic_name>
 
-SERVICES:
-	ros2 service list
-	ros2 service list -t
-	ros2 service type <service_name>
-	ros2 interface show <type_name>.srv
-	ros2 service call <service_name> <service_type> <arguments>
-	Ex: ros2 service call /spawn turtlesim/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
+	rqt_graph
+	ros2 run rqt_console rqt_console
 
-PARAMETERS:
-	ros2 param list
-	ros2 param get <node_name> <parameter_name>
-	Ex: ros2 param get /turtlesim background_g
-	ros2 param set <node_name> <parameter_name> <value>
-	Ex: ros2 param set /turtlesim background_r 150
-	Save params:
-	ros2 param dump <node_name>
-	Load node with params:
-	ros2 run <package_name> <executable_name> --ros-args --params-file <file_name>
-	Ex: ros2 run turtlesim turtlesim_node --ros-args --params-file ./turtlesim.yaml
-
-ACTIONS:
-	ros2 action list
-	ros2 action list -t
-	ros2 action info <action_name>
-	ros2 interface show turtlesim/action/RotateAbsolute
-	ros2 action send_goal <action_name> <action_type> <values>
-	Ex: ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}"
-	Ex2 (feedback): ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: -1.57}" --feedback
-
-#ADDON SOFTWARE
-
-	Joystick test program (GUI):
-		sudo apt-get install jstest-gtk	
+CREATE PACKAGE: 
+	(with hello world exe)
+	(inside my_workspace/src/)
+	FOR EMPTY PACKAGE:
+		ros2 pkg create my_package
+	FOR C++:
+		ros2 pkg create --build-type ament_cmake --node-name my_node my_package
+	FOR PYTHON:
+		ros2 pkg create --build-type ament_python --node-name my_node my_package
  
 XACRO/URDF:
-	Download appropriate branch from: https://github.com/ros/xacro/tree/ros2
-	create new ros2 workspace, add the download to the src, then colcon build
+	Create URDF with the help of RVIZ:
+		http://wiki.ros.org/urdf/Tutorials
+		ros2 launch quad_urdf display.launch.py
 
-	Note: the files must be transfered to the share folder during colcon build
-	which is commanded by the setup.py script in the package folder
-	
-	Run xacro to build URDF:
-		ros2 run xacro xacro /home/ubuntu/zuko/quad_ws/src/quad/quad/src/urdf/quad.urdf.xacro >/home/ubuntu/zuko/quad_ws/src/quad/quad/src/urdf/quad.urdf
+	Build UDRF with xacro (when ready to be used for gym):
+		Download appropriate branch from: https://github.com/ros/xacro/tree/ros2
+		create new ros2 workspace, add the download to the src, then colcon build
 
+		Note: the files must be transfered to the share folder during colcon build
+		which is commanded by the setup.py script in the package folder
+		
+		Run xacro to build URDF:		
+			ros2 run xacro xacro ~/zuko/quad_ws/src/quad_simulation/quad_simulation/urdf/zuko.urdf.xacro > ~/zuko/quad_ws/src/quad_simulation/quad_simulation/urdf/zuko.urdf
+			
+		Generate xacro, build, run:
+			... ; colcon build --packages-select quad_simulation; ros2 run quad_simulation quad_simulation
+		Launch UDRF in RVIZ: 
+			ros2 launch quad_urdf display.launch.py
+
+#ADDON SOFTWARE
+	Joystick test program (GUI):
+		sudo apt-get install jstest-gtk	
 
 GENERIC NOTES:
 	General guide: https://roboticsbackend.com/ros2-yaml-params/
@@ -142,14 +104,14 @@ GENERIC NOTES:
 	
 Scratch Pad:
 
-UUID: Human Interface Device... (00001124-0000-1000-8000-00805f9b34fb)
-UUID: PnP Information           (00001200-0000-1000-8000-00805f9b34fb)
 
-	
-	
-	
-	
-	
+
+
+temp
+	rviz:	
+		meshfile="package://quad_urdf/stl/lower_leg.stl"
+	quad_simulation:
+		meshfile="package://stl/side_right.stl"		
 	
 	
 	
