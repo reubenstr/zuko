@@ -57,18 +57,18 @@ PARTS:
 			Printing temperature: 250c
 			Build plate temperature: 110c
 			Initial layer flow: 110%
-			Print Speed: 120mm/s
+			Print speed: 120mm/s
 			Initial layer speed: 30mm/s		
 			Cooling: enabled
 			Fan speed: 25%	
 		
 		Link Bridge:	
 			Scale: 100.6%
-			Z-Seam Alignment: Random (!important)
+			Z-Seam alignment: Random (!important)
 			
 		Lower leg bearing press ring:
 			Scale: 100.6%
-			Z-Seam Alignment: Random (!important)
+			Z-Seam alignment: Random (!important)
 			
 		Upper leg - servo horn support ring:
 			Scale: 100.6%
@@ -85,7 +85,7 @@ PARTS:
 			Scale: 100%
 			Print speed: 60mm/s
 			Cooling: enabled			
-			Build plat adhesion type: brim		
+			Build plate adhesion type: brim		
 			
 		Electronics - switch bracket:			
 			Scale: 100.8%
@@ -97,7 +97,7 @@ PARTS:
 			Infill: 80%
 			
 		Foot:			
-			Infill Density: 80%
+			Infill density: 80%
 			Scale: 100.5%
 			Cooling: Enabled
 			Cooling Fan Speed: 50%
@@ -109,8 +109,8 @@ PARTS:
 			Wall line count: 4
 			Printing temperature: 250c
 			Build plate temperature: 100c
-			Print Speed: 100mm/s			
-			Layer Height: 0.2mm	
+			Print speed: 100mm/s			
+			Layer height: 0.2mm	
 			Cooling: disabled
 			Infill: 20%
 			Minimum Layer Time: 30s (slicer default)			
@@ -140,12 +140,15 @@ PARTS:
 			Cooling: enabled
 			Fan speed: 40%
 			Support: enabled
-			Support density: 50%	
+			Support density: 50%
+			Scale: 100.35%		
 			
 		Sides
+			Print speed: 150mm/s
 			Infill density: 20%	
 			Cooling: enabled
 			Fan speed: 40%
+			Scale: 100.35%	
 					
 	ABS WHITE: 	
 		Default settings:
