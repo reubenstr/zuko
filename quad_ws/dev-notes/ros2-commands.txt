@@ -75,9 +75,14 @@ CREATE PACKAGE:
 		ros2 pkg create --build-type ament_python --node-name my_node my_package
  
 XACRO/URDF:
+
+	TODO: update doc to reflect quad_urdf and quad_simulation separation and interaction
+
 	Create URDF with the help of RVIZ:
 		http://wiki.ros.org/urdf/Tutorials
-		ros2 launch quad_urdf display.launch.py
+		Launch UDRF in RVIZ: 
+			ros2 launch quad_urdf display.launch.py
+			//ros2 launch quad_simulation urdf_in_rviz.launch.py
 
 	Build UDRF with xacro (when ready to be used for gym):
 		Download appropriate branch from: https://github.com/ros/xacro/tree/ros2
@@ -92,7 +97,7 @@ XACRO/URDF:
 		Generate xacro, build, run:
 			... ; colcon build --packages-select quad_simulation; ros2 run quad_simulation quad_simulation
 		Launch UDRF in RVIZ: 
-			ros2 launch quad_urdf display.launch.py
+			ros2 launch quad_simulation urdf_in_rviz.launch.py
 
 #ADDON SOFTWARE
 	Joystick test program (GUI):
