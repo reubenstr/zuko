@@ -25,9 +25,15 @@ class ServoController():
             if invert_direction:
                 angle = -angle
 
+                
             pulse_width = pulse_width_per_degree * \
                 (angle * (180 / pi)) + zero_degrees_pulse_width
-            pulse_width = self.clamp(
-                pulse_width, min_pulse_width, max_pulse_width)
+
+            #if invert_direction:                
+            #    corrected_pulse_width = 1500 + (1500 - pulse_width)
+            #else:
+            #    corrected_pulse_width =  pulse_width
+            
+            pulse_width = self.clamp(pulse_width, min_pulse_width, max_pulse_width)
 
             self.servo_driver.set_pulse_width(hardware_pin, int(pulse_width))

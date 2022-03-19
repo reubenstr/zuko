@@ -74,7 +74,7 @@ def print_screen(motion_servo_parameters_path, selected_servo, joint_pulse_width
     print("  min * \tset min pulse width: 0-50, example: min 1250")
     print("  max * \tset max pulse width: 0-50, example: max 1750")
     print("  save\t\tsaves pulse width and ratio values of selected servo")
-    print("  CTRL+C\texit")
+    print("  exit\t\texit (does not save)")
     print()
 
 def main(args=None):
@@ -127,16 +127,26 @@ def main(args=None):
 
         hardware_pin = parameters['map_joint_index_to_driver_pin'][selected_servo]
 
+
+
         if len(read_line_split) > 0:
             command = read_line_split[0]
             if command == "save":
                 save_parameters(motion_servo_parameters_path, parameters)
             if command == "invert":
-                 parameters['pulse_width_per_degree'][selected_servo] = not parameters['pulse_width_per_degree'][selected_servo]
+                 parameters['invert_direction'][selected_servo] = not parameters['invert_direction'][selected_servo]
+            if command == "exit":
+                exit()
             if command.isnumeric():
                 val = int(read_line_split[0])
                 servo_pulse_widths[selected_servo] = clamp(val, servo_min_pulse_width, servo_max_pulse_width)
-                servo_driver.set_pulse_width(hardware_pin, servo_pulse_widths[selected_servo]) 
+                
+                #if parameters['invert_direction'][selected_servo]:                
+                #    corrected_pulse_width = 1500 + (1500 - servo_pulse_widths[selected_servo])
+                #else:
+                corrected_pulse_width =  servo_pulse_widths[selected_servo]
+
+                servo_driver.set_pulse_width(hardware_pin, corrected_pulse_width) 
             if len(read_line_split) > 1:
                 if command == "select":
                     val = int(read_line_split[1])
