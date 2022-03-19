@@ -44,7 +44,7 @@ def generate_launch_description():
         # name = 'quad_node',
         executable = 'quad_gamepad',
         output='screen',
-        parameters=[{"joystick_number": 1}]) 
+        parameters=[{"joystick_number": 0}]) 
     
     ld.add_action(quad_main)    
     ld.add_action(quad_motors)

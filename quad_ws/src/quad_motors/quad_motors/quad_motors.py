@@ -65,7 +65,6 @@ def main(args=None):
     while rclpy.ok():                  
         if joint_angles_subscriber.is_joint_angle_received():
             servo_controller.set_servo_angles(joint_angles_subscriber.get_joint_angles_linked_leg())
-
                
         executor.spin_once()
 

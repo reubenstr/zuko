@@ -13,7 +13,7 @@ from time import sleep
 from src.PCA9685Servos import PCA9685Servos
 
 # Map joint indexes to the expansion board's PCA9685 hardware pinouts.
-map_joint_index_to_driver_pin = [8, 9, 10, 11, 12, 13, 14, 15, 9, 8, 7, 6] 
+map_joint_index_to_driver_pin = [8, 9, 10, 11, 12, 13, 14, 15, 3, 2, 1, 0] 
 
 
 def warn_user():
@@ -70,6 +70,7 @@ def print_screen(motion_servo_parameters_path, selected_servo, joint_pulse_width
     print("  * \t\tset the live pulse width : 500-2500, example: 1500")
     print("  zero * \tset pulse width at zero degrees: 500-2500, example: zero 1500")
     print("  ratio * \tset pulses per degree: 0-50, example: ratio 11.15")
+    print("  invert \tinvert servo rotation direct, example: invert")
     print("  min * \tset min pulse width: 0-50, example: min 1250")
     print("  max * \tset max pulse width: 0-50, example: max 1750")
     print("  save\t\tsaves pulse width and ratio values of selected servo")
@@ -89,7 +90,8 @@ def main(args=None):
     parameters = {"zero_degrees_pulse_width": [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500],
                     "pulse_width_per_degree": [10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0],
                     "invert_direction": [False, False, False, False, False, False, False, False, False, False, False, False],
-                    "min_pulse_width": [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000],                    
+                    "min_pulse_width": [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000], 
+                    "max_pulse_width": [2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000],                     
                     "map_joint_index_to_driver_pin": map_joint_index_to_driver_pin}
     try:       
         with open(motion_servo_parameters_path, 'r') as stream:
@@ -123,14 +125,18 @@ def main(args=None):
 
         read_line_split = read_line.split()
 
+        hardware_pin = parameters['map_joint_index_to_driver_pin'][selected_servo]
+
         if len(read_line_split) > 0:
             command = read_line_split[0]
             if command == "save":
                 save_parameters(motion_servo_parameters_path, parameters)
+            if command == "invert":
+                 parameters['pulse_width_per_degree'][selected_servo] = not parameters['pulse_width_per_degree'][selected_servo]
             if command.isnumeric():
                 val = int(read_line_split[0])
                 servo_pulse_widths[selected_servo] = clamp(val, servo_min_pulse_width, servo_max_pulse_width)
-                servo_driver.set_pulse_width(selected_servo, servo_pulse_widths[selected_servo]) 
+                servo_driver.set_pulse_width(hardware_pin, servo_pulse_widths[selected_servo]) 
             if len(read_line_split) > 1:
                 if command == "select":
                     val = int(read_line_split[1])
