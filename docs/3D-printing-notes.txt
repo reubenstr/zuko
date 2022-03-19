@@ -17,12 +17,10 @@
 			Brown: 
 				eSun ABS
 			White: 
-				eSun ABS
-		
+				eSun ABS		
 		TPU (optional):
 			White: 
-				Overature TPU				
-		
+				Overature TPU
 		PLA (optional):
 			Black: 
 				Overture Matte Black PLA			
@@ -39,14 +37,14 @@ TIPS & TRICKS:
 	Shrinking parts:
 		ABS will shrink and parts likely will need to be scaled during slicing to match your brand of ABS.
 	Prevent lifted corners:
-		ABS must be printed in an enclosure free from air current, with a high bed temperature, and (in many cases) an enabled cooling fan.
+		ABS must be printed in an enclosure free from air current, with a high bed temperature, and (in some cases) an enabled cooling fan.
 	Smoother top layers for better fits:
 		Top surface skin layers: 2
 		Top surface skin flow: 90%
 	Cleaner TPU surfaces:
 		Reduce temperature.
 	Adhesion:
-		PEI build plates work very well. Clean them off with dish soap to remove oils from hands.
+		PEI build plates work very well.
 		
 PARTS:
 	ABS BLACK:	
@@ -106,22 +104,21 @@ PARTS:
 		
 	ABS BROWN:
 		Default settings:
-			Wall line count: 4
+			Wall line count: 3
 			Printing temperature: 250c
 			Build plate temperature: 100c
-			Print speed: 100mm/s			
+			Print speed: 120mm/s			
 			Layer height: 0.2mm	
 			Cooling: disabled
 			Infill: 20%
-			Minimum Layer Time: 30s (slicer default)			
+			Minimum Layer Time: 30s		
 			Support: disabled
 			
 		Center Frame - Front, Back:
 			Note:
 				Corner lifting is very bad with this part, may require a well 
 				sealed enclosure and extra build plate adhesion.
-			Layer Height: 0.3mm	
-			Infill: 20%
+			Layer Height: 0.3mm				
 			Support: enabled
 			Support density: 50%
 			Scale: 100.35%			
@@ -134,7 +131,9 @@ PARTS:
 			Support placement: touching buildplate
 			Support density: 50%		
 			
-		Face plate, butt plate			
+		Face plate, butt plate	
+			Note:
+				Cooling increased stop layer quality significantly.
 			Layer height: 0.2mm
 			Infill density: 10% 
 			Cooling: enabled
@@ -143,12 +142,14 @@ PARTS:
 			Support density: 50%
 			Scale: 100.35%		
 			
-		Sides
-			Print speed: 150mm/s
-			Infill density: 20%	
-			Cooling: enabled
-			Fan speed: 40%
+		Sides	
+			Layer Height: 0.3mm						
 			Scale: 100.35%	
+			
+		Top cover, battery bay cover
+			Print speed: 150mm/s
+			Layer height: 0.3mm
+		
 					
 	ABS WHITE: 	
 		Default settings:
