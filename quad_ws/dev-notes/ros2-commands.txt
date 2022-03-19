@@ -33,24 +33,33 @@ RUN:
 	ros2 run quad_main quad_main
 	ros2 run quad_simulation quad_simulation
 	
+	
 	Run with parameters:
-		ros2 run quad_main quad_main --ros-args --params-file src/quad/config/quad_params.yaml		
+		ros2 run quad_main quad_main --ros-args --params-file src/quad/config/quad_params.yaml	
+
+	Build and run:
+		colcon build --packages-select quad_gamepad; ros2 run quad_gamepad quad_gamepad
 
 	Build then run with parameters:
 		colcon build --packages-select quad_gamepad; ros2 run quad_gamepad quad_gamepad --ros-args -p joystick_number:=1
 		
 LAUNCH:	
 	FROM LAUNCH FILE:		
-		ros2 launch quad_main quad_main.launch.py		
+		1
+		
 	
 	BUILD THEN LAUNCH:
 		colcon build --packages-select quad_main; ros2 launch quad_main quad_main.launch.py	
 		colcon build --packages-select quad_motors; ros2 launch quad_motors quad_motors.launch.py	
+		
 
-		colcon build; ros2 launch quad_main quad-all.launch.py	
+
+		colcon build; ros2 launch quad_main quad_all.launch.py	
+		
 
 		RPi 4 LIVE MOTORS:
-			colcon build --packages-select quad quad_motors; ros2 launch quad quad-live.launch.py	
+			ros2 launch quad_main quad_live.launch.py	
+			colcon build --packages-select quad_main quad_main; ros2 launch quad_main quad_live.launch.py	
 
 
 GENERAL ROS COMMANDS:

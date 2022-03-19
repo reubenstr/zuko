@@ -30,6 +30,8 @@ Install Ubuntu 20.04.0x LTS and setup Wi-Fi:
 			sudo netplan apply
 		Check for connection and IP address:
 			ip a
+Tip:
+	Use Putty to SSH into RPi for copy/paste ability of commands.
 	
 Install ROS2 Foxy:
 	RPi:
@@ -69,17 +71,20 @@ RPi only:
 			scan on		
 			scan off
 		You should see bluetooth devices, example: "[CHG] Controller 84:30:95:48:0F:3C Pairable: yes"			
-		Place the controller in pairing mode (PS4: press share and PS buttons)
+		Place the controller in pairing mode:
+			PS4: 
+				press share and PS buttons, front led will flash
 		Copy the controller's MAC address and enter the command (using your MAC address):
 			connect 84:30:95:48:0F:3C
 		PS4 controller LED should be solid blue when paired.
 		Add the controller to the trusted list automatically connect:
-			trust 84:30:95:48:0F:3C	
-
-		
+			trust 84:30:95:48:0F:3C		
+		List paired devices:
+			bluetoothctl paired-devices
 	
 	Servo calibration (execute from the workspace directory):
-		./src/quad_motors/quad_motors/servo_calibration.py
+		cd src/quad_motors/quad_motors/
+		./servo_calibration.py
 
 
 Desktop only:
@@ -96,8 +101,13 @@ RPi & Desktop:
 	Launch:
 		See ros-commands document to startup the robot.
 
+Remote development in VSCode using SSH:
+	In VSCode use Remote Viewer extenstion to edit RPi files remotely.
+	Troubleshooting:
+		Failed to connect (after reinstalling OS):
+			Delete contents in host machine known_hosts file, example:
+				C:\Users\DrZoidburg\.ssh\known_hosts
 
-<<<<<<< HEAD:quad_ws/dev-notes/ROS2-RPi-setup.txt
 I2C:
 	Tools:
 		sudo apt-get install i2c-tools
@@ -116,8 +126,8 @@ Misc:
 	sudo apt install bluez-tools
 
 	sudo apt install evtest
-=======
->>>>>>> 4777a7505d53c5ce260d2602b0b7fa1f82a5b3a7:quad_ws/dev-notes/ros2-setup.txt
+
+
 
 	
 	

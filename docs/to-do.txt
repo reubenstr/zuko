@@ -1,16 +1,18 @@
-CAD Assembly Actions:	
-	rpi / expansion screws/bolts	
-	add 50mm fan screws
-	
-Reprint/Redesign:
-	print/test electronics mounting plate, may need to be modified to sink into frame few mm to save precious space
-			
-Battery Holder PCB:
-	Increase mounting screw size to fit M4 course thread screws
-	
-Documentation:
-	print times per part
-	print material (grams per design)
+###############################################################################
+Immediate fixes, updates, actions:
+
+	CAD Assembly:	
+		add 50mm fan screws
+		
+	Reprint/Redesign:
+		
+				
+	Battery Holder PCB:
+		Increase mounting screw size to fit M4 course thread screws
+		
+	Documentation:
+		print times per part
+		print material (grams per design)
 	
 ###############################################################################	
 	
@@ -22,6 +24,8 @@ Future improvements and other thoughts (for a later major revision, unplanned):
 	Add integrated camera / add face.
 	Add ears.
 	Add top plate with mounting hole grid for equipment (lidar) tests.
+
+###############################################################################
 		
 Temp notes:
 	Weight:
@@ -32,3 +36,4 @@ Temp notes:
 		+misc.: 50g
 		=== ~2200g
 		
+###############################################################################
