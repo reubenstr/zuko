@@ -7,6 +7,7 @@ import sys
 class GuiParamControl:
     def __init__(self, quadruped):
         self.quadruped = quadruped
+        self.reset_key_pressed = False
 
         self.cyaw = 0
         self.cpitch = -7
@@ -60,7 +61,7 @@ class GuiParamControl:
 
     def update_camera(self):
 
-        keys = pb.getKeyboardEvents()
+        keys = pb.getKeyboardEvents()       
         # Keys to change camera
         if keys.get(100):  # D
             self.cyaw += 1
@@ -77,6 +78,8 @@ class GuiParamControl:
         if keys.get(27):  # ESC
             pb.disconnect()
             sys.exit()
+        if keys.get(109):
+            self.reset_key_pressed = True
 
         quadruped_pos, _ = pb.getBasePositionAndOrientation(self.quadruped)
 
@@ -84,3 +87,8 @@ class GuiParamControl:
                                       cameraYaw=self.cyaw,
                                       cameraPitch=self.cpitch,
                                       cameraTargetPosition=quadruped_pos)
+
+    def check_reset_key(self):
+        state = self.reset_key_pressed
+        self.reset_key_pressed = False
+        return state

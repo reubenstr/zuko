@@ -33,7 +33,7 @@ def generate_launch_description():
         # name = 'quad_node',
         executable = 'quad_gamepad',
         output='screen',
-        parameters=[{"joystick_number": 2}])  
+        parameters=[{"joystick_number": 1}])  
     
     quad_simulation=Node(
         package = 'quad_simulation',

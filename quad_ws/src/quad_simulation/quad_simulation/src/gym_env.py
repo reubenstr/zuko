@@ -51,7 +51,7 @@ SENSOR_NOISE_STDDEV = model.SENSOR_NOISE_STDDEV
 DEFAULT_URDF_VERSION = "default"
 NUM_SIMULATION_ITERATION_STEPS = 1000
 
-spot_URDF_VERSION_MAP = {DEFAULT_URDF_VERSION: model.Model}
+URDF_VERSION_MAP = {DEFAULT_URDF_VERSION: model.Model}
 
 # Register as OpenAI Gym Environment
 register(
@@ -337,11 +337,11 @@ class GymEnv(gym.Env):
             self._pybullet_client.setGravity(0, 0, -9.81)
             acc_motor = self._accurate_motor_model_enabled
             motor_protect = self._motor_overheat_protection
-            if self._urdf_version not in spot_URDF_VERSION_MAP:
+            if self._urdf_version not in URDF_VERSION_MAP:
                 raise ValueError("%s is not a supported urdf_version." %
                                  self._urdf_version)
             else:
-                self.spot = (spot_URDF_VERSION_MAP[self._urdf_version](
+                self.spot = (URDF_VERSION_MAP[self._urdf_version](
                     pybullet_client=self._pybullet_client,
                     action_repeat=self._action_repeat,
                     urdf_root=self._urdf_root,

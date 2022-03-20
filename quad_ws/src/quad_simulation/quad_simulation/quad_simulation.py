@@ -42,6 +42,11 @@ class Commander():
 
     def update_camera(self):
         self.gui_param_controller.update_camera()
+
+    def check_reset(self):
+        if self.gui_param_controller.check_reset_key():
+           self.env.reset() 
+           
   
 class JointAnglesSubscriber(Node):
     def __init__(self):
@@ -70,7 +75,8 @@ def main(args=None):
     commander = Commander()
 
     while rclpy.ok():
-
+        
+        commander.check_reset()
         commander.update_camera()
         commander.set_joint_angles(joint_angles_subscriber.get_joint_angles())
         commander.tick()
