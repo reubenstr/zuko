@@ -1,4 +1,5 @@
 ###############################################################################
+
 Immediate fixes, updates, actions:
 
 	CAD Assembly:	
@@ -11,19 +12,19 @@ Immediate fixes, updates, actions:
 		Increase mounting screw size to fit M4 course thread screws
 		
 	Documentation:
-		print times per part
-		print material (grams per design)
+		electronics bom
 	
 ###############################################################################	
-	
+
 Future improvements and other thoughts (for a later major revision, unplanned):
-	Add battery charging capability without removing batteries.
-	Widen space between bridge mounting holes.
-	Add contact sensors to feet.
-	Watch lower leg and hip bearings, might need to increase size.
-	Add integrated camera / add face.
-	Add ears.
-	Add top plate with mounting hole grid for equipment (lidar) tests.
+	Add battery charging capability without removing batteries
+	Add contact sensors to feet
+	Watch lower leg and hip bearings, might need to increase size
+	Add integrated camera
+	Add face
+	Add ears
+	Add barks (speaker and amplifier)
+	Add top plate with mounting hole grid for equipment (lidar) tests
 
 ###############################################################################
 		
