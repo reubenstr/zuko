@@ -15,6 +15,7 @@ from src.PCA9685Servos import PCA9685Servos
 # Map joint indexes to the expansion board's PCA9685 hardware pinouts.
 map_joint_index_to_driver_pin = [8, 9, 10, 11, 12, 13, 14, 15, 3, 2, 1, 0] 
 
+ 
 
 def warn_user():
     os.system('clear')
@@ -62,8 +63,8 @@ def print_screen(motion_servo_parameters_path, selected_servo, joint_pulse_width
               parameters['zero_degrees_pulse_width'][i],
               parameters['pulse_width_per_degree'][i],
               parameters['invert_direction'][i],
-              parameters['min_pulse_width'][i],
-              parameters['max_pulse_width'][i],
+              parameters['min_degrees'][i],
+              parameters['max_degrees'][i],
               servo_index_to_name.get(i)))
     text_format = white
     print(text_format + "  select * \tselect servo: 0-11, example: select 5")
@@ -71,28 +72,33 @@ def print_screen(motion_servo_parameters_path, selected_servo, joint_pulse_width
     print("  zero * \tset pulse width at zero degrees: 500-2500, example: zero 1500")
     print("  ratio * \tset pulses per degree: 0-50, example: ratio 11.15")
     print("  invert \tinvert servo rotation direct, example: invert")
-    print("  min * \tset min pulse width: 0-50, example: min 1250")
-    print("  max * \tset max pulse width: 0-50, example: max 1750")
-    print("  save\t\tsaves pulse width and ratio values of selected servo")
-    print("  exit\t\texit (does not save)")
+    print("  min * \tset min degrees: -180 to +180, example: min 0")
+    print("  max * \tset max degrees: -180 to +180, example: max 45")
+    print("  zero_all * \tset all servos to their zero pulse width value")   
+    print("  exit\t\texit")
     print()
 
 def main(args=None):
 
     warn_user()
-       
-    selected_servo = 0
-    servo_pulse_widths = [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500]
-    servo_min_pulse_width = 250
-    servo_max_pulse_width = 2750       
-    motion_servo_parameters_path = "../config/servo_parameters.yaml"   
 
+    # Default parameters (generated when parameters file does not exist).
+    # Matches Zuko's frame (v2.2) parameters.
     parameters = {"zero_degrees_pulse_width": [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500],
-                    "pulse_width_per_degree": [10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0],
-                    "invert_direction": [False, False, False, False, False, False, False, False, False, False, False, False],
-                    "min_pulse_width": [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000], 
-                    "max_pulse_width": [2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000],                     
-                    "map_joint_index_to_driver_pin": map_joint_index_to_driver_pin}
+                        "pulse_width_per_degree": [11.5, 11.5, 11.5, 11.5, 11.5, 11.5, 11.5, 11.5, 11.5, 11.5, 11.5, 11.5],
+                        "invert_direction": [False, False, False, False, True, True, False, False, False, False, True, True],
+                        "min_degrees": [-30, 0, 0, -30, 0, 0, -30, 0, 0, -30, 0, 0], 
+                        "max_degrees": [30, 90, 90, 30, 90, 90, 30, 90, 90, 30, 90, 90],                     
+                        "map_joint_index_to_driver_pin": map_joint_index_to_driver_pin}
+
+    motion_servo_parameters_path = "../config/servo_parameters.yaml" 
+    servo_pulse_widths = parameters['zero_degrees_pulse_width']
+    servo_min_pulse_width = 250
+    servo_max_pulse_width = 2750
+    min_degrees = -180.0
+    max_degrees = 180.0 
+    selected_servo = 0
+    
     try:       
         with open(motion_servo_parameters_path, 'r') as stream:
             parameters = yaml.safe_load(stream)
@@ -127,26 +133,21 @@ def main(args=None):
 
         hardware_pin = parameters['map_joint_index_to_driver_pin'][selected_servo]
 
-
-
         if len(read_line_split) > 0:
-            command = read_line_split[0]
-            if command == "save":
-                save_parameters(motion_servo_parameters_path, parameters)
+            command = read_line_split[0] 
             if command == "invert":
                  parameters['invert_direction'][selected_servo] = not parameters['invert_direction'][selected_servo]
             if command == "exit":
                 exit()
+            if command == "zero_all":
+                for i in range(12):
+                    pulse_width = clamp(parameters['zero_degrees_pulse_width'][i], servo_min_pulse_width, servo_max_pulse_width) 
+                    hardware_pin = parameters['map_joint_index_to_driver_pin'][i]
+                    servo_driver.set_pulse_width(hardware_pin, pulse_width) 
             if command.isnumeric():
                 val = int(read_line_split[0])
-                servo_pulse_widths[selected_servo] = clamp(val, servo_min_pulse_width, servo_max_pulse_width)
-                
-                #if parameters['invert_direction'][selected_servo]:                
-                #    corrected_pulse_width = 1500 + (1500 - servo_pulse_widths[selected_servo])
-                #else:
-                corrected_pulse_width =  servo_pulse_widths[selected_servo]
-
-                servo_driver.set_pulse_width(hardware_pin, corrected_pulse_width) 
+                servo_pulse_widths[selected_servo] = clamp(val, servo_min_pulse_width, servo_max_pulse_width) 
+                servo_driver.set_pulse_width(hardware_pin, servo_pulse_widths[selected_servo]) 
             if len(read_line_split) > 1:
                 if command == "select":
                     val = int(read_line_split[1])
@@ -161,12 +162,14 @@ def main(args=None):
                         val, 0, 100)     
                 elif command == "min":
                     val = float(read_line_split[1])
-                    parameters['min_pulse_width'][selected_servo] = clamp(
-                        val, servo_min_pulse_width, servo_max_pulse_width)  
+                    parameters['min_degrees'][selected_servo] = clamp(
+                        val, min_degrees, max_degrees)  
                 elif command == "max":
                     val = float(read_line_split[1])
-                    parameters['max_pulse_width'][selected_servo] = clamp(
-                        val, servo_min_pulse_width, servo_max_pulse_width)   
+                    parameters['max_degrees'][selected_servo] = clamp(
+                        val, min_degrees, max_degrees)  
+            
+            save_parameters(motion_servo_parameters_path, parameters) 
        
 if __name__ == '__main__':
     main()
