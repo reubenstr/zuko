@@ -461,10 +461,15 @@ class BezierGait():
 
            :returns: Foot Coordinates relative to unmodified body
         """
+        if dt is None:
+            dt = self.dt
+
+        YawRate *= dt
+        
         # First, get Tstance from desired speed and stride length
         # NOTE: L is HALF of stride length
         if vel != 0.0:
-            Tstance = 2.0 * abs(L) / abs(vel)
+            Tstance = 2.0 * (L**2+YawRate**2)**0.5 / abs(vel)
         else:
             Tstance = 0.0
             L = 0.0
@@ -473,11 +478,6 @@ class BezierGait():
             self.time_since_last_TD = 0.0
 
         # Then, get time since last Touchdown and increment time counter
-        if dt is None:
-            dt = self.dt
-
-        YawRate *= dt
-
         # Catch infeasible timesteps
         if Tstance < dt:
             Tstance = 0.0
